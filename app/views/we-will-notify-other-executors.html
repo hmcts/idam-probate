@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+    <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">BETA</strong>
+    <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/summary/*">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+
+
+<div class="text  ">
+
+    <h1 class="heading-large">
+        Notify the other executors who are applying for probate
+    </h1>
+
+    <p>The other executors who are applying for probate now need to make their legal declarations.</p><p>Once you've used this service to notify them, they'll each be sent an email telling them how to make their declarations.</p>
+
+    <div class="panel panel-border-wide">
+     <p class="text">
+        A grant of probate can't be issued until all the applying executors legally declare that the information is correct.
+    </p>
+</div>
+
+<h2 class="heading-medium">Staying in contact</h2>
+
+     <p>You'll need to stay in contact with the other applying executors throughout this stage of the application.</p><p>By staying in contact you'll:</p>
+
+     <ul class="list list-bullet">
+      <li>know when everyone's made their declarations, so you can return to this service and submit your application</li>
+        <li>be able to discuss the information you've provided and make any changes if needed</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+ <h2 class="heading-medium">
+        If you change the information on your application
+    </h2>
+
+    <p>You can continue to make changes to your application until everyone has made their legal declaration.</p>
+
+ <p>If you make any changes, you'll need to contact the other applying executors to let them know the legal declaration has been updated and is ready for them to agree.</p>
+
+    <p>They can always see the most up to date version of the legal statement using the link we email them. </p>
+
+
+    <p></p>
+
+
+
+
+
+
+
+</div>
+
+  <div class="text" style="margin-bottom: 20px;">
+    <table>
+  <caption class="heading-medium">The applying executors' contact details</caption>
+  <tbody>
+    {% for i in range(0, data['numberOfExecutors']) %}
+        {% if (data['applicantFullName'] !== data['executorName' + i] ) %}
+            {% if ((data['allExecutorsAlive'] !== 'Yes') and (data['executorIsAlive' + i] !== true)) %}
+            {% elif (data['notApplyingReason' + i] === 'reserve') %}
+            {% elif (data['notApplyingReason' + i] === 'renounce') %}
+            {% elif (data['manageEstate' + i]) %}
+                <tr>
+                    <td>
+                            {{ data['executorName' + i] }}
+                            {% if (data['executorNewName' + i].length > 0) %}
+                                <br/>also known as {{data['executorNewName' + i]}}
+                            {% endif %}
+                        </td>
+                    <td>{{data['executorEmail' + i]}}</td>
+                    <td>{{data['executorPhoneNumber' + i]}}</td>
+                    <td><a href="the-executors/contact-details">change</a></td>
+                </tr>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+
+  </div>
+
+  <a class="button" href="we-notified-other-executors" role="button">Notify the other applying executor</a>
+        {% include "includes/help.html" %}
+</main>
+
+
+
+{% endblock %}

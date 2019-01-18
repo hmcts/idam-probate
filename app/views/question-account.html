@@ -1,0 +1,66 @@
+{% extends "layout-account.html" %}
+{% from "common/errors.html" import errorsFor %}
+{% import "common/components/inputComponents.html" as inputComponents %}
+{% import "common/components/account.html" as account %}
+
+{% block page_title %}
+  {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+        {% include "includes/phase_banner_beta.html" %}
+<!--         <a class="link-back" href="#" onclick="javascript:history.go(-1)">Back</a>
+ -->
+ <div class="grid-row">
+      <div class="column-two-thirds">
+<h1 class="heading-large">
+            {% block question %}{% endblock %}
+        </h1>
+            {% block para %}{% endblock %}
+        {% if errors.length > 0 %}
+        <div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
+
+          <h1 class="heading-medium error-summary-heading" id="error-summary-heading">
+            There was a problem
+          </h1>
+
+          <ul class="error-summary-list">
+            {% for error in errors %}
+            <li><a href="#{{error.param}}">{{error.msg}}</a></li>
+            {% endfor %}
+          </ul>
+
+        </div>
+        {% endif %}
+
+        <form method="POST" accept-charset="utf-8" class="form" id="form"
+              enctype="{% block encoding %}application/x-www-form-urlencoded{% endblock %}">
+            {% block form %}{% endblock %}
+
+            <div class="form-group">
+                <input id="continue-button" type="submit" class="button" value="Continue">
+            </div>
+            <div>                 <a href="/logout">Save and close </a>
+</div>
+            {% if (session.isLoggedIn == "yes") %}
+                <a href="/save-return/goodbye/{{ path }}">Save and close </a>
+            {% endif %}
+            {% block help %}{% endblock %}
+                {% include "includes/help.html" %}
+
+        </form>
+    </div>
+    {% if (session.isLoggedIn == "yes") %}
+    <!--{{ account.details(session.petCurrentFirstName, session.petCurrentLastName, session.lastSignIn) }} -->
+
+    {% endif %}
+<!--     {% include "report-error.html" %} -->
+ </div>
+</main>
+{% endblock %}
+{% macro checked(isChecked, answer) %}
+  {%if isChecked == answer %}
+    checked
+  {% endif %}
+{% endmacro %}

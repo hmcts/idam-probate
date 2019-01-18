@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block proposition_header %}
+  <div class="header-proposition">
+  <div class="content">
+  </div>
+</div>
+<!--
+    This file should match the IDAM login screen. Any changes you wish to make to this should be given to the
+    IDAM team to make.
+-->
+
+{% endblock %}
+{% from "common/errors.html" import errorsFor %}
+{% import "common/components/inputComponents.html" as inputComponents %}
+{% import "common/components/account.html" as account %}
+
+{% block page_title %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" class="prototype-8" role="main">
+  {% include "includes/phase_banner_beta.html" %}
+  
+   <div class="grid-row">
+    <div class="column-two-thirds">
+        <form name="loginForm" class="form" novalidate="" method="post">
+
+            
+
+
+            
+
+            
+
+            <h1 class="heading-large">Sign in</h1>
+
+            <p class="lede">Enter your email address to get started.</p>
+
+            <div class="form-group ">
+
+                <label for="username">
+
+                    <span class="form-label-bold">Email address</span>
+                    <span class="error-message"></span>
+
+                </label>
+
+                <input class="form-control" type="email" id="username" name="username" value="">
+            </div>
+
+            <div class="form-group ">
+
+                <label for="password">
+
+                    <span class="form-label-bold">Password</span>
+                    <span class="error-message"></span>
+
+                </label>
+
+                <input class="form-control" id="password" name="coapplicantPhone" type="password">
+                <div style="margin-top:8px;">
+                <a href="#">Forgotten password?</a>
+                </div>
+            </div>
+
+
+                <p><a href="check-your-answers" class="button">Next</a></p>
+    </div>
+    </div>
+
+</main>
+
+{% endblock %}

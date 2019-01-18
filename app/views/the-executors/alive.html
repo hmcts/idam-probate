@@ -1,0 +1,25 @@
+{% extends "question.html" %}
+
+{% set question %}
+    Are all the executors you&rsquo;ve named alive?
+{% endset %}
+
+{% block question %}
+    {{ question | safe }}
+{% endblock %}
+
+{% block form %}
+    <div class="form-group">
+        <fieldset class="inline">
+            <legend class="visually-hidden">{{ question }}</legend>
+            <div class="multiple-choice">
+                <input id="allExecutorsAlive-yes" type="radio" name="allExecutorsAlive" value="Yes" {{ data['allExecutorsAlive'] | checkedIf('Yes') }}>
+                <label for="allExecutorsAlive-yes">Yes</label>
+            </div>
+            <div class="multiple-choice">
+                <input id="allExecutorsAlive-no" type="radio" name="allExecutorsAlive" value="No" {{ data['allExecutorsAlive'] | checkedIf('No') }}>
+                <label for="allExecutorsAlive-no">No</label>
+            </div>
+        </fieldset>
+    </div>
+{% endblock %}

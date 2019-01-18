@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+    <div class="phase-banner-beta">
+        <p><strong class="phase-tag">BETA</strong>
+            <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/declaration">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+
+    <form class="form" method="post" action="">
+        <input type="hidden" name="_csrf" value="">
+        <h1 class="form-title heading-large">Check legal statement and make declaration</h1>
+
+        <p class="text">This statement is based on the information [Applicant 1] has given in their application. It will be stored as a public record.</p>
+
+        <div class="inset-page text">
+            <div class="declaration-header heading-medium">In the High Court of Justice</div>
+            <div class="declaration-header heading-small">Family Division</div>
+            <div class="declaration-header heading-small">(Probate)</div>
+            <h1 class="heading-medium">Legal statement</h1>
+
+            <div class="text">
+    <p>We, [Applicant 1] of [Address] and [Applicant 2] of [Address], make the following statement:</p>
+
+    <p>That [Deceased], also known as [alias 1], [alias 2], of [deceased address], was born on [Date] and died on [Date], domiciled in England and Wales.</p>
+
+    <p>[Applicant 1] is applying for probate. They will sign and send to the probate registry what they believe to be the true and original last will and testament of [Deceased].</p>
+
+    <p>[Applicant 2] is applying for probate. They will sign a photocopy of what they believe to be the true and original last will and testament of [Deceased]. [Applicant 1] will send the signed photocopy to the probate registry.</p>
+
+    <p>We are executors named in the will [and number of codicils]. To the best of our knowledge, information and belief, there was no land vested in the person who died which was settled previously to the death (and not by the will) of the person who died and which remained settled land notwithstanding such death.</p>
+
+    <p>The gross estate value for the estate amounts to £[Gross] and the net estate value amounts to £[Net].</p>
+
+    <p>[Executor 3], another executor named in the will, is not making this application but reserves power to do so at a later date. They have been notified in writing.</p>
+
+    <p>[Executor 4 (variation 1)], another executor named in the will, is not making this application because they died before [Deceased] died.</p>
+
+    <p>[Executor 4 (variation 2)], another executor named in the will, is not making this application because they died after [Deceased] died.</p>
+
+    <p>[Executor 5], another executor named in the will, is not making this application now and gives up the right to do so in the future.</p>
+
+
+
+
+            <h1 class="heading-medium">Declaration</h1>
+
+            <p>We confirm that we will administer the estate of [Deceased], according to law. We will:</p>
+
+            <ul class="list list-bullet">
+                <li>collect the whole estate</li>
+                <li>keep full details (an inventory) of the estate</li>
+                <li>keep a full account of how the estate has been distributed</li>
+            </ul>
+
+            <p>If the probate registry (court) asks us to do so, we will:</p>
+
+            <ul class="list list-bullet">
+                <li>provide the full details of the estate and how it has been distributed</li>
+                <li>return the grant of probate to the court</li>
+            </ul>
+
+            <p>We understand that:</p>
+
+            <ul class="list list-bullet">
+                <li>our application will be rejected if we do not provide information (if asked)</li>
+                <li>criminal proceedings for fraud may be brought against us if we are found to have been deliberately untruthful or dishonest</li>
+            </ul>
+
+    <!--     <fieldset class="form-group ">
+                <legend class="visually-hidden">I confirm that I will administer the estate of the person who died according to law, and that my application is truthful.</legend>
+                <div class="multiple-choice">
+                    <input  id="declarationCheckbox" name="declarationCheckbox" type="checkbox" value="true">
+                    <label for="declarationCheckbox">I confirm that I will administer the estate of the person who
+                    died according to law, and that my application is truthful.</label>
+                </div>
+            </fieldset>  -->
+
+            <div class="notice">
+                <em class="icon icon-important"><span class="visually-hidden">Warning</span></em>
+                <p>Once everyone has accepted the legal statement and declaration, this information can’t be changed.</p>
+            </div>
+        </div>
+
+
+        <!-- agree -->
+        <div class="form-group" style="margin-top:30px;">
+            <fieldset>
+                <legend><h1 class="heading-medium">Do you agree with this information?</h1></legend>
+
+                <p>By answering yes you will be confirming that:</p>
+
+                <ul class="list list-bullet">
+                    <li>the information provided is correct to the best of your knowledge</li>
+                    <li>you will administer the estate of the person who died according to law</li>
+                    <li>your application is truthful</li>
+                </ul>
+                <div class="multiple-choice">
+                    <input id="radio-1" type="radio" name="radioGroup" value="agree">
+                    <label for="radio-1">Yes, I agree that the information is correct</label>
+                </div>
+                <div class="multiple-choice" data-target="if-no">
+                    <input id="radio-2" type="radio" name="radioGroup" value="disagree">
+                    <label for="radio-2">No, something is wrong with the information</label>
+                </div>
+                <div class="panel panel-border-narrow js-hidden text" id="if-no">If you're not sure about any of the
+                    information in the legal statement, you should contact [Applicant 1] before submitting your response.</div>
+            </fieldset>
+        </div>
+
+        <div class="form-group">
+            <input class="button" type="submit" id="acceptAndSend" value="Submit">
+        </div>
+    </form>
+</main>
+{% endblock %}

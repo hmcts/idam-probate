@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">BETA</strong>
+    <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/payment-status">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+                
+            
+            
+    <h1 class="form-title heading-large">Thank you</h1>
+
+
+
+            <form class="form" method="post" action="/documents" novalidate="">
+                <input type="hidden" name="" value="">
+                
+
+    
+        <p>We have received your payment and your application.</p>
+        <div class="panel panel-border-wide">
+        <p>Before your application can be processed, you need to send your documents by post.</p>
+        </div>
+    
+
+    <div class="form-group">
+        <input class="button" type="submit" value="Save and continue">
+    </div>
+
+            </form>
+            
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

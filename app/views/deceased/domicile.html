@@ -1,0 +1,25 @@
+{% extends "question.html" %}
+
+{% set question = "At the time of their death did the person who died:" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="radio-1" type="radio" name="domicile" value="live (domicile) permanently in England or Wales">
+      <label for="radio-1">live (domicile) permanently in England or Wales </label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-2" type="radio" name="domicile" value="intend to return to England or Wales to live (domicile) permanently">
+      <label for="radio-2">intend to return to England or Wales to live (domicile) permanently</label>
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

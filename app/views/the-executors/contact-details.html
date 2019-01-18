@@ -1,0 +1,39 @@
+{% extends "question.html" %}
+
+{% set name %}
+{% if (data['executorNewName' + data['currentExecutorToEdit']].length > 0) %}
+        {{ data['executorNewName' + data['currentExecutorToEdit']] }}
+    {% else %}
+        {{ data['executorName' + data['currentExecutorToEdit']] }}
+    {% endif %}
+{% endset %}
+
+{% set question %}
+    What are {{ name | trim }}&rsquo;s email address and mobile number?
+{% endset %}
+
+{% block question %}
+    {{ question | safe }}
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+    <p class="text">This executor will be contacted and asked to confirm details of the estate.</p>
+    
+
+    <fieldset>
+        <legend>
+            <h1 class="heading-large hidden"></h1>
+        </legend>
+        <div class="form-group">
+            <label class="form-label-bold" for="executorEmail{{data['currentExecutorToEdit']}}">Email address</label>
+            <input class="form-control" id="executorEmail{{data['currentExecutorToEdit']}}" name="executorEmail{{data['currentExecutorToEdit']}}" value="{{data['executorEmail' + data['currentExecutorToEdit']]}}">
+        </div>
+        <div class="form-group">
+            <label class="form-label-bold" for="executorPhoneNumber{{data['currentExecutorToEdit']}}">Mobile phone number <span class="form-hint">For example, 07900123456 or +33123456789</span></label>
+            <input class="form-control" id="executorPhoneNumber{{data['currentExecutorToEdit']}}" name="executorPhoneNumber{{data['currentExecutorToEdit']}}" value="{{data['executorPhoneNumber' + data['currentExecutorToEdit']]}}">
+        </div>
+    </fieldset>
+</div>
+{% endblock %}
+

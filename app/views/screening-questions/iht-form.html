@@ -1,0 +1,147 @@
+{% extends "question_no_sign_out.html" %}
+
+{% set question = "Has an Inheritance Tax (IHT) form been filled in?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<!-- <p class="text">
+    An inheritance tax form must be completed before you apply for probate.
+</p> -->
+
+
+<div class="form-group">
+<fieldset class="inline">
+    <div class="multiple-choice" data-target="howCompleted">
+        <input id="haveCompletedRadio-1" type="radio" name="haveCompletedIHT" value="Yes" {{ data['haveCompletedIHT'] | checkedIf('Yes') }}>
+        <label for="haveCompletedRadio-1">Yes</label>
+    </div>
+    <div class="multiple-choice">
+        <input id="haveCompletedRadio-2" type="radio" name="haveCompletedIHT" value="No" {{ data['haveCompletedIHT'] | checkedIf('No') }}>
+        <label for="haveCompletedRadio-2">No</label>
+    </div>
+</fieldset>
+
+<!-- <div id="howCompleted" class="js-hidden">
+    <fieldset class="inline">
+        <h2 class="heading-medium">How was the IHT form submitted?</h2>
+        <div class="multiple-choice" data-target="completedOnPaper">
+            <input id="howCompletedRadio-2" type="radio" name="ihtMethod" value="On paper (the form will be posted)">
+            <label for="howCompletedRadio-2">By post</label>
+        </div>
+        <div class="multiple-choice" data-target="completedOnline">
+            <input id="howCompletedRadio-1" type="radio" name="ihtMethod" value="Online (an estate report was filled in)">
+            <label for="howCompletedRadio-1">Through the HMRC online service</label>
+        </div>
+    </fieldset>
+    <div id="completedOnline" class="js-hidden">
+        <h2 class="heading-medium">What is your inheritance tax identifier?</h2>
+        <p class="text">This is the identifier HMRC emailed to you after completing the online form.</p>
+        <legend class="form-label-bold">Inheritance tax identifier</legend>
+        <fieldset class="form-group" style="padding-bottom:20px;>
+            <legend class="visually-hidden"></legend>
+            <label class="form-label" for="identifier">
+                <span class="form-hint">For example, HR342948599</span>
+            </label>
+            <input class="form-control" id="respCurrentFirstName" name="identifier" type="text" value="">
+        </fieldset>
+
+            <fieldset class="form-group">
+        <legend class="form-label-bold">
+            What is the value of the estate?
+        </legend>
+        <p>You would have been given estate value figures after you submitted the estate report form online.
+        <div class="form-group ">
+
+            <label class="form-label" for="grossValue">Gross value (the total amount before any deductions) in &pound;</label>
+
+
+
+
+
+             &pound;  <input type="number" class="form-control form-control-3-4" id="grossValue" name="grossValue" value="{{ data['grossValue'] }}"
+                   maxlength="15">
+        </div>
+
+
+        <div class="form-group ">
+
+            <label class="form-label" for="netValue">Net value (the amount after deductions such as debts) in &pound;</label>
+
+
+
+
+
+             &pound;  <input type="number" class="form-control form-control-3-4" id="netValue" name="netValue" value="{{ data['netValue'] }}"
+                   maxlength="15">
+        </div>
+
+    </fieldset>
+
+    </div>
+    <div id="completedOnPaper" class="js-hidden">
+        <h2 class="heading-medium">Which paper form did you complete?</h2>
+        <fieldset>
+            <div class="multiple-choice" data-target="205-details">
+                <input id="paperFormRadio-1" type="radio" name="form" value="IHT 205 - there was no inheritance tax to pay" >
+                <label for="paperFormRadio-1">IHT 205 - there was no inheritance tax to pay</label>
+            </div>
+            <div id="205-details" class="panel js-hidden" style="margin-left:18px;" aria-hidden="false">
+                <fieldset class="form-group ">
+                    <legend class="form-label"><span class="form-label-bold">Gross value of assets</span>The value of the estate before funeral expenses, debts and inheritance tax.</legend>
+                    <label class="form-label" for="executorNewName-0">
+                    </label>
+                    £  <input class="form-control" id="gross205" name="gross205" type="text" value="">
+                </fieldset>
+                <fieldset class="form-group ">
+                    <legend class="form-label"><span class="form-label-bold">Net value of assets</span>The value of the estate after any costs or debts have been deducted.</legend>
+                    <label class="form-label" for="=net205">
+                    </label>
+                    £  <input class="form-control" id="net205" name="net205" type="text" value="">
+                </fieldset>
+            </div>
+            <div class="multiple-choice" data-target="207-details">
+                <input id="paperFormRadio-2" type="radio" name="form" value="IHT 207 - there was no inheritance tax to pay and the person who died lived abroad" >
+                <label for="paperFormRadio-2">IHT 207 - there was no inheritance tax to pay and the person who died lived abroad</label>
+            </div>
+            <div id="207-details" class="panel js-hidden" style="margin-left:18px;" aria-hidden="false">
+                <fieldset class="form-group ">
+                   <span class="form-label-bold">Gross value of assets</span>The value of the estate before funeral expenses, debts and inheritance tax.</legend>
+                    <label class="form-label" for="gross207">
+                    </label>
+                    £  <input class="form-control" id="gross207" name="form" type="text" value="">
+                </fieldset>
+                <fieldset class="form-group ">
+                    <legend class="form-label"><span class="form-label-bold">Net value of assets</span>The value of the estate after any costs or debts have been deducted.</legend>
+                    <label class="form-label" for="net207">
+                    </label>
+                    £  <input class="form-control" id="net207" name="executorNewName-0" type="text" value="">
+                </fieldset>
+            </div>
+            <div class="multiple-choice" data-target="400-421-details">
+                <input id="paperFormRadio-2" type="radio" name="form" value="IHT 400 and 421" >
+                <label for="paperFormRadio-2">IHT 400 and 421</label>
+            </div>
+            <div id="400-421-details" class="panel js-hidden" style="margin-left:18px;" aria-hidden="false">
+                <fieldset class="form-group ">
+                    <span class="form-label-bold">Gross value of assets</span>The value of the estate before funeral expenses, debts and inheritance tax.</legend>
+                    <label class="form-label" for="gross400">
+                    </label>
+                    £  <input class="form-control" id="gross400" name="gross400" type="text" value="">
+                </fieldset>
+                <fieldset class="form-group ">
+                    <legend class="form-label"><span class="form-label-bold">Net value of assets</span>The value of the estate after any costs or debts have been deducted.</legend>
+                    <label class="form-label" for="net400">
+                    </label>
+                    £  <input class="form-control" id="net400" name="net400" type="text" value="">
+                </fieldset>
+                <p class="text">HMRC will process these forms and send them to the probate office for you. </p>
+            </div>
+        </fieldset>
+
+    </div>
+</div> -->
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+
+{% extends "question.html" %}
+
+{% set question = "Is there a date on the will?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend>
+            </legend>
+
+            <div class="multiple-choice" data-target="date-of-will">
+              <input id="radio-1" type="radio" name="willDate" value="Yes">
+              <label for="radio-1">Yes</label>
+            </div>
+            <div class="multiple-choice" >
+              <input id="radio-2" type="radio" name="willDate" value="No">
+              <label for="radio-2">No</label>
+            </div>
+
+          </fieldset>
+
+          <div class="panel panel-border-narrow js-hidden" id="date-of-will">
+
+  <fieldset class="form-group"
+            id="marriageDate">
+    <legend class="visuallyhidden">Date on the will</legend>
+    <div class="form-date">
+      <label class="form-label-bold">What date was the will signed?</label>
+      <p>If there's more than one will, you need to give the date of the most recent one.</p>
+      <p class="form-hint">For example, 30 06 2016</p>
+
+      <div class="form-group form-group-day ">
+        <label for="will_day">Day</label>
+        <input class="form-control"
+               id="will_day"
+               name="will_day"
+               value="{{ fields.will_day.value }}"
+               maxlength="2" oninput="dateSlice(this)">
+      </div>
+
+      <div class="form-group form-group-month {{ "error" if fields.will_month.error }}">
+        <label for="will_month">Month</label>
+        <input class="form-control"
+               id="will_month"
+               name="will_month"
+               value="{{ fields.will_month.value }}"
+               maxlength="2" oninput="dateSlice(this)">
+      </div>
+
+      <div class="form-group form-group-year {{ "error" if fields.will_year.error }}">
+        <label for="year">Year</label>
+        <input class="form-control"
+               id="will_year"
+               name="will_year"
+               value="{{ fields.will_year.value }}"
+               maxlength="4" oninput="dateSlice(this)">
+      </div>
+    </div>
+  </fieldset>
+          </div>
+</div>
+
+
+{% endblock %}

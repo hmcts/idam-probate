@@ -1,0 +1,35 @@
+{% extends "question.html" %}
+
+{% set name %}
+{% if (data['executorNewName' + data['currentExecutorToEdit']].length > 0) %}
+{{ data['executorNewName' + data['currentExecutorToEdit']] }}
+{% else %}
+{{ data['executorName' + data['currentExecutorToEdit']] }}
+{% endif %}
+{% endset %}
+
+{% block question %}
+Have you notified {{ name }} that you're applying for probate?
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+    <p class="text">You need to tell, in writing, all executors with power reserved that you're applying for
+        probate.</p>
+    <fieldset class="inline">
+        <legend class="visually-hidden">Have you notified {{ name }} that you're applying for probate?</legend>
+        <div class="multiple-choice">
+            <input id="radio-1" type="radio" name="reservingNotifiedExecutor{{data['currentExecutorToEdit']}}" value="Yes">
+            <label for="radio-1">Yes</label>
+        </div>
+        <div class="multiple-choice" data-target="executorNotifiedDetails">
+            <input id="radio-2" type="radio" name="reservingNotifiedExecutor{{data['currentExecutorToEdit']}}" value="No">
+            <label for="radio-2">No</label>
+        </div>
+    </fieldset>
+    <div class="panel panel-border-narrow {{ 'js-hidden' if (data['reservingNotifiedExecutor' + data['currentExecutorToEdit']] !== 'Yes') else '' }}" id="executorNotifiedDetails">
+        <p>You must inform {{name}} in writing that you are applying for probate.</p>
+    </div>
+
+</div>
+{% endblock %}

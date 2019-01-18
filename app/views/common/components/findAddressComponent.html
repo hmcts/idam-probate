@@ -1,0 +1,151 @@
+{% macro findAddressComponent(addresses) %}
+
+<fieldset class="form-group">
+    <legend class="visually-hidden">Address</legend>
+    {% if label %} <p class="text" for="postcode">{{ label }}</p> {% endif %}
+    <label class="form-label-bold" for="postcode">UK postcode</label>
+    <div class="grid-row">
+        <div class="column-one-third" style="margin-right:-65px;">
+            <input class="form-control form-control-3-4 postcode" id="postcode" name="postcodeFinder" type="text" value="{{ postcode }}">
+        </div>
+        <div class="column-one-third">
+            <a id="find-button" class="button button-secondary">Find UK address</a>
+        </div>
+    </div>
+    <div class="form-group error" id="postcode-seach-error" style="display:none; margin-top: 20px;">
+      <span class="error-message">
+        We cannot find an address with that postcode
+      </span>
+    </div>
+
+    <div id="select-address" class="form-group" style="display: none; margin-top:20px;">
+        <label class="form-label">
+            Pick an address
+        </label>
+        <select id="addressList" class="form-control" name="addressSelect" onchange="updateAddress(this.value)" title="Pick an address">
+            <option value="">{% if selectLabel %} {{selectLabel}} {% else %}Select an address {% endif %}</option>
+            {% for selectAddress in addresses %}
+            <option value={{selectAddress.id}}>{{selectAddress.address.display}}</option>
+            {% endfor %}
+        </select>
+
+    </div>
+
+    <div id="manual-address" style="display: none;">
+        <div class="form-group">
+            <label class="form-label" for="street-1">Street</label>
+            <input class="form-control" id="street-1" name="street1" type="text" value="{{ address.street1 }}">
+            <input class="form-control second-text-input" id="street-2" name="street2" type="text"
+                   value="{{ address.street2 }}" title="Street line 2">
+            <input class="form-control second-text-input" id="street-3" name="street3" type="text"
+                   value="{{ address.street3 }}" title="Street line 3">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="town">Town or city</label>
+            <input class="form-control" id="town" name="town" type="text" value="{{ address.town }}">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="county">County</label>
+            <input class="form-control" id="county" name="county" type="text" value="{{ address.county }}">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="postcode-full">Postcode</label>
+            <input class="form-control" id="postcode-full" name="postcode" type="text" value="{{ address.postcode }}">
+        </div>
+    </div>
+
+
+    <div id="enter-manually" style="padding-top:30px;">
+        <a class="link" href="abroad">Enter manually (including international addresses)</a>
+    </div>
+
+</fieldset>
+
+{% block extra_scripts %}
+
+<script type="text/javascript">
+   function onLoadFunction() {
+    $('#continue-button').removeClass('button');
+    $('#continue-button').addClass('button-secondary');
+    $('#find-button').click(function(e){
+      e.preventDefault();
+      showSelectAddress();
+    });
+    $('#continue-button').click(function(e){
+      e.preventDefault();
+      $('#select-address').addClass('error');
+      $('#select-address .error-message').show();
+    });
+    $('#postcode-seach-error').hide();
+  }
+
+  function showSelectAddress() {
+    $('#address-select-container').removeClass('error');
+    $('#address-select-container .error-message').hide();
+    $.ajax({
+      url: "/postcode-lookup?postcode=" + encodeURIComponent($('#postcode').val()),
+      method: "GET",
+      success: function(data, status, xhr){
+        if(status === "success" && data.length){
+
+          var html = '<option>' + data.length + ' addresses found </option>';
+          if (data.length > 0 ) {
+            $('#continue-button').removeClass('button-secondary');
+            $('#continue-button').addClass('button');
+            $('#find-button').removeClass('button');
+            $('#find-button').addClass('button-secondary');
+            }
+          $.each(data, function(id, address){
+            html += `<option value="${address}">${address}</option>`
+          });
+
+          $('#addressList').html(html);
+
+          $('.postcode-as-text p').html($('#postcode').val());
+          $('#enter-postcode').hide();
+          $('#select-address').show();
+          $('#selected-address').hide();
+          $('#manual-address').hide();
+          $('#continue-button').unbind('click').click(function(e){
+            e.preventDefault();
+            $('#address-select-container').addClass('error');
+            $('#address-select-container .error-message').show();
+          });
+        } else {
+          $('#postcode-seach-error').show();
+        }
+
+      },
+      dataType: 'JSON'
+    });
+
+  }
+
+  function showSelectedAddress() {
+    $('#address-select-container').removeClass('error');
+    $('#address-select-container .error-message').hide();
+    $('#enter-postcode').hide();
+    $('#select-address').show();
+    $('#selected-address').hide();
+    $('#manual-address').show();
+  }
+
+  function updateAddress(address) {
+    showSelectedAddress();
+    var addresses = $('#addressList').val().split(',');
+    $("#street-1").val(addresses[0]);
+    $("#street-2").val(addresses[1]);
+    $("#town").val(addresses[2]);
+    $("#postcode-full, #postcode-full-auto").val(addresses[3]);
+    $('#continue-button').unbind('click');
+    $('#find-button').addClass('secondary-button');
+    $('#continue-button').removeClass('secondary-button');
+    $('#continue-button').addClass('button');
+    $('#continue-button').removeClass('secondary-button');
+  }
+
+  $(onLoadFunction);
+</script>
+{% endblock %}
+
+{% endmacro %}

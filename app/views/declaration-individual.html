@@ -1,0 +1,175 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+{% set applicantName = data['applicantFullName'] if data['applicantFullName'] else '[applicantFullName]' %}
+{% set deceasedName = ((data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]') + ' ' + (data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]')) | trim %}
+<main id="content" role="main">
+    <div class="phase-banner-beta">
+        <p>
+            <strong class="phase-tag">BETA</strong>
+            <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/declaration">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-large">Make your legal declaration</h1>
+            <p>This statement is based on the information given in your application. It will be stored as a public record.</p>
+        </div>
+    </div>
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+    <div class="inset-page">
+        <form class="form" method="post" action="tasklist/grant">
+                    <p></p>
+                    <div class="declaration-header heading-medium">In the High Court of Justice</div>
+                    <div class="declaration-header heading-small">Family Division</div>
+                    <div class="declaration-header heading-small">(Probate)</div>
+                <p></p>
+            <h1 class="form-title heading-medium">Legal statement</h1>
+
+
+            <!--         Applicant name -->
+            <p>I, {{ applicantName }}, of {{ data.applicant.home | address if data.applicant.home else '[applicant.home]' }} make the following statement:</p>
+            <h3 class="heading-small">The person who died</h3>
+            <!-- deceased name -->
+            <p>{{ deceasedName }},
+                <!-- deceased alias -->
+                {% if (data['deceasedAlias'] === 'Yes') %}
+                    also known as
+                {{ data | pickList('deceasedOtherFirstName_') | joinTo(data | pickList('deceasedOtherLastName_')) | listInSentence }},
+                {% endif %}
+                <!-- deceased address -->
+                of {{ data.deceased.home | address if data.deceased.home else '[deceased.home]'}},
+                <!-- deceased DOB and DOD -->
+                was born on {{ data['dob_day'] if data['dob_day'] else '[dob_day]' }} {{ data['dob_month'] | month if data['dob_month'] else '[dob_month]' }} {{ data['dob_year'] if data['dob_year'] else '[dob_year]' }}
+                and died on {{ data['dod_day'] if data['dod_day'] else '[dod_day]' }} {{ data['dod_month'] | month if data['dod_month'] else '[dod_month]' }} {{ data['dod_year'] if data['dod_year'] else '[dod_year]' }},
+                domiciled in England and Wales.
+            </p>
+
+            <h3 class="heading-small">The estate</h3>
+            <p>
+              The gross value for the estate amounts to {{ data | getGrossIHT | currency if data | getGrossIHT else '[grossIHT]' }}
+              and the net estate value amounts to {{ data | getNetIHT | currency if data | getNetIHT else '[netIHT]' }}.
+            </p>
+
+            <p>To the best of my knowledge, {{ deceasedName }} was not living in property that was only available to them for their lifetime, and that would automatically pass to someone else according to the rules of a trust. (This is known as ‘vested land’ that remains ’settled land’ after a person’s death.) </p>
+
+            <h3 class="heading-small">Executors applying for probate</h3>
+            <p>I am applying for probate. I will send the probate registry what I
+                believe to be the true and original last will and testament of {{ deceasedName }}.</p>
+
+
+
+
+  <h3 class="heading-small">Executors not applying for probate</h3>
+
+            <!-- other execs -->
+
+            {% if (data['numberOfExecutors']) > 1 %}
+                {% for i in range(0, data['numberOfExecutors']) %}
+                    {% if not (data | executorApplyingForProbate(i)) %}
+                        <p>{{ data['executorName' + i] }},
+
+                            {% if (data['executorNewName' + i].length > 0) %}
+                                also known as {{data['executorNewName' + i]}},
+                            {% endif %}
+
+                                another executor named in the will,
+                            {% if ((data['allExecutorsAlive'] !== 'Yes') and (data['executorIsAlive' + i] !== true)) %}
+                                is not making this application because they died {{ 'before' if (data['executorDiedBefore' + i] === 'Yes') else 'after'}} {{ deceasedName }}.
+                            {% elif (data['notApplyingReason' + i] === 'reserve') %}
+                                is not making this application but reserves power to do so at a later date. They have been notified in writing.
+                            {% elif (data['notApplyingReason' + i] === 'renounce') %}
+                            is not making this application now and gives up the right to do so in the future.
+                            {% elif (data['manageEstate' + i]) %}
+                                is also applying for a grant of probate.
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            <!-- other execs end -->
+
+            <h1 class="form-title heading-medium">Declaration</h1>
+
+            <p>I have what I believe to be the last original will of {{ deceasedName }}, dated {{ data['will_day'] if data['will_day'] else '[will_day]' }} {{ data['will_month'] | month if data['will_month'] else '[will_month]' }} {{ data['will_year'] if data['will_year'] else '[will_year]' }}, and I will send this will to the probate registry.</p>
+
+            <p>I confirm that I will administer the estate of {{ deceasedName }}, according to law. I will:</p>
+            <ul class="list list-bullet">
+                <li>collect the whole estate</li>
+                <li>keep full details (an inventory) of the estate</li>
+                <li>keep a full account of how the estate has been distributed</li>
+            </ul>
+
+
+
+            <p>If the probate registry (court) asks me to do so, I will:</p>
+
+            <ul class="list list-bullet">
+                <li>provide the full details of the estate and how it has been distributed</li>
+                <li>return the grant of probate to the court</li>
+            </ul>
+
+            <p>I understand that:</p>
+            <ul class="list list-bullet">
+                <li>my application will be rejected if I do not provide information (if asked)</li>
+                <li>criminal proceedings for fraud may be brought against me if I am found to have been deliberately
+                    untruthful or dishonest</li>
+            </ul>
+            <br>
+
+<!--             <div class="notice">
+                <i class="icon icon-important">
+                    <span class="visually-hidden">Warning</span>
+                </i>
+                <p><strong class="bold-small">
+                    Once everyone has accepted the legal statement and declaration, this information can’t be changed.
+                </strong></p>
+            </div> -->
+
+            <br>
+            <div class="form-group">
+                <fieldset class="text">
+                    <legend class="visually-hidden">I confirm that I will administer the estate of the person who died according
+                        to law, and that my application is truthful.</legend>
+
+                    <div class="multiple-choice">
+                        <input id="declarationCheckbox" name="declarationCheckbox" type="checkbox" value="true">
+
+                        <label for="declarationCheckbox">I confirm that I will administer the estate of the person who
+                            died according to law, and that my application is truthful.</label>
+                    </div>
+                </fieldset>
+            </div>
+
+        </form>
+    </div>
+<br>
+    <p><a href="check-your-answers">Go back to your answers</a></p>
+                <div class="form-group">
+                <!-- <input class="button" type="submit" id="acceptAndSend" value="Accept and continue">
+            </div> -->
+
+            <a href="/tasklist/grant" class="button">Accept and continue</a>
+            <br>
+            <br>
+             <div><a href="/logout">Save and close </a></div>
+    </div>
+
+        <div class="column-one-third">
+            <h2 class="heading-medium">Print or download to review</h2>
+            <p><a href="/public/images/printed-legal-statement.pdf" class="button-secondary" target="_new"><img src="/public/images/sealed-claim.png"></a></p>
+            <p><a href="/public/images/printed-legal-statement.pdf">Legal declaration (58kb PDF)</a></p>
+        </div>
+    </div>
+
+</div>
+        {% include "includes/help.html" %}
+</main>
+{% endblock %}

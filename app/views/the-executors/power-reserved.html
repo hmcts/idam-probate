@@ -1,0 +1,63 @@
+{% extends "question.html" %}
+
+{% set question = "Do any of these executors want to 'reserve their power'?" %}
+
+{% block question %}
+{% if session.executors.numberOfExecutors == 2 %}
+Does the other executor want to 'reserve their power'?
+{% else %}
+Do any of the other executors want to 'reserve their power'?
+{% endif %}
+{% endblock %}
+
+{% block form %}
+
+<div class="form-group">
+
+  <p class="text">
+    Executors with power reserved won't be included on the grant of probate, so they won't be able to manage the estate or get access to any of the assets.
+  </p>
+
+    <p class="text">
+      They can still apply to be added to the grant of probate in future. </p>
+
+  <div class="panel panel-border-wide">
+    <p class="text">
+      You'll need to notify these executors in writing about your application for probate.
+  </p>
+  </div>
+
+
+          <fieldset class="inline">
+            <legend>
+            </legend>
+
+
+            <div class="multiple-choice" data-target="executors">
+              <input id="radio-1" type="radio" name="radioGroup" value="Yes">
+              <label for="radio-1">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-2" type="radio" name="radioGroup" value="No">
+              <label for="radio-2">No</label>
+            </div>
+
+          </fieldset>
+</div>
+<div id="executors" class="form-group js-hidden {% if session.executors.numberOfExecutors <= 2 %} hidden {% endif %}">
+       <fieldset>
+        <legend>
+          <p class="form-label-bold">Who wants to do this?</p>
+        </legend>
+        <div class="form-group">
+            {% for i in range(0, session.executors.numberOfExecutors) -%}
+                <div class="multiple-choice">
+                    <input id="checkbox-{{ i }}" type="checkbox" name="executorsReservingPower[]" value="{{ session.executors.names[i] }} ">
+                    <label for="checkbox-{{ i }}">{{ session.executors.names[i] }}</label>
+                </div>
+            {%- endfor %}
+        </div>
+      </fieldset>
+  </div>
+
+{% endblock %}

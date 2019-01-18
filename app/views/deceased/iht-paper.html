@@ -1,0 +1,81 @@
+{% extends "question.html" %}
+
+{% set question = "Which Inheritance Tax (IHT) form was filled in?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<div class="form-group">
+  <fieldset>
+    <!-- 205 -->
+    <div class="multiple-choice" data-target="205-details">
+      <input id="205" type="radio" name="ihtFormUsed" value="IHT 205 - there was no inheritance tax to pay" aria-controls="205-details" aria-expanded="false" {{ data['ihtFormUsed'] | checkedIf('IHT 205 - there was no inheritance tax to pay') }}>
+
+      <label for="205">
+        IHT 205 - there was no inheritance tax to pay
+      </label>
+    </div>
+
+<!--
+    <div class="panel panel-border-narrow js-hidden" id="205-details" aria-hidden="true">
+      <div class="form-group ">
+        <label class="form-label" for="gross205">Enter the number added in to box D on this form (gross value &pound;)</label>
+         &pound; <input type="number" class="form-control form-control-3-4 pound-box" id="gross205" name="gross205" value="" maxlength="9">
+      </div>
+
+      <div class="form-group ">
+        <label class="form-label" for="net205">Enter the number added in to box F on this form (net value &pound;)</label>
+         &pound; <input type="number" class="form-control form-control-3-4" id="netValue" name="net205" value="" maxlength="9">
+      </div>
+    </div>
+-->
+
+    <!-- 207 -->
+    <div class="multiple-choice" data-target="207-details">
+      <input id="207" type="radio" name="ihtFormUsed" value="IHT 207 - there was no inheritance tax to pay and the person who died lived abroad" aria-controls="207-details" aria-expanded="false" {{ data['ihtFormUsed'] | checkedIf('IHT 207 - there was no inheritance tax to pay and the person who died lived abroad') }}>
+      <label for="207">
+        IHT 207 - there was no inheritance tax to pay and the person who died lived abroad
+      </label>
+    </div>
+<!--
+    <div class="panel panel-border-narrow js-hidden" id="207-details" aria-hidden="true">
+      <div class="form-group ">
+        <label class="form-label" for="gross207">Enter the number added in to box C (gross value &pound;)</label>
+        &pound; <input type="number" class="form-control form-control-3-4" id="gross207" name="gross207" value="" maxlength="9">
+      </div>
+
+      <div class="form-group ">
+        <label class="form-label" for="net207">Enter the number added in to box G (net value &pound;)</label>
+        &pound; <input type="number" class="form-control form-control-3-4" id="net207" name="net207" value="" maxlength="9">
+      </div>
+    </div>
+-->
+
+    <!-- 400 & 421 -->
+    <div class="multiple-choice" data-target="400-details">
+      <input id="400" type="radio" name="ihtFormUsed" value="IHT 400 and 421" aria-controls="400-details" aria-expanded="false" {{ data['ihtFormUsed'] | checkedIf('IHT 400 and 421') }}>
+      <label for="400">
+        IHT 400 and 421
+      </label>
+    </div>
+    <div class="panel panel-border-narrow js-hidden" id="400-details" aria-hidden="true">
+      <div class="form-group ">
+<!--
+        <label class="form-label" for="gross400">Enter the number added in to box 3 (gross value &pound;)</label>
+        &pound; <input type="number" class="form-control form-control-3-4" id="gross400" name="gross400" value="" maxlength="9">
+      </div>
+      <div class="form-group ">
+        <label class="form-label" for="net400">Enter the number added in to box 5 (net value &pound;)</label>
+        &pound; <input type="number" class="form-control form-control-3-4" id="net400" name="net400" value="" maxlength="9">
+      </div>
+-->
+        <p>HMRC will process these forms and send them to the probate office for you.</p>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

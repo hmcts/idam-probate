@@ -1,0 +1,37 @@
+{% extends "question.html" %}
+
+{% set question = "What is your name?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+  <fieldset class="form-group {{ " error" if fields.applicantFirstName.error }}" >
+    <legend class="visually-hidden">First Name(s)</legend>
+    <label class="form-label" for="applicantFirstName">
+      First name(s)
+      <span class="form-hint">Including middle names</span>
+    </label>
+    {{ errorsFor(fields.applicantFirstName) }}
+    <input class="form-control form-control-3-4"
+           id="applicantFirstName"
+           name="applicantFirstName"
+           type="text"
+           value="{{ fields.applicantFirstName.value }}">
+  </fieldset>
+
+  <fieldset class="form-group {{ "error" if fields.applicantLastName.error }}" >
+    <legend class="visually-hidden">Last Name(s)</legend>
+    <label class="form-label" for="applicantLastName">Last name(s) </label>
+    {{ errorsFor(fields.applicantLastName) }}
+    <input class="form-control form-control-3-4"
+           id="applicantLastName"
+           name="applicantLastName"
+           type="text"
+           value="{{ fields.applicantLastName.value }}">
+  </fieldset>
+</fieldset>
+</div>
+{% endblock %}

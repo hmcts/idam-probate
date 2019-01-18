@@ -1,0 +1,43 @@
+{% extends "question.html" %}
+
+{% set question = "What are the executors&rsquo; names?" %}
+
+{% block question %}
+    {{ question | safe }}
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+    <p>Enter the executor&rsquo;s names exactly as they appear on the will. Include solicitors if they&rsquo;re named as executors.</p>
+    <fieldset>
+        <legend>
+            <h1 class="heading-large hidden">What are the names of all the executors?</h1>
+        </legend>
+
+        {% if (data.applicantNameSameAsOnWill | lower === "no") %}
+            {% set applicantName = data.applicantNameOnWill %}
+        {% elif (data.applicantNameSameAsOnWill | lower === "yes") %}
+            {% set applicantName = data.applicantFirstName + " " + data.applicantLastName %}
+        {% else %}
+            {% set applicantName = "[applicantFirstName]" + " " + "[applicantLastName]" %}
+        {% endif %}
+
+        <div class="form-group">
+            <label class="form-label-bold" for="executorName0">Executor 1</label>
+            <input readonly class="form-control focus-no-highlight" style="border: 0; margin-left: -4px; width: 100%;" value="{{ applicantName }}">
+
+            <!-- Do not remove this hidden input. It stores the main applicant as executor one, even when they have an alias -->
+            <input type="hidden" id="executorName0" name="executorName0" value="{{ data['applicantFirstName'] if data['applicantFirstName'] else '[applicantFirstName]' }} {{ data['applicantLastName'] if data['applicantLastName'] else '[applicantLastName]' }}">
+        </div>
+
+        {% for i in range(1, data['numberOfExecutors']) %}
+            <div class="form-group">
+                <label class="form-label-bold" for="executorName{{ i }}">Executor {{ i + 1}}</label>
+                <input class="form-control" id="executorName{{ i }}" name="executorName{{ i }}" value="{{ data['executorName' + i] }}">
+            </div>
+        {% endfor %}
+    </fieldset>
+
+</div>
+<p><a href="how-many">Change number of executors</a></p>
+{% endblock %}

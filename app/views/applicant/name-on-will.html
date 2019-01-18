@@ -1,0 +1,33 @@
+{% extends "question.html" %}
+
+{% set name %}
+    {{ data['applicantFullName'] if data['applicantFullName'] else '[applicantFullName]' }}
+{% endset %}
+
+{% set question %}
+    Is &lsquo;{{name | trim}}&rsquo; exactly what appears on the will or an update to the will (&lsquo;codicil&rsquo;)?
+{% endset %}
+
+{% block question %}
+    {{ question | safe }}
+{% endblock %}
+
+{% block form %}
+    <div class="form-group">
+        <fieldset class="inline">
+            <legend class="visually-hidden">{{ question | safe }}</legend>
+
+            <div class="multiple-choice">
+                <input id="applicantNameSameAsOnWillYes" type="radio" name="applicantNameSameAsOnWill" value="Yes"
+                {{ data.applicantNameSameAsOnWill | checkedIf('Yes') }}>
+                <label for="applicantNameSameAsOnWillYes">Yes</label>
+            </div>
+            <div class="multiple-choice" >
+                <input id="applicantNameSameAsOnWillNo" type="radio" name="applicantNameSameAsOnWill" value="No"
+                    {{ data.applicantNameSameAsOnWill | checkedIf('No') }}>
+                <label for="applicantNameSameAsOnWillNo">No</label>
+            </div>
+
+        </fieldset>
+    </div>
+{% endblock %}

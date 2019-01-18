@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <h1 class="heading-xlarge">Session data</h1>
+    <p class="lede">The dummy information below has been inserted into the application.</p>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <p>{{data|dump | replace(',', ', ') }}</p>
+        </div>
+    </div>
+
+    <!-- <a href="/index" class="button">Back to homepage</a> -->
+    <a href="/check-your-answers" class="button">Check your answers</a>
+</main>
+
+{% endblock %}
+
+

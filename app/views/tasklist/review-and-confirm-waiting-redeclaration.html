@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">BETA</strong>
+    <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/tasklist">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="form-title heading-large">Apply for probate</h1>
+            <p>Complete these steps to get the legal right to deal with the property and belongings of someone who has died.</p>
+            <p>You can save your application and return to it later if you need to.</p>
+            <div class="form-group">
+            <ol>
+                <li class="task-item">
+                    <span class="heading-medium">1. About the will</span>
+                    <span class="progress-status-tag">Completed</span>
+                    <p><a href="/summary/screening-questions">Check and change your answers</a></p>     
+                </li>
+
+                <li class="task-item">
+                    <span class="heading-medium">2. About the person who died</span>
+                    <span class="progress-status-tag">Completed</span>
+                    <p><a href="/summary/the-person-who-died">Check and change your answers</a></p>     
+                </li>
+
+                <li class="task-item">
+                    <span class="heading-medium">3. About the executors</span>
+                    <span class="progress-status-tag">Completed</span>
+                    <p><a href="check-your-answers">Check and change your answers</a></p>
+                </li>
+
+                <li class="task-item">
+                    <span class="heading-medium">4. Review and confirm</span>
+                    <p>All the executors who are applying for probate have been emailed. They need to agree the legal statement before you can submit your application.</p>
+                            <!-- Check your answers -->
+                            
+                                
+                                
+                                <!-- <h3 class="heading-medium">Executors applying for probate</h3>
+                                <table style="margin-bottom:30px;">
+                                    <tbody>
+                                    <tr>
+                                        <td class="heading-small">Name</td>
+                                        <td class="heading-small">Status</td>
+                                        <td class="heading-small">Date</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lee D Xecutor</td>
+                                        <td>Agreed</td>
+                                        <td>23 November 2017</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Coe Xecutor</td>
+                                        <td>Disagreed</td>
+                                        <td>23 November 2017</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonathan Williams</td>
+                                        <td>Not yet answered</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    </tbody>
+                                </table> -->
+                    <p>You'll need to talk to other executors if they don't agree with the legal statement. Only you can make changes to this application. </p>
+
+                    <p><a href="/check-your-answers">Check and change your answers</a></p><p><a href="/emails/time-to-order-copies" style="color:white;">Execs agreed</a></p>
+
+                    <p>You may need to contact anyone who has:</p>
+                    <ul class="list list-bullet">
+                        <li>disagreed with the legal statement</li>
+                        <li>not yet responded to the email they were sent</li>
+                    </ul>              
+                    <p>The probate registry is not able to help with any disagreements between executors. You'll need to find another way to reach an agreement, which may include getting legal advice.</p>
+                </li>
+
+                <li class="task-item">
+                    <span class="heading-medium">5. Order extra copies of the grant of probate</span>
+                    <span class="progress-status-tag">Completed</span>
+                </li>
+
+                <li class="task-item">
+                    <span class="heading-medium">6. Pay and submit</span>
+                    <span class="progress-status-tag">Completed</span>
+                </li>
+
+                <li class="task-item">
+                    <span class="heading-medium">7. Send documents</span>
+                </li>
+            </ol>
+            </div>
+        </div>
+    </div>
+            {% include "includes/help.html" %}
+</main>
+
+
+{% endblock %}

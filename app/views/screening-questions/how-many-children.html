@@ -1,0 +1,26 @@
+{% extends "question_no_sign_out.html" %}
+
+{% set question = "[How many children? ]" %}
+
+{% block question %}
+{{ question | safe }}
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+	<fieldset>
+        <legend class="visually-hidden">
+            {{ question | safe }}
+        </legend>
+        
+		<div class="form-group ">
+
+		    <label class="form-label" for="childrenNumber"></label>
+
+		     <input type="number" class="form-control  form-control-1-8" id="childrenNumber" name="childrenNumber" value="{{ data['childrenNumber'] }}" maxlength="5">
+		</div>
+
+    </fieldset>
+</div>
+
+{% endblock %}

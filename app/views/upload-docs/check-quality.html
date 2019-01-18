@@ -1,0 +1,99 @@
+{% extends "question.html" %}
+
+{% block question %}
+Review the image quality
+{% endblock %}
+
+
+{% block form %}
+
+    <p>
+    Check the quality of the image you have uploaded to make sure that 
+            <ul class="list list-bullet">
+                <li>the image is not fuzzy or blurred</li>
+                <li>the edges of the document are visible</li>
+            </ul>
+    </p>
+
+
+<p>
+<img src="https://wgp-cdn.co.uk/FTRE/jpg/Marriage-Certificate-Dwerryhouse_Henry_m-cert-53159/600/600/" />
+</p>
+
+  <h3 class="heading-medium">Is the quality of this image acceptable?</h3>
+
+
+<fieldset class="form-group inline">
+
+  <legend class="visually-hidden">Is the quality of this image acceptable?</legend>
+
+
+
+  <label for="imageQuality-yes" class="block-label" data-target="habitual-residency-respondent">
+    <input id="imageQuality-yes" type="radio"
+           name="imageQuality" value="Yes" {{ checked(session.jurisdiction.imageQuality, 'Yes') }}>
+    Yes
+  </label>
+
+  <label for="imageQuality-no" class="block-label" data-target="image-upload">
+    <input id="imageQuality-no" type="radio"
+           name="imageQuality" value="No" {{ checked(session.jurisdiction.imageQuality, 'No') }}>
+    No
+  </label>
+</fieldset>
+
+
+<div id="image-upload" class="panel js-hidden">
+    <p class="text">
+    Upload your marriage certificate again
+    </p>
+        <div class="file-upload">
+            <input type="file" id="certificate-upload" name="certificateUpload" multiple/>
+        </div>
+        <br/>
+        <div>
+    <details>
+        <summary>
+            <span class="summary">I can't upload my documents</span>
+        </summary>
+
+        <div class="panel panel-border-narrow">
+            <p class="bold-small">
+                If you can't upload your documents
+            <p>
+            <p>
+                You can post them to:
+            </p>
+            <p>
+                Bury St Edmunds Divorce Centre<br>
+                2nd Floor<br>
+                Triton House<br>
+                St Andrews Street North<br>
+                Bury St Edmunds<br>
+                IP33 1TR
+            </p>
+
+            <p class="text">
+                Your marriage certificate will be kept by the court and won't be returned to you.
+            </p>
+            <p class="bold-small">
+                If you don't have your marriage certificate
+            <p>
+            <p class="text">
+                You must have your marriage certificate to use this service. You can <a href="https://www.gov.uk/order-copy-birth-death-marriage-certificate" target="_blank"> order a copy online
+                </a>.
+            </p>
+        </div>
+
+    </details>
+        </div>
+</div>
+
+
+
+
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="/public/javascripts/custom-file-upload.js"></script>
+{% endblock %}

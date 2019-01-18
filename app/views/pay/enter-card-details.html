@@ -1,0 +1,342 @@
+        {% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" class="content-wrapper charge-new credit-card-page">
+
+  <div class="error-summary  hidden " role="group" id="error-summary" aria-hidden="true">
+      <h1 class="heading-medium error-summary-heading" id="error-message">The following fields are missing or contain errors</h1>
+      <ul class="error-summary-list">
+      </ul>
+  </div>
+
+  <h1 class="form-title">Enter card details</h1>
+
+  <form id="card-details" name="cardDetails" method="POST" action="/pay/confirm-your-payment" class="form">
+      <input id="charge-id" name="chargeId" type="hidden" value="brrn8kk854pinbu0gma1vbmi4r">
+      <input id="csrf" name="csrfToken" type="hidden" value="jTS6vXwh-gv5jGSmYJj7BTIjwaMQHlZTUGkQ">
+      <div class="form-group card-no-group" data-validation="cardNo">
+          <label id="card-no-lbl" for="card-no" class="form-label-bold">
+              <span class="card-no-label" data-label-replace="cardNo" data-original-label="Card number">Card number</span>
+              <input id="card-no" type="tel" name="cardNo" maxlength="26" class="form-control-1-2 form-control" autocomplete="cc-number" val="">
+          </label>
+          <div class="card-images" style="padding-top: 10px;">
+
+            <img class="original-accepted" id="original-accepted" src="/public/images/accepted-cards-x2.png" style="width: 400px;">
+          </div>
+          <p class="withdrawal-text">
+            Accepted credit and debit card types
+          </p>
+      </div>
+      <div class="form-group expiry-date" data-validation="expiryMonth">
+          <label id="expiry-date-lbl" class="form-label-bold expiry-date-label" data-label-replace="expiryMonth" data-original-label="Expiry date" for="expiry-month">Expiry date</label>
+          <p class="form-hint-bold form-hint">For example, 10/20</p>
+              <div class="date-container">
+                <label class="form-hint" for="expiry-month"> Month </label>
+                <input id="expiry-month" type="number" name="expiryMonth" class="form-control" min="1" max="12" minlength="1" maxlength="2" autocomplete="cc-exp-month">
+                <p class="seperator"> / </p>
+              </div>
+              <div class="date-container">
+                <div class="form-hint"> Year </div>
+                <input id="expiry-year" type="number" name="expiryYear" minlength="2" maxlength="4" class="form-control" autocomplete="cc-exp-year" data-last-of-form-group="" data-required="">
+              </div>
+      </div>
+      <div class="form-group" data-validation="cardholderName">
+          <label id="cardholder-name-lbl" for="cardholder-name" class="form-label-bold">
+              <span data-label-replace="cardholderName" data-original-label="Name on card" class="card-holder-name-label">Name on card</span>
+              <input id="cardholder-name" type="text" name="cardholderName" maxlength="200" class="form-control-1-2 form-control" value="" autocomplete="cc-name">
+          </label>
+      </div>
+      <div class="form-group cvc" data-validation="cvc">
+          <label id="cvc-lbl" for="cvc" class="form-label-bold">
+              <span class="cvc-label" data-label-replace="cvc" data-original-label="Card security code">Card security code</span>
+              <span class="form-hint">
+                <span class="generic-cvc">
+                  The last 3 digits on the back of the card
+                </span>
+                <span class="hidden">
+                  For American Express,
+                </span>
+                <span class="amex-cvc hidden">
+                  The last 4 digits after the card number on the front
+                </span>
+              </span>
+              <input id="cvc" type="number" value="" name="cvc" class="form-control-1-8 form-control cvc" maxlength="3" autocomplete="cc-csc">
+              <img src="./Enter your card details._files/security-code.793a6d656ab6d85be569a4c797e9fe49.png" class="generic-cvc" alt="Please enter either a 3 or 4 digit card security code">
+              <span class="either hidden">
+                or
+              </span>
+              <img src="./Enter your card details._files/amex-security-code.b8a50184119cdd49e868bcf92aeb9caa.png" class="amex-cvc hidden" alt="Please enter either a 3 or 4 digit card security code">
+          </label>
+      </div>
+      <div class="form-group pull-bottom" data-validation="addressCountry">
+          <h2 class="push-top">Billing address</h2>
+          <p class="form-hint">This is the address associated with the card</p>
+
+          <label id="address-country-lbl" for="address-country" class="form-label-bold">
+              <span class="address-country-label push-top-sml" data-label-replace="addressCountry" data-original-label="Country">
+                Country
+              </span>
+              <span class="ui-front form-label-bold">
+                  <select name="addressCountry" class="form-control form-control-2-3 form-control" id="address-country" autocomplete="billing country-name">
+                      <option value="GB" data-aliases="Great Britain,England,UK,Wales,Scotland,Northern Ireland" data-weighting="2" selected="selected">United Kingdom</option>
+                      <option value="AF" data-aliases="افغانستان" data-weighting="">Afghanistan</option>
+                      <option value="AL" data-aliases="" data-weighting="">Albania</option>
+                      <option value="DZ" data-aliases="الجزائر" data-weighting="">Algeria</option>
+                      <option value="AD" data-aliases="" data-weighting="0.5">Andorra</option>
+                      <option value="AO" data-aliases="" data-weighting="0.5">Angola</option>
+                      <option value="AG" data-aliases="" data-weighting="">Antigua and Barbuda</option>
+                      <option value="AR" data-aliases="" data-weighting="">Argentina</option>
+                      <option value="AM" data-aliases="Հայաստան" data-weighting="">Armenia</option>
+                      <option value="AU" data-aliases="" data-weighting="">Australia</option>
+                      <option value="AT" data-aliases="Österreich,Osterreich,Oesterreich" data-weighting="">Austria</option>
+                      <option value="AZ" data-aliases="" data-weighting="">Azerbaijan</option>
+                      <option value="BH" data-aliases="البحرين" data-weighting="">Bahrain</option>
+                      <option value="BD" data-aliases="বাংলাদেশ" data-weighting="2">Bangladesh</option>
+                      <option value="BB" data-aliases="" data-weighting="">Barbados</option>
+                      <option value="BY" data-aliases="Беларусь" data-weighting="">Belarus</option>
+                      <option value="BE" data-aliases="België,Belgie,Belgien,Belgique" data-weighting="1.5">Belgium</option>
+                      <option value="BZ" data-aliases="" data-weighting="">Belize</option>
+                      <option value="BJ" data-aliases="" data-weighting="">Benin</option>
+                      <option value="BT" data-aliases="भूटान" data-weighting="">Bhutan</option>
+                      <option value="BO" data-aliases="" data-weighting="">Bolivia</option>
+                      <option value="BA" data-aliases="BiH,Bosna i Hercegovina,Босна и Херцеговина" data-weighting="">Bosnia and Herzegovina</option>
+                      <option value="BW" data-aliases="" data-weighting="">Botswana</option>
+                      <option value="BR" data-aliases="Brasil" data-weighting="2">Brazil</option>
+                      <option value="BN" data-aliases="" data-weighting="">Brunei</option>
+                      <option value="BG" data-aliases="България" data-weighting="">Bulgaria</option>
+                      <option value="BF" data-aliases="" data-weighting="">Burkina Faso</option>
+                      <option value="MM" data-aliases="Myanmar" data-weighting="">Burma</option>
+                      <option value="BI" data-aliases="" data-weighting="">Burundi</option>
+                      <option value="KH" data-aliases="កម្ពុជា" data-weighting="">Cambodia</option>
+                      <option value="CM" data-aliases="" data-weighting="">Cameroon</option>
+                      <option value="CA" data-aliases="" data-weighting="2">Canada</option>
+                      <option value="CV" data-aliases="Cabo" data-weighting="">Cape Verde</option>
+                      <option value="CF" data-aliases="" data-weighting="">Central African Republic</option>
+                      <option value="TD" data-aliases="تشاد‎,Tchad" data-weighting="">Chad</option>
+                      <option value="CL" data-aliases="" data-weighting="">Chile</option>
+                      <option value="CN" data-aliases="Zhongguo,Zhonghua Peoples Republic,中国/中华" data-weighting="">China</option>
+                      <option value="CO" data-aliases="" data-weighting="">Colombia</option>
+                      <option value="KM" data-aliases="جزر القمر" data-weighting="">Comoros</option>
+                      <option value="CG" data-aliases="" data-weighting="">Congo</option>
+                      <option value="CD" data-aliases="Congo-Brazzaville,Repubilika ya Kongo" data-weighting="">Congo (Democratic Republic)</option>
+                      <option value="CR" data-aliases="" data-weighting="">Costa Rica</option>
+                      <option value="HR" data-aliases="Hrvatska" data-weighting="">Croatia</option>
+                      <option value="CU" data-aliases="" data-weighting="">Cuba</option>
+                      <option value="CY" data-aliases="Κύπρος,Kýpros,Kıbrıs" data-weighting="">Cyprus</option>
+                      <option value="CZ" data-aliases="Česká,Ceska" data-weighting="">Czech Republic</option>
+                      <option value="DK" data-aliases="Danmark" data-weighting="1.5">Denmark</option>
+                      <option value="DJ" data-aliases="جيبوتي‎,Jabuuti,Gabuuti" data-weighting="">Djibouti</option>
+                      <option value="DM" data-aliases="Dominique" data-weighting="0.5">Dominica</option>
+                      <option value="DO" data-aliases="" data-weighting="">Dominican Republic</option>
+                      <option value="TL" data-aliases="Timor-Leste" data-weighting="">East Timor</option>
+                      <option value="EC" data-aliases="" data-weighting="">Ecuador</option>
+                      <option value="EG" data-aliases="" data-weighting="1.5">Egypt</option>
+                      <option value="SV" data-aliases="" data-weighting="">El Salvador</option>
+                      <option value="GQ" data-aliases="" data-weighting="">Equatorial Guinea</option>
+                      <option value="ER" data-aliases="إرتريا,ኤርትራ" data-weighting="">Eritrea</option>
+                      <option value="EE" data-aliases="Eesti" data-weighting="">Estonia</option>
+                      <option value="ET" data-aliases="ኢትዮጵያ" data-weighting="">Ethiopia</option>
+                      <option value="FJ" data-aliases="Viti,फ़िजी" data-weighting="">Fiji</option>
+                      <option value="FI" data-aliases="Suomi" data-weighting="">Finland</option>
+                      <option value="FR" data-aliases="République française" data-weighting="2.5">France</option>
+                      <option value="GA" data-aliases="République Gabonaise" data-weighting="">Gabon</option>
+                      <option value="GE" data-aliases="საქართველო" data-weighting="">Georgia</option>
+                      <option value="DE" data-aliases="Bundesrepublik,Deutschland" data-weighting="3">Germany</option>
+                      <option value="GH" data-aliases="" data-weighting="">Ghana</option>
+                      <option value="GR" data-aliases="Ελλάδα" data-weighting="1.5">Greece</option>
+                      <option value="GD" data-aliases="" data-weighting="">Grenada</option>
+                      <option value="GT" data-aliases="" data-weighting="">Guatemala</option>
+                      <option value="GN" data-aliases="" data-weighting="">Guinea</option>
+                      <option value="GW" data-aliases="" data-weighting="">Guinea-Bissau</option>
+                      <option value="GY" data-aliases="" data-weighting="">Guyana</option>
+                      <option value="HT" data-aliases="" data-weighting="">Haiti</option>
+                      <option value="HN" data-aliases="" data-weighting="">Honduras</option>
+                      <option value="HU" data-aliases="Magyarország" data-weighting="">Hungary</option>
+                      <option value="IS" data-aliases="Island" data-weighting="">Iceland</option>
+                      <option value="IN" data-aliases="भारत गणराज्य,Hindustan" data-weighting="3">India</option>
+                      <option value="ID" data-aliases="" data-weighting="2">Indonesia</option>
+                      <option value="IR" data-aliases="ایران" data-weighting="">Iran</option>
+                      <option value="IQ" data-aliases="العراق‎" data-weighting="">Iraq</option>
+                      <option value="IE" data-aliases="Éire" data-weighting="1.2">Ireland</option>
+                      <option value="IL" data-aliases="إسرائيل ישראל" data-weighting="">Israel</option>
+                      <option value="IT" data-aliases="Italia" data-weighting="2">Italy</option>
+                      <option value="CI" data-aliases="Cote dIvoire" data-weighting="">Ivory Coast</option>
+                      <option value="JM" data-aliases="" data-weighting="">Jamaica</option>
+                      <option value="JP" data-aliases="Nippon,Nihon,日本" data-weighting="2.5">Japan</option>
+                      <option value="JO" data-aliases="الأردن" data-weighting="">Jordan</option>
+                      <option value="KZ" data-aliases="Қазақстан,Казахстан" data-weighting="">Kazakhstan</option>
+                      <option value="KE" data-aliases="" data-weighting="">Kenya</option>
+                      <option value="KI" data-aliases="" data-weighting="">Kiribati</option>
+                      <option value="KP" data-aliases="" data-weighting="">North Korea</option>
+                      <option value="KR" data-aliases="" data-weighting="1.2">South Korea</option>
+                      <option value="XK" data-aliases="" data-weighting="">Kosovo</option>
+                      <option value="KW" data-aliases="الكويت" data-weighting="">Kuwait</option>
+                      <option value="KG" data-aliases="Кыргызстан" data-weighting="">Kyrgyzstan</option>
+                      <option value="LA" data-aliases="" data-weighting="">Laos</option>
+                      <option value="LV" data-aliases="Latvija" data-weighting="">Latvia</option>
+                      <option value="LB" data-aliases="لبنان" data-weighting="">Lebanon</option>
+                      <option value="LS" data-aliases="" data-weighting="">Lesotho</option>
+                      <option value="LR" data-aliases="" data-weighting="">Liberia</option>
+                      <option value="LY" data-aliases="ليبيا" data-weighting="">Libya</option>
+                      <option value="LI" data-aliases="" data-weighting="">Liechtenstein</option>
+                      <option value="LT" data-aliases="Lietuva" data-weighting="">Lithuania</option>
+                      <option value="LU" data-aliases="" data-weighting="">Luxembourg</option>
+                      <option value="MK" data-aliases="Македонија" data-weighting="">Macedonia</option>
+                      <option value="MG" data-aliases="Madagasikara" data-weighting="">Madagascar</option>
+                      <option value="MW" data-aliases="" data-weighting="">Malawi</option>
+                      <option value="MY" data-aliases="" data-weighting="">Malaysia</option>
+                      <option value="MV" data-aliases="" data-weighting="">Maldives</option>
+                      <option value="ML" data-aliases="" data-weighting="">Mali</option>
+                      <option value="MT" data-aliases="" data-weighting="">Malta</option>
+                      <option value="MH" data-aliases="" data-weighting="0.5">Marshall Islands</option>
+                      <option value="MR" data-aliases="الموريتانية" data-weighting="">Mauritania</option>
+                      <option value="MU" data-aliases="" data-weighting="">Mauritius</option>
+                      <option value="MX" data-aliases="Mexicanos" data-weighting="1.5">Mexico</option>
+                      <option value="FM" data-aliases="" data-weighting="">Micronesia</option>
+                      <option value="MD" data-aliases="" data-weighting="">Moldova</option>
+                      <option value="MC" data-aliases="" data-weighting="">Monaco</option>
+                      <option value="MN" data-aliases="Mongγol ulus,Монгол улс" data-weighting="">Mongolia</option>
+                      <option value="ME" data-aliases="" data-weighting="">Montenegro</option>
+                      <option value="MA" data-aliases="المغرب" data-weighting="">Morocco</option>
+                      <option value="MZ" data-aliases="Moçambique" data-weighting="">Mozambique</option>
+                      <option value="NA" data-aliases="Namibië" data-weighting="">Namibia</option>
+                      <option value="NR" data-aliases="Naoero" data-weighting="0.5">Nauru</option>
+                      <option value="NP" data-aliases="नेपाल" data-weighting="">Nepal</option>
+                      <option value="NL" data-aliases="Holland,Nederland" data-weighting="1.5">Netherlands</option>
+                      <option value="NZ" data-aliases="" data-weighting="">New Zealand</option>
+                      <option value="NI" data-aliases="" data-weighting="">Nicaragua</option>
+                      <option value="NE" data-aliases="Nijar" data-weighting="">Niger</option>
+                      <option value="NG" data-aliases="Nijeriya,Naíjíríà" data-weighting="1.5">Nigeria</option>
+                      <option value="NO" data-aliases="Norge,Noreg" data-weighting="1.5">Norway</option>
+                      <option value="OM" data-aliases="عمان" data-weighting="">Oman</option>
+                      <option value="PK" data-aliases="پاکستان" data-weighting="2">Pakistan</option>
+                      <option value="PW" data-aliases="" data-weighting="0.5">Palau</option>
+                      <option value="PA" data-aliases="" data-weighting="">Panama</option>
+                      <option value="PG" data-aliases="" data-weighting="">Papua New Guinea</option>
+                      <option value="PY" data-aliases="" data-weighting="">Paraguay</option>
+                      <option value="PE" data-aliases="" data-weighting="">Peru</option>
+                      <option value="PH" data-aliases="Pilipinas" data-weighting="1.5">Philippines</option>
+                      <option value="PL" data-aliases="Polska" data-weighting="1.25">Poland</option>
+                      <option value="PT" data-aliases="Portuguesa" data-weighting="1.5">Portugal</option>
+                      <option value="QA" data-aliases="قطر" data-weighting="">Qatar</option>
+                      <option value="RO" data-aliases="Rumania,Roumania,România" data-weighting="">Romania</option>
+                      <option value="RU" data-aliases="Rossiya,Российская,Россия" data-weighting="2.5">Russia</option>
+                      <option value="RW" data-aliases="" data-weighting="">Rwanda</option>
+                      <option value="KN" data-aliases="St. Kitts and Nevis" data-weighting="">St Kitts and Nevis</option>
+                      <option value="LC" data-aliases="St. Lucia" data-weighting="">St Lucia</option>
+                      <option value="VC" data-aliases="St. Vincent" data-weighting="">St Vincent</option>
+                      <option value="WS" data-aliases="" data-weighting="">Samoa</option>
+                      <option value="SM" data-aliases="RSM,Repubblica" data-weighting="">San Marino</option>
+                      <option value="ST" data-aliases="" data-weighting="">Sao Tome and Principe</option>
+                      <option value="SA" data-aliases="السعودية" data-weighting="">Saudi Arabia</option>
+                      <option value="SN" data-aliases="Sénégal" data-weighting="">Senegal</option>
+                      <option value="RS" data-aliases="Србија Srbija" data-weighting="">Serbia</option>
+                      <option value="SC" data-aliases="" data-weighting="0.5">Seychelles</option>
+                      <option value="SL" data-aliases="" data-weighting="">Sierra Leone</option>
+                      <option value="SG" data-aliases="Singapura,சிங்கப்பூர் குடியரசு,新加坡共和国" data-weighting="">Singapore</option>
+                      <option value="SK" data-aliases="Slovenská,Slovensko" data-weighting="">Slovakia</option>
+                      <option value="SI" data-aliases="Slovenija" data-weighting="">Slovenia</option>
+                      <option value="SB" data-aliases="" data-weighting="">Solomon Islands</option>
+                      <option value="SO" data-aliases="الصومال" data-weighting="">Somalia</option>
+                      <option value="ZA" data-aliases="RSA,Suid-Afrika" data-weighting="">South Africa</option>
+                      <option value="SS" data-aliases="" data-weighting="">South Sudan</option>
+                      <option value="ES" data-aliases="España" data-weighting="2">Spain</option>
+                      <option value="LK" data-aliases="ශ්‍රී ලංකා இலங்கை,Ceylon" data-weighting="">Sri Lanka</option>
+                      <option value="SD" data-aliases="السودان" data-weighting="">Sudan</option>
+                      <option value="SR" data-aliases="शर्नम्,Sarnam Sranangron" data-weighting="">Suriname</option>
+                      <option value="SZ" data-aliases="weSwatini Swatini Ngwane" data-weighting="">Swaziland</option>
+                      <option value="SE" data-aliases="Sverige" data-weighting="1.5">Sweden</option>
+                      <option value="CH" data-aliases="Swiss Confederation,Schweiz,Suisse,Svizzera,Svizra" data-weighting="1.5">Switzerland</option>
+                      <option value="SY" data-aliases="سورية" data-weighting="">Syria</option>
+                      <option value="TJ" data-aliases="Тоҷикистон,Toçikiston" data-weighting="">Tajikistan</option>
+                      <option value="TZ" data-aliases="" data-weighting="">Tanzania</option>
+                      <option value="TH" data-aliases="ประเทศไทย,Prathet Thai" data-weighting="">Thailand</option>
+                      <option value="TG" data-aliases="" data-weighting="">Togo</option>
+                      <option value="TO" data-aliases="" data-weighting="">Tonga</option>
+                      <option value="TT" data-aliases="" data-weighting="">Trinidad and Tobago</option>
+                      <option value="TN" data-aliases="تونس" data-weighting="">Tunisia</option>
+                      <option value="TR" data-aliases="Türkiye,Turkiye" data-weighting="">Turkey</option>
+                      <option value="TM" data-aliases="Türkmenistan" data-weighting="">Turkmenistan</option>
+                      <option value="TV" data-aliases="" data-weighting="0.5">Tuvalu</option>
+                      <option value="UG" data-aliases="" data-weighting="">Uganda</option>
+                      <option value="UA" data-aliases="Ukrayina,Україна" data-weighting="">Ukraine</option>
+                      <option value="AE" data-aliases="UAE,الإمارات" data-weighting="">United Arab Emirates</option>
+                      <option value="US" data-aliases="USA,United States of America" data-weighting="1.5">United States</option>
+                      <option value="UY" data-aliases="" data-weighting="">Uruguay</option>
+                      <option value="UZ" data-aliases="Ўзбекистон,O&#39;zbekstan,O‘zbekiston" data-weighting="">Uzbekistan</option>
+                      <option value="VU" data-aliases="" data-weighting="">Vanuatu</option>
+                      <option value="VA" data-aliases="Holy See" data-weighting="0.5">Vatican City</option>
+                      <option value="VE" data-aliases="" data-weighting="">Venezuela</option>
+                      <option value="VN" data-aliases="Việt Nam" data-weighting="1.5">Vietnam</option>
+                      <option value="YE" data-aliases="اليمن" data-weighting="">Yemen</option>
+                      <option value="ZM" data-aliases="" data-weighting="">Zambia</option>
+                      <option value="ZW" data-aliases="" data-weighting="">Zimbabwe</option>
+                      <option value="GM" data-aliases="" data-weighting="">The Gambia</option>
+                      <option value="BS" data-aliases="" data-weighting="">The Bahamas</option>
+                  </select>
+              </span>
+          </label>
+      </div>
+      <div class="form-group address" data-validation="addressLine1">
+          <label id="address-line-1-lbl" for="address-line-1" class="form-label-bold">
+              <span class="address-line-1-label" data-label-replace="addressLine1" data-original-label="Building number or name and street">Building number or name and street</span>
+
+              <input id="address-line-1" type="text" name="addressLine1" maxlength="100" class="form-control-1-2 form-control" value="" autocomplete="billing street-address">
+          </label>
+          <input id="address-line-2" type="text" name="addressLine2" maxlength="100" class="form-control-1-2 form-control" data-last-of-form-group="" value="" aria-label="Enter address line 2" autocomplete="billing address-line2">
+      </div>
+      <div class="form-group" data-validation="addressCity">
+          <label id="address-city-lbl" for="address-city" class="form-label-bold">
+              <span class="address-city-label" data-label-replace="addressCity" data-original-label="Town or city">Town or city</span>
+              <input id="address-city" type="text" name="addressCity" maxlength="100" class="form-control-1-4 form-control" value="" autocomplete="billing address-level2">
+          </label>
+      </div>
+      <div class="form-group" data-validation="addressPostcode">
+          <label id="address-postcode-lbl" for="address-postcode" class="form-label-bold">
+              <span class="address-postcode-label" data-label-replace="addressPostcode" data-original-label="Postcode">Postcode</span>
+
+              <input id="address-postcode" type="text" name="addressPostcode" maxlength="10" class="form-control-1-8 form-control" value="" autocomplete="billing postal-code">
+          </label>
+      </div>
+      <div class="form-group" data-validation="email" data-confirmation="true">
+          <label id="email-lbl" for="email" class="form-label-bold">
+              <span class="email-label" data-label-replace="email" data-original-label="Email">Email</span>
+              <span class="form-hint">We'll send your payment confirmation here</span>
+
+              <input id="email" type="email" name="email" maxlength="254" class="form-control-1-2 form-control" value="" autocomplete="email">
+          </label>
+      </div><div class="form-group panel panel-border-wide input-confirm" id="email-confirmation"><p class="form-hint">An email will be sent to: <span class="email">{{ data['leadEmailAddress'] }}</span></p></div>
+      <div>
+          <input id="submit-card-details" type="submit" class="button" value="Continue" name="submitCardDetails">
+      </div>
+
+  </form>
+  <form id="cancel" name="cancel" method="POST" action="https://www.payments.service.gov.uk/card_details/brrn8kk854pinbu0gma1vbmi4r/cancel" class="form">
+      <div>
+          <input id="cancel-payment" type="submit" class="link" value="Cancel payment" name="cancel">
+          <input id="csrf2" name="csrfToken" type="hidden" value="jTS6vXwh-gv5jGSmYJj7BTIjwaMQHlZTUGkQ">
+      </div>
+  </form>
+
+    <aside class="payment-summary">
+        <div class="shim" style="width: 250px; height: 155px">&nbsp;</div><div class="inner js-stick-at-top-when-scrolling content-fixed" style="width: 250px;">
+            <h2>Payment summary</h2>
+            <p>
+                <span id="payment-description">Probate Payment: 217</span>
+            </p>
+            <p>
+                Total amount:
+                <span id="amount" class="amount">£{{data['total_due']}}</span>
+            </p>
+        </div>
+    </aside>
+
+</main>
+
+
+{% endblock %}

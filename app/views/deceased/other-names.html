@@ -1,0 +1,36 @@
+{% extends "question.html" %}
+
+{% set question %}
+In what other names did {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }} have assets?
+{% endset %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+    {% for i in range(0, data['deceasedAliasCount']) %}
+    <div class="form-group">
+        <fieldset>
+            <legend>
+                <span class="heading-medium">Other name {{ i + 1 }}</span>
+                &nbsp;<input type="submit" class="button-secondary" value="Remove" formaction="other-names?remove={{ i }}">
+            </legend>
+            <div class="form-group">
+                <label class="form-label" for="deceasedOtherFirstName_{{ i }}">First name(s) <span class="form-hint">Including middle names</span></label>
+                <input type="text" class="form-control form-control-3-4" id="deceasedOtherFirstName_{{ i }}" name="deceasedOtherFirstName_{{ i }}" value="{{ data['deceasedOtherFirstName_' + i] }}" maxlength="30">
+            </div>
+
+            <div class="form-group ">
+                <label class="form-label" for="deceasedOtherLastName_{{ i }}">Last name(s)</label>
+                <input type="text" class="form-control form-control-3-4" id="deceasedOtherLastName_{{ i }}" name="deceasedOtherLastName_{{ i}}" value="{{ data['deceasedOtherLastName_' + i] }}" maxlength="30">
+            </div>
+        </fieldset>
+    </div>
+    {% endfor %}
+    <input type="hidden" name="deceasedAliasCount" value="{{data['deceasedAliasCount']}}">
+    <p class="form-group">
+        <input class="button button-add-another" type="submit" formaction="other-names?add=true" value="Add another name">
+        <br><br>
+    </p>
+{% endblock %}

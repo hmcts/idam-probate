@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">You've disagreed with the legal statement</h1>
+
+      
+    <p class="text">You now need to contact {{ data['leadLabApplicantName'] }} to dicuss changing the information they've given.
+   </p>
+
+       <p class="text">As soon as {{ data['leadLabApplicantName'] }} updates the information, they should contact you. You'll then be able to view and agree the updated legal statement using the link that's already been emailed to you.</p> 
+
+       <h2 class="heading-medium">If you can't reach an agreement</h2>
+
+       <p>The probate registry is not able to help with any disagreements between executors. You'll need to find another way to reach an agreement, which may include getting legal advice.</p>
+
+        <p class="text">A grant for probate will not be issued until all the executors who are applying for probate agree the legal statement.</p>
+
+      
+
+      
+
+
+  
+
+      <p ><a href="/emails/invitation" style="color:white">Back to inbox</a></p>
+    </div>
+  </div>
+
+</main>
+
+
+
+
+
+{% endblock %}

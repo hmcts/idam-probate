@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block proposition_header %}
+  <div class="header-proposition">
+  <div class="content">
+  </div>
+</div>
+<!--
+    This file should match the IDAM login screen. Any changes you wish to make to this should be given to the
+    IDAM team to make.
+-->
+
+{% endblock %}
+{% from "common/errors.html" import errorsFor %}
+{% import "common/components/inputComponents.html" as inputComponents %}
+{% import "common/components/account.html" as account %}
+
+{% block page_title %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" class="prototype-8" role="main">
+  {% include "includes/phase_banner_beta.html" %}
+  
+  
+   <div class="grid-row">
+    <div class="column-two-thirds">
+
+        
+            <h1 class="heading-large">Verify security code</h1>
+
+            <p class="lede">Before making an application for probate, we need to confirm who you are.</p>
+
+            <p>We've sent you a text message with a security code.</p>
+            <p>Check your phone for the 6-digit code and enter it in the box below.</p>
+
+            <div class="form-group ">
+
+                <label for="username">
+
+                    <span class="form-label-bold">Text message code</span>
+                    <span class="error-message"></span>
+
+                </label>
+
+                <input class="form-control" type="email" id="username" name="username" value="">
+                <br>
+                <p><a href="/co-executors-journey/start" class="button">Sign in</a></p>
+                <a href="/co-executors-journey/login-code-havent-received">I haven't received a security code</a>
+            </div>
+
+
+
+    </div>
+    </div>
+
+</main>
+
+{% endblock %}

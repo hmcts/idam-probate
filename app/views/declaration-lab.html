@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+{% set applicantName = data['applicantFullName'] %}
+<main id="content" role="main">
+    <div class="phase-banner-beta">
+        <p>
+            <strong class="phase-tag">BETA</strong>
+            <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/declaration">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+    <form class="form" method="post" action="we-will-notify-other-executors">
+        <h1 class="form-title heading-large">Legal statement</h1>
+
+
+<div class="text">
+    <p>We, {{ applicantName }} of {{ data.applicant.home | address }} and [Your-Co-Applicant] of 12 Any Street, London, N7 2DH, make the following statement:</p>
+
+<p class="heading-small">The person who died</p>
+
+<p>{{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }} was born on {{data['dob_day']}} {{ data['dob_month'] | month ]}} {{data['dob_year']}} and died on {{data['dod_day']}} {{ data['dod_month']| month }} {{data['dod_year']}}, domiciled in England and Wales.</p>
+
+<p class="heading-small">The estate</p>
+
+<p>The gross estate value for the estate amounts to {{ data | getGrossIHT | currency }} and the net estate value amounts to {{ data | getNetIHT | currency }}.</p>
+
+<p>To the best of our knowledge, information and belief, there was no land vested in {{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }} which was settled previously to the death (and not by the will) of {{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }} and which remained settled land notwithstanding such death.</p>
+
+<p class="heading-small">Executors applying for probate</p>
+
+<p>{{ applicantName }}, an executor named in the will, is applying for probate.<p>
+
+<p>{{ applicantName }} will sign and send to the probate registry what they believe to be the true and original last will and testament of {{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }}.</p>
+
+<p>[Your-Co-Applicant], an executor named in the will, is applying for probate.</p>
+
+<p>[Your-Co-Applicant] will sign a photocopy of what they believe to be the true and original last will and testament of {{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }}. {{ applicantName }} will send the signed photocopy to the probate registry.</p>
+
+<p class="heading-small">Executors not applying for probate</p>
+
+<p>Jane Smith, an executor named in the will, is not making this application but reserves power to do so at a later date. They have been notified in writing.</p>
+
+<p>Mary Smith, an executor named in the will, is not making this application because they died before {{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }} died.</p>
+
+
+        <fieldset class="form-group ">
+            <legend class="visually-hidden">I confirm that the information I have provided is correct to the best of my
+                knowledge.</legend>
+
+            <div class="multiple-choice">
+                <input id="legalStatementCheckbox" name="legalStatementCheckbox" type="checkbox" value="true">
+                <label for="legalStatementCheckbox">I confirm that the information I have provided is correct
+                    to the best of my knowledge.</label>
+            </div>
+        </fieldset>
+
+<p class="form-title heading-large">Declaration</p>
+
+<p>We confirm that we will administer the estate of {{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }}, according to law. We will:</p>
+
+<ul class="list list-bullet">
+    <li>collect the whole estate</li>
+    <li>keep full details (an inventory) of the estate</li>
+    <li>keep a full account of how the estate has been administered</li>
+</ul>
+
+<p>If the probate registry (court) asks us to do so, we will:</p>
+
+<ul>
+    <li>provide full details of the estate and how it has been administered</li>
+    <li>return the grant of probate to the court</li>
+</ul>
+
+<p>We understand that:</p>
+
+<ul class="list list-bullet">
+    <li>our application will be rejected if we do not answer any questions about the information we have given</li>
+    <li>criminal proceedings for fraud may be brought against us if we are found to have been deliberately untruthful or dishonest</li>
+</ul>
+
+</div>
+
+        <fieldset class="form-group text">
+            <legend class="visually-hidden">I confirm that I will administer the estate of the person who died according
+                to law, and that my application is truthful.</legend>
+
+            <div class="multiple-choice">
+                <input id="declarationCheckbox" name="declarationCheckbox" type="checkbox" value="true">
+
+                <label for="declarationCheckbox">I confirm that I will administer the estate of the person who
+                    died according to law, and that my application is truthful.</label>
+            </div>
+        </fieldset>
+
+
+        <div class="form-group">
+            <input class="button" type="submit" id="acceptAndSend" value="Accept and continue">
+        </div>
+    </form>
+</main>
+{% endblock %}

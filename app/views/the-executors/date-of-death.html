@@ -1,0 +1,34 @@
+{% extends "question.html" %}
+
+{% set name %}
+{% if (data['executorNewName' + data['currentExecutorToEdit']].length > 0) %}
+        {{ data['executorNewName' + data['currentExecutorToEdit']] }}
+    {% else %}
+        {{ data['executorName' + data['currentExecutorToEdit']] }}
+    {% endif %}
+{% endset %}
+{% set deceasedName = data['deceasedFirstName'] + ' ' + data['deceasedLastName'] %}
+
+{% block question %}
+Did the executor {{ name | trim }} die before {{ deceasedName | trim}}?
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+    <fieldset class="inline">
+        <legend class="heading-large hidden">Did the executor {{ name | trim }} die before {{ deceasedName | trim}}?</legend>
+            <div class="multiple-choice" data-target="executors">
+                <input id="executorDiedBefore-yes" type="radio" name="executorDiedBefore{{data['currentExecutorToEdit']}}" value="Yes"
+                       {{ data['executorDiedBefore' + data['currentExecutorToEdit']] | checkedIf('Yes') }}>
+                <label for="executorDiedBefore-yes">Yes</label>
+            </div>
+            <div class="multiple-choice">
+                <input id="executorDiedBefore-no" type="radio" name="executorDiedBefore{{data['currentExecutorToEdit']}}" value="No"
+                       {{ data['executorDiedBefore' + data['currentExecutorToEdit']] | checkedIf('No') }}>
+                <label for="executorDiedBefore-no">No</label>
+            </div>
+        </fieldset>
+    </fieldset>
+</div>
+{% endblock %}
+

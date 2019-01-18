@@ -1,0 +1,31 @@
+{% extends "layout_no_sign_out.html" %}
+
+{% block page_title %}
+Registration
+{% endblock %}
+
+{% block content %}
+
+<main id="content" class="prototype-8" role="main">
+  {% include "includes/phase_banner_beta.html" %}
+
+   <div class="grid-row">
+       <div class="column-two-thirds">
+           <form name="loginForm" class="form" novalidate="" method="post">
+            <h1 class="heading-large">Applying online</h1>
+
+            <p>Based on the information you've given, you have everything you need to make your application for probate online.</p>
+
+            <p>You need a courts and tribunal account. You may already have one, for example if you've applied for a divorce or made a money claim online. </p>
+
+
+            <p><input type="submit" class="button" value="Create an account"></p>
+
+            <p><a href="/login">Sign in to your account</a></p>
+
+        </form>
+        </div>
+   </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "question-account.html" %}
+
+{% set question = "What is the value of the estate?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<!-- <p>You would have been given estate value figures after you submitted the estate report form online.</p> -->
+<div class="form-group">
+  <fieldset>
+    <legend class="visually-hidden">
+      What is the value of the estate?
+    </legend>
+
+    <p>Make sure you enter a number with no commas.</p>
+
+    <div class="form-group ">
+      <label class="form-label-bold" for="grossValue">Gross value of assets<span class="form-hint">The value of the estate before funeral expenses, debts and inheritance tax.</span></label>
+      &pound; <input type="text" class="form-control form-control-1-3" id="grossValue" name="grossValue" value="{{ data['grossValue'] }}" maxlength="15">
+    </div>
+
+    <div class="form-group ">
+      <label class="form-label-bold" for="netValue">Net value of assets<span class="form-hint">The value of the estate after any costs or debts have been deducted.</span></label>
+      &pound; <input type="text" class="form-control form-control-1-3" id="netValue" name="netValue" value="{{ data['netValue'] }}" maxlength="15">
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

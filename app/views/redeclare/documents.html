@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+    <main id="content" role="main">
+
+        <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">BETA</strong>
+    <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/documents">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+
+        <h1 class="form-title heading-large">Documents</h1>
+
+        <form class="form" method="post" action="thank-you">
+            <input type="hidden" name="_csrf" value="">
+
+            <!-- You should:
+
+
+<ul class="list list-bullet">
+
+        <li>use registered post</li>
+
+        <li>keep copies of all documents</li>
+
+</ul> -->
+
+
+            <h2 class="heading-small">Documents you need to send</h2>
+
+            You need to send the probate registry:
+
+
+            <ul class="list list-bullet text">
+
+                <li>the original will - you must sign the first page in the top right corner, but not make any other changes to the will</li>
+
+                <li>any updates (‘codicils’) - you must sign the front of each codicil in the top right corner, but must not make any other changes to the codicils</li>
+
+                <li>2 photocopies of the signed will and codicils – these photocopies must be on plain A4 paper</li>
+
+                <li>the death certificate – this will be returned to you</li>
+
+                {% if data['iht_form'] ==='205' %}
+                    <li>the completed inheritance tax form IHT 205 (if you printed off and filled in a paper form)</li>
+                {% endif %}
+
+                {% if data['iht_form'] ==='420' %}
+                    <li>the stamped IHT 421 form – if you have not yet received this from HMRC please let us know in the cover letter and you can forward it at a later date. Please note that we will not be able to issue the grant until we receive the stamped IHT 421 form</li>
+                {% endif %}
+
+                {% if renunc === true %}
+                    <li>{{data['hello']}} a renunciation form filled in and signed by any executors that don’t want to apply now, and give up their right to do so in the future</li>
+                {% endif %}
+            </ul>
+
+            <p class="text">You’ll need to include a cover letter if the will or codicils have been changed in any way since you got given them. This includes them being torn, creased or separated for photocopying. The letter should explain what’s been changed and why.</p>
+
+        <div class="multiple-choice">
+              <input id="nationalities-british" name="nationalities" type="checkbox" value="British">
+              <label for="nationalities-british" class="text">I understand that I need to sign the top right corner of the front of the will (and any codicils) before sending my documents</label>
+            </div>
+
+<!--             <p><a rel="external" target="_blank" href="https://www-test.probate.reform.hmcts.net/public/renunciation.pdf">Download a copy of the renunciation form</a></p> -->
+
+<!-- from divorce proto -->
+
+<!--             <div class="notice">
+              <i class="icon icon-important">
+                <span class="visually-hidden">Warning</span>
+              </i>
+              <strong class="bold-small text">
+                The grant of probate will not be issued if you don't have all the necessary signatures.
+              </strong>
+            </div> -->
+
+
+            <br />
+            <br/>
+            <h2 class="heading-medium">Where to send your documents:</h2>
+
+            <p class="text">Your documents should be sent by registered post to:</p>
+            <div class="panel">
+                        <p>Digital Application,<br /> Oxford District Probate Registry, <br />Combined Court Building, <br />St Aldates, <br />Oxford OX1 1LY</p>
+            </div>
+
+
+<div>
+<fieldset>
+
+    <legend class="visually-hidden">I understand that I need to sign the back of the will (and any codicils) before sending my documents</legend>
+
+<!--  <div class="multiple-choice">
+    <input id="sentDocuments" name="sentDocuments" type="checkbox" value="true">
+
+    <label for="sentDocuments">I understand that I need to sign the back of the will (and any codicils) before sending my documents
+    </label>
+ </div>   -->
+
+</fieldset>
+</div>
+        <div class="inline" style="padding-bottom: 40px;">
+          <a href="/public/images/document-list.pdf"><i class="icon icon-file-download"></i>
+          <span style="padding-left:10px;">Download your document checklist</span></a>
+        </div>
+
+
+
+<!-- <div class="column-two-thirds">
+            <h2 class="heading-medium">Print or download to review</h2>
+            <p>The printed version includes a space for the executor to sign and date for your records if you need it.</p>
+            <br>
+            <p><a href="/public/files/ls_declaration-a4-print_v1.pdf" class="button button-secondary" target="_new"><img src="/public/images/icon-file-download-2x.png"></a></p>
+            <p><a href="/public/files/ls_declaration-a4-print_v1.pdf">Preview</a></p>
+        </div> -->
+
+<!--         <div class="multiple-choice">
+              <input id="nationalities-british" name="nationalities" type="checkbox" value="British">
+              <label for="nationalities-british" class="text">I understand that I need to sign the top right corner of the front of the will (and any codicils) before sending my documents</label>
+            </div> -->
+
+            <div class="form-group">
+                <input id="button" class="button" type="submit" role="button" value="I’ve sent my documents">
+            </div>
+        </form>
+
+    </main>
+
+
+{% endblock %}

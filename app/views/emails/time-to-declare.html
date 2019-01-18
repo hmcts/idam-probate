@@ -1,0 +1,33 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Client invitation email
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div><img src="/public/images/email-header.png"></div>
+    {% include "includes/phase_banner.html" %}
+    <h1 class="heading-small">Submit your application for probate</h1>
+    <h2 class="heading-xsmall">The Probate Service <i>probate@hmcts.gov.uk</i></h2>
+    <hr/>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <p>Dear {{ data['labParticipantName'] }},</p>
+            <p>All the executors who are applying for probate have agreed that the legal statement is correct.</p>
+            <p>You must now make a legal declaration before a grant can be issued.</p>
+
+            <h2 class="heading-medium">What you need to do</h2>
+            <p>Carefully read <a href="/co-executors-journey/declaration">the legal declaration</a> before confirming it.</p> 
+
+            <p>If you disagree with any of the information in the declaration, you’ll need to contact {{ data['leadLabApplicantName'] }} and ask them to update any incorrect information.</p>
+
+            <p>Kind regards,<br/>
+                The Probate Registry</p>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

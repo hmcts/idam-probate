@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+    <main id="content" role="main">
+
+        <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">BETA</strong>
+    <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/thankyou">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <div class="govuk-box-highlight">
+        
+        <h1 class="bold-large">Application complete</h1>
+        
+        <p>
+        {% if session.paymentMethod == "by-card" %}Your payment has been received.{% endif %} Your reference number is <br>
+          <strong class="heading-medium">1234-1235-1236-1237</strong>
+        </p>
+     <!-- <p class="text">
+      A confirmation email has been sent to {{ data['leadEmailAddress'] }}<strong class="bold-small">{{ session.emailAddress }}</strong>.
+      </p> --> 
+      </div> 
+
+            <h2 class="heading-medium">What happens next</h2>
+
+            <div class="text">
+            <p>Your application will be processed as soon as the Probate Registry receives your documents.</p>
+
+            <!-- p> You can check which <a href="/documents/send-your-documents">documents you need to send</a>.  -->
+
+            <p>You will receive the grant of probate and any copies you've ordered within 20 working days of your documents being received.</p>
+
+            <p>We’ll email you if we need any more information. You can also call the Probate Registry on 0300 303 0648 if you have any questions.</p>
+
+            <div class="panel panel-border-wide">
+              <p class="text">Find out what to do <a href="/gov-uk/8">when you receive your grant of probate</a></a>.
+              </p>
+            </div>
+
+            <h2 class="heading-medium">Save your application</h2>
+            <p class="text"> You can save or print these documents for your reference.</p>
+            <div class="inline" style="padding-bottom: 40px;">
+              <a href="public/images/check-your-answers-DavidSmith-probate.pdf" target="_blank"><i class="icon icon-file-download"></i>
+                  <span style="padding-left:10px;">Check your answers (58kb PDF) </span></a>
+            </div>
+            <div class="inline" style="padding-bottom: 40px;">
+              <a href="public/images/check-your-answers-DavidSmith-probate.pdf" target="_blank"><i class="icon icon-file-download"></i>
+                  <span style="padding-left:10px;">Legal declaration (58kb PDF) </span></a>
+            </div>
+            <div class="inline" style="padding-bottom: 40px;">
+              <a href="public/images/check-your-answers-DavidSmith-probate.pdf" target="_blank"><i class="icon icon-file-download"></i>
+                  <span style="padding-left:10px;">Document checklist (58kb PDF) </span></a>
+            </div>
+
+
+           
+
+            <p><a href="http://www.smartsurvey.co.uk/s/A2LY8/">This is a new service – your feedback will help us to improve it.</a></p>
+            <!-- You should: -->
+
+            
+<!-- <ul class="list list-bullet">
+    
+        <li>send your documents by registered post as soon as possible</li>
+    
+        <li>keep copies of all documents</li>
+    
+</ul>
+            
+
+            <h2 class="heading-medium">Receiving your grant of probate</h2>
+
+            <p>You should receive your grant of probate and a copy, plus any extra copies you&rsquo;ve ordered, within 20 days of us receiving your documents.</p>
+
+            <p>We&rsquo;ll email you if we need you provide any more information. Call us on 0300 303 0648 if you have any questions.</p>
+
+        
+        <a href="http://www.smartsurvey.co.uk/s/A2LY8/">This is a new service – your feedback will help us to improve it.</a> -->
+      </div>
+</div>
+
+
+<!-- from steel thread -->
+
+<!--         <h1 class="form-title heading-large">Thank you</h1>
+
+        
+
+            <p>When we’ve received your documents and payment we’ll start to process your application.</p>
+
+            <h2 class="heading-medium">Receiving you grant of probate</h2>
+
+            <p>You should receive your grant of probate and a copy, plus any extra copies you've ordered, within 20 days of us receiving your documents.</p>
+
+            <p>We'll email you if we need you to provide any more information. Call us on 01865 264249 if you have any questions.</p>
+        
+        <a href="http://www.smartsurvey.co.uk/s/A2LY8/">This is a new service – your feedback will help us to improve it.</a> -->
+
+    </main>
+
+
+
+
+{% endblock %}

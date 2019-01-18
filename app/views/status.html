@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+    <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">BETA</strong>
+    <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/summary/*">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+
+  <div class="text">
+    <h1 class="heading-large">
+        Co-applicant status
+    </h1>
+    
+      <table style="margin-bottom:30px;">
+          <caption class="heading-small"><!-- Dates and amounts --></caption>
+            <tbody>
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th class="col">Status</th>
+              </tr>
+            </thead>
+              <tr>
+                <td><strong>Anna-Kay Williams</strong></td>
+                <td>Agreed <br>3 November 2017 <span style="color:#888;">08:40</span></td>
+              </tr>
+              <tr>
+                <td>Sarah Jane Williams</td>
+                <td>Disagreed<br>3 November 2017 <span style="color:#888;">08:40</span></td>
+              </tr>
+              <tr>
+                <td>Jonathan Williams</td>
+                <td><span style="color:#888;"></span></td>
+              </tr>
+              <tr>
+                <td>Samuel Jeffrey Andrew Williamson</td>
+                <td>Agreed <br>3 November 2017 <span style="color:#888;">08:40</span></td>
+              </tr>
+            </tbody>
+      </table>
+
+
+    <p>A grant of probate won’t be issued until all executors applying for probate have confirmed that everything is correct.</p>
+
+    <a class="button" href="/tasklist/review-and-confirm-waiting" role="button">Back to tasklist</a>
+  </div>
+
+
+
+</main>
+
+
+
+{% endblock %}

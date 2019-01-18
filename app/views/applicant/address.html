@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+{% include "includes/phase_banner_beta.html" %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a class="link-back" href="#">Back</a>
+      <h1 class="heading-large">What is your address?</h1>
+      <form action="#">
+        <div class="form-group">
+          <fieldset>
+            <legend></legend>           
+            <p>We'll send the grant of probate to this address.</p>
+          </fieldset>
+        </div>
+<!--           button -->
+            <div class="form-group">
+                <input id="continue-button" type="submit" class="button" value="Continue">
+            </div>
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

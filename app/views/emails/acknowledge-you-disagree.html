@@ -1,0 +1,38 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Client invitation email
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div><img src="/public/images/email-header.png"></div>
+    {% include "includes/phase_banner.html" %}
+    <h1 class="heading-small">Submit your application for probate</h1>
+    <h2 class="heading-xsmall">The Probate Service <i>probate@hmcts.gov.uk</i></h2>
+    <hr/>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <p>Dear {{ data['labParticipantName'] }},</p>
+            <p>You've said that you don't agree with the legal statement for your probate application.</p>
+
+            <h2 class="heading-medium">What happens next</h2>
+            <p>We've emailed {{ data['leadLabApplicantName'] }} telling them that you don't agree with the legal statement.</p>
+
+            <p>You should now contact {{ data['leadLabApplicantName'] }} to discuss the information that they gave and whether it needs to be changed.</p>
+
+            <p>If {{ data['leadLabApplicantName'] }} agrees that the information they gave needs to be changed, you'll be sent another email asking you to confirm that an updated legal statement is correct.</p>
+
+            <p>If you both agree that the information is already correct, you can confirm the legal statement using this link:</p>
+
+            <p><a href="#" style="word-wrap:break-word;">https://www.probate.reform.hmcts.net/invitation/williams-afr-456</a></p> 
+
+            <p>Kind regards,<br/>
+                The Probate Registry</p>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

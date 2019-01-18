@@ -1,0 +1,38 @@
+{% extends "question.html" %}
+
+{% set question = "How many copies of the grant do you need for use outside the UK?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<p>You'll need international copies of the grant of probate if {{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }} held assets (such as property or shares) outside the UK.</p>
+
+
+
+         <p>Each international copy of the grant is 50p.</p>
+
+<div class="form-group">
+    <fieldset>
+        <legend class="visually-hidden">
+            Copies - Outside the UK
+        </legend>
+        
+<div class="form-group ">
+    
+    <label class="form-label form-label-bold" for="overseas">Number of international copies</label>
+    
+
+    
+    
+
+     <input type="number" class="form-control form-control-1-8" id="overseasGrant" name="overseasGrant" value=""
+           maxlength="5"> 
+</div>
+
+    </fieldset>
+</div>
+
+{% endblock %}

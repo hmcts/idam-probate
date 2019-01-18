@@ -1,0 +1,701 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+    {{data | dump}}
+    {{session | dump}}
+
+    <br>
+    <br>    
+    {{data.applicant.home.street1}}<br>
+{{data.deceased.home.street1}}
+    <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">BETA</strong>
+    <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/summary/*">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+
+
+
+    <h1 class="heading-large">
+        Check your answers
+    </h1>
+    <p>Check the information below carefully. This will form a record of your application for probate. It will also be stored as a public record, and will be able to be viewed online.</p>
+
+    <table class="check-your-answers form-group">
+        <tbody>
+            <tr>
+                <td colspan="3"><span class="heading-medium">The will and codicl</span></td>
+            </tr>
+            
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Did the person who died leave a will?</div>
+            <div class="column-one-half">{{ data['willLeft'] }}</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/screening-questions/will-left">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Do you have the original will?</div>
+            <div class="column-one-half">Yes</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/screening-questions/will-original">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Is there a date on the will?</div>
+            <div class="column-one-half">{{ data['willDate'] }}</div>
+        </div>
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">What date was the original will signed and witnessed?</div>
+            <div class="column-one-half">{{data['day']}} {{ data['month'] | month }} {{data['year']}}</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/screening-questions/will-date">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Were any updates (&lsquo;codicils&rsquo;) made to the will?</div>
+            <div class="column-one-half">{{ data['codicils'] }}</div>
+        </div>
+    
+    
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/screening-questions/codicils">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Are you an executor?</div>
+            <div class="column-one-half">Yes</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/screening-questions/applicant-executor">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+            <tr>
+                <td colspan="3"><span class="heading-medium">About the executors</span></td>
+            </tr>
+            
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">First name(s)</div>
+            <div class="column-one-half">{{ data['applicantFirstName'] }}{{ data['applicantFullName'] }}</div>
+        </div>
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Last name(s)</div>
+            <div class="column-one-half">{{ data['applicantLastName'] }}</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/applicant/name">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Phone number</div>
+            <div class="column-one-half">{{ data['applicantPhoneNumber'] }}</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/applicant/phone-number">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">What is your address?</div>
+            <div class="column-one-half">{{data.applicant.home.street1}} {{data.applicant.home.street2}} {{data.applicant.home.street3}} {{data.applicant.home.town}} {{data.applicant.home.county}} {{data.applicant.home.postcode}}</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/applicant/address/postcode">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+<!-- if other exectors -->
+
+{% if data['otherExecutors']==='Yes' %} 
+<td colspan="3"><span class="heading-small">Other executors you&rsquo;ve told us about</span></td>
+<tr>
+    <td colspan="2">
+        <div class="grid-row">
+            <div class="column-one-half">
+                <span class="heading-small">Executor</span>
+            </div>
+            <div class="column-one-half">
+                <span class="heading-small">Are they applying?</span>
+            </div>
+        </div>        
+        
+<!-- executor #2  -->       
+        <div class="grid-row">
+            <div class="column-one-half">{{ data['applicant2FirstName'] }} {{ data['applicant2LastName'] }}</div>
+            <div class="column-one-half">
+                
+                {% if data['isApplying2'] === 'Applying' %}    
+                    Applying for probate
+                        {% else %}
+                    {{ data['notApplying2Reason'] }}
+                {% endif %}
+                
+            </div>
+        </div>
+{% endif %}
+
+
+<!-- executor 3 -->
+    {% if data['otherExecutors2']==='Yes' %}
+
+        <div class="grid-row">
+            <div class="column-one-half">{{ data['applicant3FirstName'] }} {{ data['applicant3LastName'] }}</div>
+            <div class="column-one-half">
+                
+                    
+                {% if data['isApplying3'] === 'Applying' %}    
+                    Applying for probate
+                        {% else %}
+                    {{ data['notApplying3Reason'] }}
+                {% endif %}
+                
+            </div>
+        </div>
+    {% endif %}
+
+<!-- executor 4 -->
+    {% if data['otherExecutors3']==='Yes' %}
+        <div class="grid-row">
+            <div class="column-one-half">{{ data['applicant4FirstName'] }} {{ data['applicant4LastName'] }}</div>
+            <div class="column-one-half">
+                
+                    
+                {% if data['isApplying4'] === 'Applying' %}    
+                    Applying for probate
+                        {% else %}
+                    {{ data['notApplying4Reason'] }}
+                {% endif %}
+                
+            </div>
+        </div>
+    {% endif %}
+
+
+        
+    </td>
+    <td class="change-answer">
+        
+        <a href="/applicant/other-executors">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+<!-- if other executors end -->
+
+            <tr>
+                <td colspan="3"><span class="heading-medium">About the person who died</span></td>
+            </tr>
+            
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">First name(s)</div>
+            <div class="column-one-half">{{ data['deceasedFirstName'] }}</div>
+        </div>
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Last name(s)</div>
+            <div class="column-one-half">{{ data['deceasedLastName'] }}</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/deceased/name">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Did the person who died have assets in another name?</div>
+            <div class="column-one-half">{{ data['deceasedAlias'] }}</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/deceased/alias">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+            <!-- deceased alias -->
+            {% if (data['deceasedAlias'] === 'Yes') %}
+                 also known as {{ data['otherNames'] }},
+
+<tr>
+    <td colspan="2">
+        <div class="grid-row">
+            <div class="column-one-half">Names used by the deceased</div>
+            <div class="column-one-half">
+            
+                <div class="grid-row">
+                    <div class="column-one-half">{{ data['deceasedOtherFirstName'] }} {{ data['deceasedOtherLastName'] }}</div>
+                </div>
+            
+            </div>  
+        </div>
+    </td>
+    <td class="change-answer">
+        
+        <a href="/other-names">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+             {% endif %}    
+            <!-- deceased alias end -->
+
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Did {{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }} get married or enter into a civil partnership after the date stated on the will?</div>
+            <div class="column-one-half">{{ data['married'] }}</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/deceased/married">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">What was the date that they died?</div>
+            <div class="column-one-half">{{data['dod_day']}} {{ data['dod_month'] | month }} {{data['dod_year']}}</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/deceased/dod">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">What was their date of birth?</div>
+            <div class="column-one-half">{{data['dob_day']}} {{ data['dob_month'] | month }} {{data['dob_year']}}</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/deceased/dob">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">At the time of their death did the person who died:</div>
+            <div class="column-one-half">{{ data['domicile'] }}  </div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/deceased/domicile">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">What was the permanent address at the time of their death?</div>
+            <div class="column-one-half">{{ data['street1'] }}{{ data['street2'] }}{{ data['street3'] }}{{ data['town'] }}{{ data['county'] }}{{ data['postcode'] }}</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/deceased/address/postcode">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+            <tr>
+                <td colspan="3"><span class="heading-medium">Inheritance tax</span></td>
+            </tr>
+            
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Was an inheritance tax form filled in online, or on paper?</div>
+            <div class="column-one-half">{{ data['ihtMethod'] }}<br>{{ data['form'] }}
+        </div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/deceased/iht-method">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+
+
+
+
+<!-- IHT identifier number -->
+
+
+{% if data['ihtMethod']==='Online (an estate report was filled in)' %} 
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Inheritance tax identifier (IHT)</div>
+            <div class="column-one-half">{{ data['identifier'] }}</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/deceased/iht-identifier">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+{% endif %}
+
+
+
+
+
+<tr>
+    <td colspan="2">
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Gross value of the estate in &pound;</div>
+            <div class="column-one-half">£{{ data['grossValue'] }}{{ data['gross205'] }}{{ data['gross207'] }}{{ data['gross400'] }}</div>
+        </div>
+    
+    
+    
+    
+        <div class="grid-row">
+            <div class="column-one-half">Net value of the estate in &pound;</div>
+            <div class="column-one-half">£{{ data['netValue'] }}{{ data['net205'] }}{{ data['net207'] }}{{ data['net400'] }}</div>
+        </div>
+    
+    
+    </td>
+    <td class="change-answer">
+        
+            
+            <a href="/deceased/iht-value">Change<span class="visuallyhidden">Change</span></a>
+        
+    </td>
+</tr>
+
+
+
+        </tbody>
+    </table>
+
+    <div class="form-group">
+        
+        <p><a href="/declaration" class="button button-start" role="button">Continue</a></p>
+        
+    </div>
+</main>
+
+
+
+{% endblock %}

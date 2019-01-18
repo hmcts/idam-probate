@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+        <h1 class="heading-large">You’ve made your legal declaration</h1>
+<!--       <div class="govuk-box-highlight">
+        <h1 class="heading-xlarge">
+          Thank you
+        </h1>
+        <p class="font-large">
+          Your reference number is <br>
+          <strong class="bold">HDJ2123F</strong>
+        </p>
+      </div> -->
+
+      <p></p>
+
+      <!-- <p>A confirmation email has been sent to you and {{ data['leadLabApplicantName'] }}.</p> -->
+
+      <!-- <h2 class="heading-medium">What happens next</h2> -->
+
+      <!-- <p>You need to sign a photocopy of the will in the top right corner and send it to {{ data['leadLabApplicantName'] }}.</p> -->
+
+      <p>When everyone has made their legal declaration, the executor responsible for making this application will be asked to send all the relevant documents to the probate registry.</p>
+
+      <h2 class="heading-medium">What happens next</h2>
+      <p>{{ data['leadLabApplicantName'] }} will receive the grant of probate within 20 working days of the probate registry receiving all the necessary paperwork. 
+      </p>
+
+      <p>Contact {{ data['leadLabApplicantName'] }} if you need more information.</p>
+
+      <div class="panel panel-border-wide">
+     <p class="text">
+        You need to sign a photocopy of the will in the top right hand corner and send it to {{ data['leadLabApplicantName'] }}.</p>
+     </div>
+
+      <p>This is a new service – <a href="#">your feedback will help us to improve it</a>.</p>
+
+
+      <!-- <p ><a href="/emails/has-declared-next-steps" style="color:white">Inbox: have declared</a></p>
+
+      <p ><a href="/emails/everyone-has-declared-next-steps" style="color:white">Back to inbox</a></p> -->
+
+    </div>
+  </div>
+
+</main>
+
+
+
+
+
+{% endblock %}

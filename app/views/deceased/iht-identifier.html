@@ -1,0 +1,31 @@
+{% extends "question.html" %}
+
+{% set question = "What is your Inheritance Tax (IHT) identifier?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+        <p>This is the reference HMRC gave you when you completed your application.</p>
+<div class="form-group">
+    <fieldset>
+        <legend class="form-label-bold">
+            Inheritance Tax identifier <span class="form-hint">For example, 1234 5678 A01-123</span>
+        </legend>
+
+
+        
+<div class="form-group ">
+    
+    <label class="visually-hidden" for="identifier">Inheritance tax identifier (IHT)</label>    
+    
+
+    <input type="text" class="form-control form-control-2-4" id="identifier" name="identifier" value="{{ data['identifier'] }}"
+           maxlength="">
+</div>
+
+    </fieldset>
+</div>
+{% endblock %}
+

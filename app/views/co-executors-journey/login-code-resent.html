@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block proposition_header %}
+<div class="header-proposition">
+    <!-- Intentionally empty div element -->
+</div>
+<!--
+    This file should match the IDAM login screen. Any changes you wish to make to this should be given to the
+    IDAM team to make.
+-->
+{% endblock %}
+
+{% block page_title %} 
+{{ serviceName }}
+{% endblock %}
+
+{% block content %}
+<main id="content" class="prototype-8" role="main">
+    {% include "includes/phase_banner_beta.html" %}
+    <div class="govuk-box-highlight padding-small">
+        <h1 class="bold-large">A new security code has been sent to<br>07123 456789</h1>
+    </div>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <p>You&rsquo;ll be able to access the service with the new code as soon as you receive it.</p>
+            <p><a href="/login-code" class="button">Enter the security code</a></p>
+            <h2 class="heading-medium">If you still haven&rsquo;t received the code</h2>
+            <p>If you haven&rsquo;t got the code yet, make sure that:</p>
+            <ul class="list list-bullet">
+                <li>your mobile phone has a signal</li>
+                <li>the mobile phone number we have is correct</li>
+                <li>you wait up to an hour to receive it - during busy periods, texts can be delayed </li>
+            </ul>
+            <p><a href="login-code-havent-received">I haven&rsquo;t received the security code</a></p>
+        </div>
+    </div>
+</main>
+{% endblock %}

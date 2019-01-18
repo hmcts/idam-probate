@@ -1,0 +1,32 @@
+{% extends "question.html" %}
+
+{% set question = "Are any of the other executors dealing with the estate?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+
+
+{% block form %}
+<p>These executors will be given the legal right to:</p>
+<ul class="list list-bullet">
+  <li>collect the estate’s assets (property, money and possessions)</li>
+  <li>pay any taxes and debts</li>
+  <li>distribute what’s left to the people named in the will (the ‘beneficiaries’)</li>
+</ul>
+
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="anyOtherDealing-yes" type="radio" name="anyOtherDealing" value="Yes" {{ data['anyOtherDealing'] | checkedIf('Yes') }}>
+      <label for="anyOtherDealing-yes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="anyOtherDealing-no" type="radio" name="anyOtherDealing" value="No" {{ data['anyOtherDealing'] | checkedIf('No') }}>
+      <label for="anyOtherDealing-no">No</label>
+    </div>
+  </fieldset>
+</div>
+{% endblock %}

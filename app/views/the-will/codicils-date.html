@@ -1,0 +1,66 @@
+{% extends "question_no_sign_out.html" %}
+
+{% set question = "Is there a date on the latest update (‘codicil’)?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+<fieldset class="form-group  inline">
+        <legend class="visuallyhidden">Is there a date on the latest update (&amp;lsquo;codicil&amp;rsquo;)?</legend>
+        
+
+        <div class="multiple-choice" data-target="yes-details">
+            <input id="isCodicilsDateYes" type="radio" name="isCodicilsDate" value="Yes" aria-controls="yes-details" aria-expanded="false">
+            <label for="isCodicilsDateYes">Yes</label>
+        </div>
+
+        <div class="multiple-choice">
+            <input id="isCodicilsDateNo" type="radio" name="isCodicilsDate" value="No">
+            <label for="isCodicilsDateNo">No</label>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="yes-details" aria-hidden="true">
+            <h2 class="heading-medium">What date was the latest codicil signed?</h2>
+            <p>If there is more than codicil, you need to give the date of the most recent one.</p>
+            <p class="form-hint">For example, 30 06 2016</p>
+            
+
+
+
+<fieldset class="form-group " id="codicilsDate_date">
+    <legend class="visually-hidden">Is there a date on the latest update (&amp;lsquo;codicil&amp;rsquo;)?</legend>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <div class="form-date">
+        <div class="form-group form-group-day">
+            <label for="codicilsDate_day">Day</label>
+            <input class="form-control " id="codicilsDate_day" type="number" pattern="[0-9]*" min="1" max="31" name="codicilsDate_day" value="">
+        </div>
+        <div class="form-group form-group-month">
+            <label for="codicilsDate_month">Month</label>
+            <input class="form-control " id="codicilsDate_month" type="number" pattern="[0-9]*" min="1" max="12" name="codicilsDate_month" value="">
+        </div>
+        <div class="form-group form-group-year">
+            <label for="codicilsDate_year">Year</label>
+            <input class="form-control " id="codicilsDate_year" type="number" pattern="[0-9]*" min="1" max="2017" name="codicilsDate_year" value="">
+        </div>
+
+    </div>
+</fieldset>
+
+        </div>
+    </fieldset>
+</div>
+
+{% endblock %}

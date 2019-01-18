@@ -1,0 +1,20 @@
+{% extends "question.html" %}
+
+{% set question = "How is your name written on the will?" %}
+
+{% block question %}
+    {{ question }}
+{% endblock %}
+
+{% block form %}
+    <div class="form-group">
+        <fieldset class="form-group {{ " error " if fields.applicantNameOnWill.error }}">
+            <legend class="visually-hidden">Name</legend>
+            <label class="form-label" for="applicantNameOnWill">
+                Name
+            </label>
+            {{ errorsFor(fields.applicantNameOnWill) }}
+            <input class="form-control form-control-3-4" id="applicantNameOnWill" name="applicantNameOnWill" type="text" value="{{ fields.applicantNameOnWill.value }}">
+        </fieldset>
+    </div>
+{% endblock %}

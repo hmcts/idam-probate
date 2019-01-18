@@ -1,0 +1,28 @@
+{% extends "question.html" %}
+
+{% set question %}
+Was {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }} given land or property on the condition that after they die it gets given to a specific person?
+{% endset %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<p>This is known as ‘land vested’ in {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }}’s name. The deeds to this land or property can’t be passed to a beneficiary through probate.</p>
+<p>This does not include any land or property that {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }} bought or rented.</p>
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="radio-1" type="radio" name="deceasedVestedLand" value="Yes">
+      <label for="radio-1">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-2" type="radio" name="deceasedVestedLand" value="No">
+      <label for="radio-2">No</label>
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

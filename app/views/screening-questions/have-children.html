@@ -1,0 +1,27 @@
+{% extends "question_no_sign_out.html" %}
+
+{% set question = "[Did they deceased have children?]" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+
+
+{% block form %}
+
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="havechildrenYes" type="radio" name="havechildren" value="Yes" {{ data['havechildren'] | checkedIf('Yes') }}>
+      <label for="havechildrenYes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="havechildrenNo" type="radio" name="havechildren" value="No" {{ data['havechildren'] | checkedIf('No') }}>
+      <label for="havechildrenNo">No</label>
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

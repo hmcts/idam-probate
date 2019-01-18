@@ -1,0 +1,27 @@
+{% extends "question_no_sign_out.html" %}
+
+{% set question = "[Were they married or in a civil partnership when they died?]" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+
+
+{% block form %}
+
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="marriedOrCivilPartnershipYes" type="radio" name="marriedOrCivilPartnership" value="Yes" {{ data['marriedOrCivilPartnership'] | checkedIf('Yes') }}>
+      <label for="applicantIsExecutorYes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="marriedOrCivilPartnershipNo" type="radio" name="marriedOrCivilPartnership" value="No" {{ data['marriedOrCivilPartnership'] | checkedIf('No') }}>
+      <label for="applicantIsExecutorNo">No</label>
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

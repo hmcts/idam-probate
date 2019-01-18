@@ -1,0 +1,36 @@
+{% extends "question.html" %}
+
+{% set question = "Which executors will be dealing with the estate?" %}
+{% set executorName1 = (data['applicantFirstName'] + ' ' + data['applicantLastName']) | trim %}
+
+{% block question %}
+    {{ question }}
+{% endblock %}
+
+{% block form %}
+    <p>Up to 4 executors can be named on the grant of probate.</p>
+    <div class="form-group">
+        <fieldset>
+          <legend class="visually-hidden">{{ question }}</legend>
+            {% for i in range(0, data['numberOfExecutors']) %}
+                {% if (data['allExecutorsAlive'] == 'Yes') or (data['executorIsAlive' + i]) or (data['applicantFullName'] === data['executorName' + i]) %}
+
+                    {% set checkedValue %}
+                        {% if (data['manageEstate' + i] === true) or (i === 0) %}
+                            checked="checked"
+                        {% endif %}
+                        {% if (i == 0 ) %}
+                            disabled
+                        {% endif %}
+                    {% endset %}
+
+                    <div class="multiple-choice">
+                        <input id="manageEstate{{ i }}" name="manageEstate{{ i }}" type="checkbox" value="true" {{checkedValue}}>
+                        <label for="manageEstate{{ i }}">{{data['executorName' + i]}}</label>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+        </fieldset>
+    </div>
+{% endblock %}

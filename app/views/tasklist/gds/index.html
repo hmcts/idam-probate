@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Task list
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds column-minimum">
+
+      <h1 class="heading-large">
+        Apply for probate
+      </h1>
+
+      <ol class="task-list">
+        <li>
+          <h2 class="task-list-section">
+            <span class="task-list-section-number">1. </span> Before you start
+          </h2>
+          <ul class="task-list-items">
+            <li class="task-list-item">
+              <a class="task-name" href="/screening-questions/will-left" aria-describedby="eligibility-completed">
+                Check eligibility
+              </a>
+              <strong class="task-completed" id="eligibility-completed">Completed</strong>
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="/registration/index" aria-describedby="read-declaration-completed">
+                Set up your account
+              </a>
+                            {% if data['leadEmailAddress'] %}
+              <strong class="task-completed" id="read-declaration-completed">Completed</strong>
+                            {% endif %}
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="task-list-section">
+            <span class="task-list-section-number">2. </span> Fill in your application
+          </h2>
+          <ul class="task-list-items">
+            <li class="task-list-item">
+              <a class="task-name" href="/the-will/will-date" aria-describedby="company-information-completed">
+                About the will
+              </a>
+              {% if data['codicils'] %}
+                  <strong class="task-completed" id="company-information-completed">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="/deceased/about" aria-describedby="contact-details-completed">
+                About the person who died
+              </a>
+              <strong class="task-completed" id="contact-details-completed">Completed</strong>
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="/deceased/iht-method">
+                About the inheritance tax
+              </a>
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="/the-executors/how-many">
+                About the executors
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="task-list-section">
+            <span class="task-list-section-number">3. </span> Submit your application
+          </h2>
+          <ul class="task-list-items">
+            <li class="task-list-item">
+              <a class="task-name" href="/check-your-answers">
+                Make your legal declaration
+              </a>
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="/grant/copies-uk">
+                Order extra copies of the grant of probate
+              </a>
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="/pay/payment-breakdown">
+                Pay
+              </a>
+            </li>
+            <li class="task-list-item">
+              <a class="task-name" href="/documents">
+                Send your documents to the Probate Registry
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ol>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

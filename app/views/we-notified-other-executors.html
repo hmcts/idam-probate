@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+    <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">BETA</strong>
+    <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/summary/*">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+
+  <div class="text">
+    <h1 class="heading-large">
+        We’ve notified the other executors who are applying for probate
+    </h1>
+    <p>They've each been sent an email asking them to make their legal declarations.</p>
+
+    <p>They'll be asked to contact you if they don't agree with the information you've provided. </p>
+
+    <p>You can continue to make changes to your application until everyone has made their legal declaration.</p>
+
+
+
+    <a class="button" href="/tasklist/review-and-confirm-waiting" role="button">Continue</a>
+  </div>
+
+        {% include "includes/help.html" %}
+
+</main>
+
+
+
+{% endblock %}

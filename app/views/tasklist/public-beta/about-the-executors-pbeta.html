@@ -1,0 +1,65 @@
+{% extends "layout.html" %} {% block page_title %} Question page {% endblock %} {% block content %}
+<main id="content" role="main">
+    <div class="phase-banner-beta">
+        <p>
+            <strong class="phase-tag">BETA</strong>
+            <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/tasklist">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="form-title heading-large">Apply for probate</h1>
+            <p class="text">Complete these steps to get the legal right to deal with the property and belongings of someone who has died.</p>
+            <p class="text">You can save your application and return to it later if you need to.</p>
+            <div class="form-group">
+                <ol>
+                    <li class="task-item">
+                        <span class="heading-medium"><span class="task-list-section-number">1. </span>Give details about the will and Inheritance Tax</span>
+                        <span class="progress-status-tag">Completed</span>
+                        <!-- Check your answers -->
+                        <p class="text-in-tasklist"><a href="/summary/the-person-who-died">Check and change your answers</a></p>
+                    </li>
+                    <li class="task-item">
+                        <span class="heading-medium"><span class="task-list-section-number">2. </span>Tell us about the person who has died and the executors</span>
+                        <!-- <p class="text-in-tasklist">Answer questions about the executors.</p> -->
+                        <!-- Start link -->
+                        <p class="text-in-tasklist"><a href="/applicant/name" class="button button-start">Start</a></p>
+                    </li>
+                    <li class="task-item">
+                        <h2 class="task-list-section">
+            <span class="task-list-section-number">3. </span> Check your answers and make your legal <br>declaration
+          </h2>
+                        <p class="text-in-tasklist">You need to carefully check the information you&rsquo;ve given before making your legal declaration.</p>
+                        <p class="text-in-tasklist">The other applying executors can only make their legal declarations after you&rsquo;ve made yours.</p>
+                        <!-- Previous steps need completing text -->
+                        <p class="task-unavailable progress-status-tag">Can&rsquo;t start yet</p>
+                    </li>
+                    <li class="task-item">
+                        <span class="heading-medium"><span class="task-list-section-number">4. </span>Order extra copies of the grant of probate</span>
+                        <p class="text-in-tasklist">Extra copies are 50p each. You can also order copies to use outside the UK if the person who died had assets abroad.</p>
+                        <!-- Previous steps need completing text -->
+                        <p class="task-unavailable progress-status-tag">Can&rsquo;t start yet</p>
+                    </li>
+                    <li class="task-item">
+                        <span class="heading-medium"><span class="task-list-section-number">5. </span>Pay and submit</span>
+                        <p class="text-in-tasklist">The probate application fee is &pound;215.00 for estates valued at &pound;5,000 or over.</p>
+                        <p class="text-in-tasklist">There is no probate application fee for estates valued under &pound;5,000.</p>
+                        <!-- Previous steps need completing text -->
+                        <p class="task-unavailable progress-status-tag">Can&rsquo;t start yet</p>
+                    </li>
+                    <li class="task-item">
+                        <span class="heading-medium"><span class="task-list-section-number">6. </span>Send documents</span>
+                        <p class="text-in-tasklist">You need to send:</p>
+                        <ul class="list list-bullet">
+                            <li class="bullet-in-tasklist">documents including the original will and death certificate (the death certificate must be the original or a certified copy)</li>
+                        </ul>
+                        <p class="text-in-tasklist">We will check these supporting documents and issue your grant of probate.</p>
+                        <!-- Previous steps need completing text -->
+                        <p class="task-unavailable progress-status-tag">Can&rsquo;t start yet</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

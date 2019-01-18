@@ -1,0 +1,25 @@
+{% extends "question_no_sign_out.html" %}
+
+{% set question = "Did the person who died leave a will?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="willLeftYes" type="radio" name="willLeft" value="Yes" {{ data['willLeft'] | checkedIf('Yes') }}>
+      <label for="willLeftYes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="willLeftNo" type="radio" name="willLeft" value="No" {{ data['willLeft'] | checkedIf('No') }}>
+      <label for="willLeftNo">No</label>
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

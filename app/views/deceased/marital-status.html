@@ -1,0 +1,39 @@
+{% extends "question.html" %}
+
+{% set question %}
+What was {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }}&rsquo;s marital status?
+{% endset %}
+
+{% block question %}
+  {{ question | safe }}
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+  <fieldset>
+    <legend class="visually-hidden">{{ question }}</legend>
+
+    <div class="multiple-choice">
+      <input id="radio-3" type="radio" name="maritalStatus" value="married or in a civil partnership" {{ data['maritalStatus'] | checkedIf('married or in a civil partnership') }}>
+      <label for="radio-3">married or in a civil partnership</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-4" type="radio" name="maritalStatus" value="divorced or their civil partnership was dissolved" {{ data['maritalStatus'] | checkedIf('divorced or their civil partnership was dissolved') }}>
+      <label for="radio-4">divorced or their civil partnership was dissolved</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-2" type="radio" name="maritalStatus" value="widowed" {{ data['maritalStatus'] | checkedIf('widowed') }}>
+      <label for="radio-2">widowed</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-1" type="radio" name="maritalStatus" value="never married" {{ data['maritalStatus'] | checkedIf('never married') }}>
+      <label for="radio-1">never married</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-5" type="radio" name="maritalStatus" value="judicially separated" {{ data['maritalStatus'] | checkedIf('judicially separated') }}>
+      <label for="radio-5">judicially separated</label>
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

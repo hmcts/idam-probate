@@ -1,0 +1,30 @@
+{% extends "question.html" %}
+
+{% set question = "Which executors have different names?" %}
+
+{% block question %}
+    {{ question }}
+{% endblock %}
+
+{% block form %}
+
+    <div id="executors" class="form-group">
+        <fieldset class="form-group">
+            {% for i in range(0, data['numberOfExecutors']) %}
+                {% if ((data['allExecutorsAlive'] === 'Yes') or (data['executorIsAlive' + i] === true )) and (data['manageEstate' + i] === true) and (data['applicantFullName'] !== data['executorName' + i]) %}
+                    {% set checkedValue %}
+                        {% if (data['executorNameChanged' + i] === true) %}
+                            checked="checked"
+                        {% endif %}
+                    {% endset %}
+                    <div class="multiple-choice" data-target="executorNameChanged{{ i }}-newName">
+                        <input id="executorNameChanged{{ i }}" name="executorNameChanged{{ i }}" type="checkbox" value="true" 
+                        {{checkedValue}}>
+                        <label for="executorNameChanged{{ i }}">{{ data['executorName' + i] }}</label>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </fieldset>
+    </div>
+
+{% endblock %}

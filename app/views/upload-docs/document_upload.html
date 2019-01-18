@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Document upload - Tax Tribunals Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/phase_banner_alpha.html" %}
+
+  <div class="grid-row">
+
+
+    <div class="column-two-thirds">
+      <p><a class="link-back js-link-back" href="start.html">Back</a> &nbsp; Step 11 of 16</p>
+      <h1 class="heading-large">Select and upload your letters in digital format</h1>
+
+      <p class="lede">We accept scanned images or good quality pictures, for example via a smartphone. You can upload PDF, JPG, GIF or PNG formats. Maximum file size of 20MB.</p>
+
+      <form class="js_route" action="check_answers">
+
+        <div class="form-group">
+
+          <label class="block-label" for="doc_check_hmrc_letter">
+            <input id="doc_check_hmrc_letter" name="doc_check_hmrc_letter" type="checkbox" value="Original notice letter from HMRC" data-store />
+            <strong>Original notice letter</strong><br>
+            including the explanation for any decision(s)
+          </label>
+
+          <label class="block-label" for="doc_check_review_conclusion">
+            <input id="doc_check_review_conclusion" name="doc_check_review_conclusion" type="checkbox" value="The review conclusion letter from HMRC" data-store />
+            <strong>Review conclusion letter</strong><br>
+            you will only have this if your case was reviewed
+          </label>
+
+        </div>
+
+        <div class="dropzone" id="doc_upload_zone" tabindex="0">
+          <div class="dz-default dz-message grid-row">
+            <div class="column-one-third arrow-icon">
+              <p></p>
+            </div>
+            <div class="column-one-half">
+              <p class="dz-message-copy">
+                Drag and drop files here<br>
+                <strong>or</strong><br>
+                <a href="#" class="faux-link" tabindex="-1">click to choose a file</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="uploaded-files-wrapper">
+          <h2 class="heading-medium">Uploaded files</h2>
+          <ol class="list uploaded-files">
+            <li class="no-files">No files uploaded</li>
+          </ol>
+        </div>
+
+        <div class="form-group util_mt-large">
+          <label class="block-label" for="unable_to_upload" data-target="unable_to_upload_panel">
+            <input id="unable_to_upload" name="unable_to_upload" type="checkbox" />
+            I am having trouble uploading my documents
+          </label>
+
+          <div id="unable_to_upload_panel" class="panel js-hidden">
+            <p>You will need to continue completing your appeal and print off details, send copies of letters with a cheque or money order.</p>
+            <label for="document_upload_problems">Describe the trouble you are having uploading your documents</label>
+            <input type="text" class="form-control form-control-3-4" id="document_upload_problems" name="document_upload_problems">
+          </div>
+        </div>
+
+        <div class="form-group util_mt-large">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="column-one-third">
+      <p class="lede">&nbsp;</p>
+      <p class="lede">&nbsp;</p>
+      <h2 class="heading-small">Need help using the online service?</h2>
+      <nav role="navigation" class="font-xsmall">
+        <p><a href="#" data-alert="This feature is not available in this demo">Contact us</a></p>
+      </nav>
+
+    </div>
+
+  </div>
+</main>
+
+{% endblock %}
+
+

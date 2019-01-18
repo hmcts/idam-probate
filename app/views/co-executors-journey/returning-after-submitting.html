@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+    <main id="content" role="main">
+
+        <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">BETA</strong>
+    <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/thankyou">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+  
+  <div class="grid-row">
+    <div class="column-two-thirds">
+        <h1 class="form-title heading-large">Apply for probate <!-- who wishes to apply for probate --></h1>
+
+        <p>{{ data['leadLabApplicantName'] }} has told us that you'd like to apply for a grant of probate to deal with the estate of {{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }}.</p>
+
+        <p>Probate gives you the legal right to deal with a person's property, money and possessions (their ‘estate’) after they've died.</p>
+
+        <h2 class="heading-medium">What you need to do</h2>
+
+        <p>Use this service to check that a legal statement based on the information that {{ data['leadLabApplicantName'] }} has given is correct.</p>
+
+        <p>You'll need to contact {{ data['leadLabApplicantName'] }} if:</p>
+
+        <ul class="list list-bullet">
+          <li>you disagree with the information they've given</li>
+          <li>you have questions about the information</li>
+          <li>you haven't signed a photocopy of the will</li>
+        </ul>
+
+        <a class="button" href="declaration" role="button button-start">Start now</a>
+        
+        <h3 class="heading-small">If you don’t want to apply for a grant of probate</h3>
+
+        <p>If you don’t want to make this application, you can choose:</p>
+
+         <ul class="list list-bullet">
+          <li>not to apply for probate now, but you may want to apply later (known as ‘power reserved’)</li>
+          <li>to completely give up your right to apply for probate (known as ‘renunciation’)</li>
+        </ul>
+        
+          <p>You’ll need to contact {{ data['leadLabApplicantName'] }} and ask them to update this information.</p>
+
+    </div>
+    </div>
+
+    </main>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% macro describeField(id, name, value, label) %}
+{% set maxCharacters=1500 %}
+<div id="describe-wrapper-{{ id }}" class="form-group">
+  <label class="form-label-bold" for="{{ id }}">
+    {{ label }}
+  </label>
+    <textarea class="form-control"
+          id="{{ id }}"
+          rows="4"
+          name="{{ name }}"
+          type="text"
+          style="width: 100%">{{ value }}</textarea>
+
+
+</div>
+{% endmacro %}

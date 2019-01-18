@@ -1,0 +1,43 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Client invitation email
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div><img src="/public/images/email-header.png"></div>
+    {% include "includes/phase_banner.html" %}
+    <h1 class="heading-small">Submit your application for probate</h1>
+    <h2 class="heading-xsmall">The Probate Service <i>probate@hmcts.gov.uk</i></h2>
+    <hr/>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <p>Dear {{ data['applicantFirstName'] }}{{ data['applicantFullName'] }},</p>
+            <p>All executors applying for probate have now agreed the legal statement. Your application is ready to submit.</p>
+
+            <h2 class="heading-medium">What you need to do</h2>
+            <p> Use the link at the end of this email to:</p> 
+
+            <ul class="list list-bullet">
+
+                <li>submit your application</li>
+                <li>make a payment</li>
+                <li>order any extra copies of the grant of probate</li></ul>
+
+
+ <h2 class="heading-medium">Submit your application</h2>
+
+<p>Use this link to finish your application:</p>
+
+                <p><a href="/tasklist/grant" style="word-wrap:break-word;">https://www.probate.reform.hmcts.net/invitation/williams-afr-456</a></p>
+
+            <p>Kind regards,<br/>
+                The probate registry</p>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

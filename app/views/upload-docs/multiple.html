@@ -1,0 +1,65 @@
+{% extends "question.html" %}
+
+{% block question %}
+    Upload your documents
+{% endblock %}
+
+
+{% block form %}
+
+<fieldset class="form-group inline">
+
+    <p>
+        Upload a digital photo or scan of:
+    </p>
+
+  <h2 class="heading-medium" style="margin-top: 0px;">Your marriage certificate</h2>
+
+<p>
+    The image must be of the entire document and has to be readable by court staff. Include several images if your document covers more than one page. You can upload any type of image file (eg jpeg) or a PDF.
+</p>
+
+       <details>
+        <summary>
+            <span class="summary">How to take the picture</span>
+        </summary>
+
+        <div class="panel panel-border-narrow text">
+
+            <ol class="list list-number">
+                <li>
+                    Place your certificate on a flat service in a well lit room. Use a flash if you need to. 
+                </li>
+                <li>
+                    Take a good quality picture of the entire certificate - you should be able to see its edges.
+                </li>
+                <li>
+                    Check that the image is in focus. You must be able to read all the writing on the certificate, including the handwriting. Zoom in if you need to check this.
+                </li>
+                <li>
+                    Send the picture to this device (eg by email) and save it. A simple way of uploading your picture is to take it with a smartphone, then open your divorce application on the phone and upload it from there.
+                </li>
+            </ol>
+        </div>
+    </details>
+    <table id="docsTable">
+        <tbody>
+      <tr>
+          <td valign="top">
+          <input type="file" id="certificate-upload" name="certificateUpload" multiple/>
+          </td>
+        <td valign="top">
+        </td>
+      </tr>
+   </tbody>
+  </table>
+    </fieldset>
+
+    <p class="text">
+    <a href="unable-to-upload">I can't upload my documents</a>
+    </p>
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="/public/javascripts/custom-file-upload.js"></script>
+{% endblock %}

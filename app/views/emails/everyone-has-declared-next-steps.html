@@ -1,0 +1,31 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Client invitation email
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div><img src="/public/images/email-header.png"></div>
+    {% include "includes/phase_banner.html" %}
+    <h1 class="heading-small">Your application for probate: make sure you’ve signed the will</h1>
+    <h2 class="heading-xsmall">The Probate Service <i>probate@hmcts.gov.uk</i></h2>
+    <hr/>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <p>Dear {{ data['labParticipantName'] }},</p>
+            <p>Thank you for submitting your legal declaration and application for probate.</p>
+
+            <h2 class="heading-medium">What you need to do</h2>
+            <p>Make sure that you and every other applicant has signed the will before sending it to the probate registry.</p>
+
+            <p>If the will isn’t signed by all the applicants we won’t be able to process your application.</p>
+
+            <p>Kind regards,<br/>
+                The Probate Registry</p>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

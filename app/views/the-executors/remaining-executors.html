@@ -1,0 +1,39 @@
+{% extends "question.html" %}
+
+{% set name %}
+  {% if (data['executorNewName' + data['currentExecutorToEdit']].length > 0) %}
+    {{ data['executorNewName' + data['currentExecutorToEdit']] }}
+  {% else %}
+    {{ data['executorName' + data['currentExecutorToEdit']] }}
+  {% endif %}
+{% endset %}
+
+{% block question %}
+Why isn't {{ name }} applying for probate?
+{% endblock %}
+
+{% block form %}
+  <div class="form-group">
+    <fieldset>
+      <legend class="visually-hidden">Why isn't {{ name }} applying for probate?</legend>
+      <div class="multiple-choice">
+        <input id="notApplyingReserve" type="radio" name="notApplyingReason{{data['currentExecutorToEdit']}}" value="reserve">
+        <label for="notApplyingReserve">They don’t want to apply for probate, but may want to apply later if another executor becomes unable to deal with the estate (this is known as ‘power reserved’)</label>
+      </div>
+      <div class="multiple-choice">
+        <input id="notApplyingRenounce" type="radio" name="notApplyingReason{{data['currentExecutorToEdit']}}" value="renounce">
+        <label for="notApplyingRenounce">They don't want to apply for probate, and they give up the right to apply in the future (this is known as 'renunciation' - the executor will need to fill in a form)</label>
+      </div>
+<!--
+      <div class="multiple-choice">
+        <input id="notApplyingInstituted" type="radio" name="notApplyingReason{{data['currentExecutorToEdit']}}" value="instituted">
+        <label for="notApplyingInstituted">They can’t apply for probate because they’re named as a ‘substitute executor’, (a ‘substitute executor’ is someone who can only act as an executor if the primary executors are unable to do so)</label>
+      </div>
+-->
+      <div class="multiple-choice">
+        <input id="notApplyingMentalIncapacity" type="radio" name="notApplyingReason{{data['currentExecutorToEdit']}}" value="instituted">
+        <label for="notApplyingMentalIncapacity">They can’t apply because they are unable to make their own decisions (they have been declared mentally incapable)</label>
+      </div>
+    </fieldset>
+  </div>
+{% endblock %}

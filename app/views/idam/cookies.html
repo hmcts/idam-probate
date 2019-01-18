@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block proposition_header %}
+  <div class="header-proposition">
+  <div class="content">
+  </div>
+</div>
+<!--
+    This file should match the IDAM login screen. Any changes you wish to make to this should be given to the
+    IDAM team to make.
+-->
+
+{% endblock %}
+{% from "common/errors.html" import errorsFor %}
+{% import "common/components/inputComponents.html" as inputComponents %}
+{% import "common/components/account.html" as account %}
+
+{% block page_title %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <!-- <a href="#" class="link-back">Back</a> -->
+      <h1 class="heading-xlarge">
+        Cookies
+      </h1>
+        <div id="tabs">
+                <div id="nav-links">
+<ol class="nav-list">
+  <li><a href="#tabs-1">Overview</a></li>
+           
+
+</ol>
+<hr>
+
+
+  <div id="tabs-1">
+         <h2 class="heading-large" id="overview">Overview</h2>
+      <p>A cookie is a small piece of data that’s stored on your computer, tablet, or phone when you visit a website. Most websites need cookies to work properly.</p>
+      <p>This service uses them to:</p>
+      <ul class="list list-bullet">
+        <li>measure how you use the service so it can be improved</li>
+        <li>remember the notifications you’ve seen so that you’re not shown them again</li>
+        <li>temporarily store the answers you give</li>
+      </ul>
+    <p>Find out more about <a target="_blank" href="http://www.aboutcookies.org/">how to manage cookies</a> <span class="font-xsmall">(opens in a new window)</span>.</p>
+     </div>
+             
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+    </div>
+  </div>
+  <script src="/public/javascripts/jquery-ui.js"></script>
+
+    <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+<style>
+  .ui-state-active a {
+      text-decoration: none;
+    color: #0b0c0c;
+    cursor: default;
+  }
+</style>
+</main>
+
+
+{% endblock %}

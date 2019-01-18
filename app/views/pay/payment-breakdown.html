@@ -1,0 +1,136 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">BETA</strong>
+    <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/payment-breakdown">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+<!-- {{data|dump}}{{fee_payable|dump}} -->
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            <form class="form" action="/pay/enter-card-details" novalidate>
+                <input type="hidden" name="" value="">
+
+        <h1 class="heading-large">
+            Payment summary
+        </h1>
+        <table class="form-group">
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="bold-small">Description</div>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="bold-small">Quantity</div>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="bold-small">Price</div>
+                        </div>
+                    </td>
+
+
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="font-small">Application fee</div>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="font-small"> 1</div>
+                        </div>
+                    </td>
+
+
+                    <td class="change-answer">
+                        <div class="font-small">&pound;{{application_fee}}</div>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="font-small">UK copies</div>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="font-small"> {{data['ukGrant']}}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="font-small">&pound;{{ukGrantFee}}</div>
+                    </td>
+                </tr>
+
+                {% if overseasGrantFee > 0 %}
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="font-small">Copies for use outside the UK</div>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="font-small"> {{data['overseasGrant']}}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="font-small">&pound;{{overseasGrantFee}}</div>
+                    </td>
+                </tr>
+                {% endif %}
+
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="bold-small">Total due</div>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="font-small"></div>
+                        </div>
+                    </td>
+
+                    <td>
+              {% if data['iht_form'] ==='205' %}
+                            <div class="font-small">&pound;0</div>
+                        {% else %}
+                            <div class="bold-small">&pound;{{totalDue}}</div>
+                            <!-- &pound;{{totalDue}} -->
+                {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    <div class="form-group">
+        <input class="button" type="submit" value="Continue">
+    </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

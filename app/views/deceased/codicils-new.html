@@ -1,0 +1,26 @@
+{% extends "question.html" %}
+
+{% set question %}
+Did {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }} make any updates to the original will (known as ‘codicils’)?
+{% endset %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<p>These updates would have been signed by {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }}.</p>
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden"></legend>
+    <div class="multiple-choice">
+      <input id="radio-1" type="radio" name="codicils" value="Yes" {{ data['codicils'] | checkedIf('Yes') }}>
+      <label for="radio-1">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-2" type="radio" name="codicils" value="No" {{ data['codicils'] | checkedIf('No') }}>
+      <label for="radio-2">No</label>
+    </div>
+  </fieldset>
+</div>
+{% endblock %}

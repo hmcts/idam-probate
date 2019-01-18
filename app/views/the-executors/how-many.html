@@ -1,0 +1,66 @@
+{% extends "question.html" %}
+
+{% set question = "You need to tell us about all the executors named on the will even if they’ve died." %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<p class="text">Include people named on any updates (codicils) to the will.</p>
+<!-- <p class="text">You must include:</p>
+
+<ul class="list list-bullet">
+
+    <li>executors who&rsquo;ve died </li>
+    <li>executors who are not applying for probate</li>
+    <li>executors who are applying for probate</li>
+
+</ul> -->
+
+<!-- <h2 class="heading-medium">Who to include</h2>
+
+<p>If an executor has replaced another executor (for example, the first named executor has died and the will names somebody to replace them), both the first and the second person have been active executors. So you must include both these people in your total.
+</p> -->
+
+
+<!--<div class="panel panel-border-wide"> -->
+<p class="text">
+    Do not include anyone who will only be an executor if current executors can&rsquo;t apply.
+</p>
+<!-- </div> -->
+
+
+
+<div class="form-group">
+    <fieldset class="form-group">
+
+        <legend>
+        </legend>
+
+        <label class="form-label-bold" for="numberOfExecutors">
+            Number of executors
+        </label>
+        <input class="form-control" id="numberOfExecutors" type="number" name="numberOfExecutors" style="width:4em;" value="{{data['numberOfExecutors']}}">
+
+    </fieldset>
+
+</div>
+
+<!-- logic  -->
+<!--         <div class="form-group">
+          <fieldset class="form-group">
+
+            <legend>
+            </legend>
+
+             <label class="form-label-bold" for="numberOfExecutors">
+                 Number of executors
+             </label>
+             <input class="form-control" id="numberOfExecutors" type="number" name="numberOfExecutors" style="width:4em;" value="{{ session.executors.numberOfExecutors }}">
+
+          </fieldset>
+
+        </div> -->
+{% endblock %}

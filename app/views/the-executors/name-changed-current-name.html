@@ -1,0 +1,38 @@
+{% extends "question.html" %}
+
+{% set name %}
+    {% if (data['executorCurrentName' + data['currentExecutorToEdit']].length > 0) %}
+        {{ data['executorCurrentName' + data['currentExecutorToEdit']] }}
+    {% else %}
+        {{ data['executorName' + data['currentExecutorToEdit']] }}
+    {% endif %}
+{% endset %}
+
+{% block question %}
+    What is {{ name | trim }}&rsquo;s current name?  
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+    <fieldset>
+        <legend>
+            <h1 class="heading-large hidden"></h1>
+        </legend>
+        <div class="form-group">
+            <label class="form-label" for="executorFirstNameCurrent{{data['currentExecutorToEdit']}}">First name(s)</label>
+            <span class="form-hint">Including middle names</span>
+            <input class="form-control form-control-3-4" id="executorFirstNameCurrent{{data['currentExecutorToEdit']}}" name="executorCurrentFirstName{{data['currentExecutorToEdit']}}" value="{{data['executorCurrentFirstName' + data['currentExecutorToEdit']]}}">
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>
+            <h1 class="heading-large hidden"></h1>
+        </legend>
+        <div class="form-group">
+            <label class="form-label" for="executorLastNameCurrent{{data['currentExecutorToEdit']}}">Last name</label>
+            <input class="form-control form-control-3-4" id="executorLastNameCurrent{{data['currentExecutorToEdit']}}" name="executorCurrentLastName{{data['currentExecutorToEdit']}}" value="{{data['executorCurrentLastName' + data['currentExecutorToEdit']]}}">
+        </div>
+    </fieldset>
+</div>
+{% endblock %}

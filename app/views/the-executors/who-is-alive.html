@@ -1,0 +1,25 @@
+{% extends "question.html" %}
+
+{% set question = "Which executors have died? " %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+    <div class="form-group">
+    {% for i in range(0, data['numberOfExecutors']) %}
+        {% if (data['applicantFullName'] !== data['executorName' + i] ) %}
+            {% set checkedValue %}
+                {% if (data['executorIsAlive' + i]) and (data['executorIsAlive' + i] !== true) and (data['applicantFullName'] !== data['executorName' + i] ) %}
+                    checked="checked"
+                {% endif %}
+            {% endset %}
+            <div class="multiple-choice">
+                <input id="executorIsAlive{{ i }}" name="executorIsAlive{{ i }}" type="checkbox" value="false" {{ checkedValue }}>
+                <label for="executorIsAlive{{ i }}">{{ data['executorName' + i] }}</label>
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+{% endblock %}

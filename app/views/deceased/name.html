@@ -1,0 +1,35 @@
+{% extends "question.html" %}
+
+{% set question = "What&rsquo;s the full name of the person who died?" %}
+
+{% block question %}
+    {{ question | safe }}
+{% endblock %}
+
+{% block form %}
+<p>Use the name on the death certificate.</p>
+<div class="form-group">
+     <fieldset>
+        <legend class="visually-hidden">
+            {{ question | safe }}
+        </legend>
+        
+        <div class="form-group ">
+            
+            <label class="form-label" for="deceasedFirstName">First name(s)</label>
+            
+            <p class="form-hint">Including middle names</p>
+
+            <input type="text" class="form-control form-control-3-4" id="deceasedFirstName" name="deceasedFirstName" value="" maxlength="60">
+        </div>
+
+        <div class="form-group ">
+            
+            <label class="form-label" for="deceasedLastName">Last name(s)</label>
+
+            <input type="text" class="form-control form-control-3-4" id="deceasedLastName" name="deceasedLastName" value="" maxlength="60">
+        </div>
+
+    </fieldset>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">You have disagreed with the answers submitted</h1>
+
+      <p>
+        We have sent an email to {{ data['leadLabApplicantName'] }} informing them that you have disagreed. You will need to agree any changes with {{ data['leadLabApplicantName'] }} before the grant can be issued.
+      </p>
+
+      <h2 class="heading-medium">What happens next</h2>
+      <p>{{ data['leadLabApplicantName'] }} will need to make the agreed changes. You'll then need to log back in to agree the changes.</p>
+
+
+      <p ><a href="/emails/something-has-changed" style="color:white">Back to inbox</a></p>
+    </div>
+  </div>
+
+</main>
+
+
+
+
+
+{% endblock %}

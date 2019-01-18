@@ -1,0 +1,34 @@
+{% macro details(firstName, lastName, lastSignIn) %}
+    <div class="column-third">
+        <aside class="govuk-related-items" role="complementary">
+            <div class="section--blue-top sidebar--hidden-sm"></div>
+            <section>
+                <div id="user-name-and-last-login-holder" class="last-login spacing--top" data-qa="last-login-summary">
+                    <h3 id="welcome-text">
+                        Welcome, {{ firstName | capitalize }} {{ lastName | capitalize }}
+                    </h3>
+                    <p class="last-login__more-details font-xsmall">Last sign in on {{ lastSignIn }}  <a href="#" data-toggle-details="last-login-details">not right?</a></p>
+                </div>
+                <div id="last-login-details" class="last-login-details js-hidden">
+                    <section id="last-login-detail" class="alert alert--slim alert--info">
+                       <p class="font-xsmall"><a href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/online-services-helpdesk">Contact HMRC</a> if it wasn't you.</p>
+                       <a class="minimise js-visible font-xsmall float--none" href="#">Minimise</a>
+                    </section>
+                </div>
+                <ul class="section__ul--link-list sidebar__list">
+                    <li class="sidebar__list-item font-xsmall">
+                       <a id="go-to-messages-link" href="/business-account/messages" class="go-to-messages" data-journey-click="messages:Click:Go to your messages">
+                           Messages  </a>
+                    </li>
+                    <li class="sidebar__list-item font-xsmall"></li>
+                    <li class="sidebar__list-item font-xsmall"><a id="manage-account-link" href="/business-account/manage-account" data-journey-click="HomePageSidebar:Click:ManageAccount">Manage account</a></li>
+                    <li class="sidebar__list-item font-xsmall"><a id="help-link" href="/business-account/help" data-journey-click="HomePageSidebar:Click:Help">Help and contact</a></li>
+                </ul>
+                <section class="service-info__related-subsection subsection">
+                    <nav role="navigation">
+                    </nav>
+                </section>
+            </section>
+        </aside>
+    </div>
+{% endmacro %}

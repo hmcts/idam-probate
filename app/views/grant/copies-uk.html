@@ -1,0 +1,39 @@
+{% extends "question.html" %}
+
+{% set question = "How many extra copies of the grant do you need for use in the UK?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+    <fieldset>
+        <legend class="visually-hidden">
+            Copies - UK
+        </legend>
+        <p>After your application has been processed you’ll be sent:</p>
+
+        <ul class="list list-bullet">
+            <li>the grant of probate</li>
+            <li>one copy of the grant to use in the UK</li>
+        </ul>
+
+         <p>You can order extra copies of the grant if you need them. Each extra copy costs 50p.</p>
+
+      
+
+
+            <div class="form-group ">
+                
+                <label class="form-label-bold" for="uk">Number of UK copies</label>        
+
+                 <input type="number" class="form-control form-control-1-8" id="ukGrant" name="ukGrant" value="{{ data['ukGrant'] }}"
+                       maxlength="5"> 
+            </div>
+
+    </fieldset>
+</div>
+
+
+{% endblock %}

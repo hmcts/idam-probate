@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="phase-banner-beta">
+        <p>
+            <strong class="phase-tag">BETA</strong>
+            <span>This is a new service – your <a
+                    href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/deceased-address">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="form-title heading-large">What was the permanent address at the time of their death?</h1>
+
+            <form class="form" method="post" action="/deceased-address" novalidate>
+                <input type="hidden" name="_csrf" value="RcHFHExj-R4w2BhOhsQw7IPw2P5XjppO6Suw">
+                <fieldset>
+                    <legend class="visually-hidden">Find UK address</legend>
+
+                    <div class="form-group ">
+                        <label for="postcode">Postcode</label>
+
+                        <input type="text" class="form-control form-control-1-4" id="postcode" name="postcode" value="">
+                        <input type="hidden" id="referrer" name="referrer" value="DeceasedAddress">
+                        <input type="submit" class="button-secondary" formaction="find-address" name="findaddress"
+                               value="Find UK address">
+                    </div>
+
+                    <input type="hidden" id="addressFound" name="addressFound" value="none">
+
+
+                    <div class="form-group">
+                        <details>
+                            <summary><span class="summary">Enter their address instead</span></summary>
+                            <div class="panel panel-border-narrow">
+                                <div class="form-group ">
+                                    <textarea title="Enter their address instead" class="form-control form-control-3-4"
+                                              rows="8" id="freeTextAddress" name="freeTextAddress"></textarea>
+                                </div>
+
+                            </div>
+                        </details>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <input type="submit" class="button" value="Continue">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

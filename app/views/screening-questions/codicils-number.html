@@ -1,0 +1,26 @@
+{% extends "question_no_sign_out.html" %}
+
+{% set question = "How many updates (&lsquo;codicils&rsquo;) were made to the will?" %}
+
+{% block question %}
+{{ question | safe }}
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+	<fieldset>
+        <legend class="visually-hidden">
+            {{ question | safe }}
+        </legend>
+        
+		<div class="form-group ">
+
+		    <label class="form-label" for="codicilsNumber"></label>
+
+		     <input type="number" class="form-control  form-control-1-8" id="codicilsNumber" name="codicilsNumber" value="{{ data['codicilsNumber'] }}" maxlength="5">
+		</div>
+
+    </fieldset>
+</div>
+
+{% endblock %}

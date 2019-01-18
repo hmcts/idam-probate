@@ -1,0 +1,27 @@
+{% extends "question_no_sign_out.html" %}
+
+{% set question = "Are all the executors able to make their own decisions?" %}
+
+{% block question %}
+    {{ question }}
+{% endblock %}
+
+{% block form %}
+    <p>Some people are unable to make their own decisions, for example because of a brain injury or illness like dementia.</p>
+
+    <p>You can read about <a href="https://www.gov.uk/make-decisions-for-someone/assessing-mental-capacity" target="_blank" rel="external noopener">mental capacity</a>.</p>
+    <div class="form-group">
+        <fieldset class="inline">
+            <legend class="visually-hidden">{{ question }}</legend>
+            <div class="multiple-choice">
+                <input id="mentalIncapacityYes" type="radio" name="mentalIncapacity" value="Yes" {{ data['mentalIncapacity'] | checkedIf('Yes') }}>
+                <label for="mentalIncapacityYes">Yes</label>
+            </div>
+            <div class="multiple-choice">
+                <input id="mentalIncapacityNo" type="radio" name="mentalIncapacity" value="No" {{ data['mentalIncapacity'] | checkedIf('No') }}>
+                <label for="mentalIncapacityNo">No</label>
+            </div>
+        </fieldset>
+    </div>
+
+{% endblock %}

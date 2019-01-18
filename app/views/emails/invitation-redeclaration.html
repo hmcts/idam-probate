@@ -1,0 +1,36 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Client invitation email
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+    <div><img src="/public/images/email-header.png"></div>
+    {% include "includes/phase_banner.html" %}
+    <h1 class="heading-small">Your probate application needs to be changed {{ data['deceasedLastName'] }}</h1>
+    <h2 class="heading-xsmall">The Probate Service <i>probate@hmcts.gov.uk</i></h2>
+    <hr/>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <p>Dear {{ data['labParticipantName'] }},</p>
+            <p>The probate registry has found a problem with your application for probate.</p>
+            <p>You'll need to change the information you provided before your application can be processed.</p>
+            <h2 class="heading-medium">What you need to do</h2>
+            <p>Use the link at the end of this email to return to your application.</p>
+            <p>You will then need to:</p>
+            <ul class="list list-bullet">
+                <li>add an executor called Mary Smith who died before David Smith died</li>
+                <li>change the gross estate value to £151,237</li>
+                <li>change the net estate value to £147,737</li>
+            </ul>
+            <h2 class="heading-medium">Change your legal statement</h2>
+            <p>The legal statement can be changed at:</p>
+            <p><a href="/redeclare/login" style="word-wrap:break-word;">https://www.probate.reform.hmcts.net/redeclare/williams-afr-456</a></p>
+            <p>After you submit the updated legal statement, the probate registry will continue processing your application.
+                <p>Kind regards,<br>
+                    The probate registry</p>
+        </div>
+    </div>
+</main>
+{% endblock %}

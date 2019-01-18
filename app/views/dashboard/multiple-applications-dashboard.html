@@ -1,0 +1,174 @@
+{% extends "layout-account.html" %}
+
+{% block page_title %}
+Dashboard - Apply for probate
+{% endblock %}
+
+{% block content %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/en-gb.js"></script>
+
+<script>
+
+  function dateCreated() {
+
+  var dateField = document.getElementById('dateCreated');
+  dateField.innerHTML = moment().add(1, 'months').format ('01 MMM YYYY');
+
+}
+
+  function myFunction() {
+      // var x = document.getElementById("myDIV");
+      // if (x.style.display === "none") {
+      //     x.style.display = "block";
+      // } else {
+      //     x.style.display = "none";
+      // }
+
+      var x = document.getElementById("deleteApplication");
+      if (x.style.display === "block") {
+          x.style.display = "table-row";
+      } else {
+          x.style.display = "none";
+      }
+
+    }
+
+    function myFunction1() {
+        // var x = document.getElementById("myDIV");
+        // if (x.style.display === "none") {
+        //     x.style.display = "block";
+        // } else {
+        //     x.style.display = "none";
+        // }
+
+        var x = document.getElementById("deleteApplication1");
+        if (x.style.display === "block") {
+            x.style.display = "table-row";
+        } else {
+            x.style.display = "none";
+        }
+
+      }
+      </script>
+
+
+<main id="content" role="main">
+    <div class="phase-banner-beta">
+        <p>
+            <strong class="phase-tag">BETA</strong>
+            <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/tasklist" rel="external noopener">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="form-title heading-large">Probate applications</h1>
+            <table class="form-group">
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="bold-small">Name of deceased</div>
+                        </div>
+                    </td>
+                    <td class="change-answer">
+                        <div class="bold-small">Date created</div>
+                    </td>
+                    <td class="change-answer">
+                        <div class="bold-small">Status</div>
+                    </td>
+                    <td class="change-answer">
+                        <div class="bold-small"></div>
+                    </td>
+                    <!-- <td class="change-answer">
+
+                    </td> -->
+                </tr>
+
+
+
+                <tr id="deleteApplication">
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="font-small">Joe Smith</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="font-small"><span id="dateCreated2"></span>27 Nov 2018</div>
+                    </td>
+                    <td>
+                        <div class="font-small">In progress</div>
+                    </td>
+                    <td>
+                        <div class="font-small"><span><a href="/deceased/iht-value-paper-account" rel="external noopener">Continue</a></span></div>
+                    </td>
+                    <!-- <td>
+                        <div class="font-small"><span><a onclick="myFunction()" rel="external noopener">Delete</a></span></div>
+                    </td> -->
+
+                </tr>
+
+                <tr id="deleteApplication">
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="font-small">Mia Smith</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="font-small"><span id="dateCreated1"></span>02 Nov 2018</div>
+                    </td>
+                    <td>
+                        <div class="font-small">Completed</div>
+                    </td>
+                    <td>
+                        <div class="font-small"><span><a href="/thank-you-account" rel="external noopener">View</a></span></div>
+                    </td>
+                    <!-- <td>
+                        <div class="font-small"><span><a onclick="myFunction()" rel="external noopener">Delete</a></span></div>
+                    </td> -->
+
+                </tr>
+
+                <!-- <tr id="deleteApplication1">
+                    <td colspan="2">
+                        <div class="grid-row column-two-thirds">
+                            <div class="font-small">Phillip Smith</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="font-small">24 Nov 2018</div>
+                    </td>
+                    <td>
+                        <div class="font-small">In progress</div>
+                    </td>
+                    <td>
+                        <div class="font-small"><span><a href="#continue" rel="external noopener">Continue application</a></span></div>
+                    </td>
+
+                </tr> -->
+
+                <!-- <td>
+                    <div class="font-small"><span><a onclick="myFunction1()" rel="external noopener">Delete</a></span></div>
+                </td> -->
+
+
+
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="screening-questions-account/death-certificate" rel="external noopener">Start a new application</a>
+
+
+
+            <div class="form-group">
+
+            </div>
+        </div>
+    </div>
+    {% include "includes/help.html" %}
+</main>
+{% endblock %}

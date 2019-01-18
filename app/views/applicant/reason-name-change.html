@@ -1,0 +1,53 @@
+{% extends "question.html" %}
+
+{% set name %}
+    {{ data['applicantFirstName'] }} {{ data['applicantLastName'] }}{{ data['applicantFullName'] }}
+{% endset %}
+
+{% set question %}
+    What is the reason for the name change?
+{% endset %}
+
+{% block question %}
+    {{ question }}
+{% endblock %}
+
+{% block form %}
+    <div class="form-group">
+        <fieldset>
+            <legend class="visually-hidden">{{ question }}</legend>
+
+            <div class="multiple-choice">
+                <input id="radio-1" type="radio" name="applicantNameChangeReason" value="Marriage"
+                    {{ data.applicantNameChangeReason | checkedIf('Marriage') }}>
+                <label for="radio-1">Marriage</label>
+            </div>
+            <div class="multiple-choice">
+                <input id="radio-2" type="radio" name="applicantNameChangeReason" value="Divorce"
+                    {{ data.applicantNameChangeReason | checkedIf('Divorce') }}>
+                <label for="radio-2">Divorce</label>
+            </div>
+            <div class="multiple-choice" data-target="provide-evidence-deed">
+                <input id="radio-3" type="radio" name="applicantNameChangeReason" value="Change by deed poll"
+                    {{ data.applicantNameChangeReason | checkedIf('Deedpoll') }}>
+                <label for="radio-3">Change by deed poll</label>
+            </div>
+
+            <div id="provide-evidence-deed" class="form-group panel panel-border-narrow js-hidden">
+                <p class="text">You&rsquo;ll need to send a copy of the deed poll document with your application. You can upload a scan or digital photo (you&rsquo;ll be told when to do this) or send it by post.
+                </p>
+            </div>
+
+            <div class="multiple-choice" data-target="applicant-other-name-reason-panel">
+                <input id="radio-4" type="radio" name="applicantNameChangeReason" value="Other"
+                    {{ data.applicantNameChangeReason | checkedIf('Other') }}>
+                <label for="radio-4">Other</label>
+            </div>
+
+            <div class="panel panel-border-narrow js-hidden" id="applicant-other-name-reason-panel" aria-hidden="">
+                <label class="form-label" for="applicant-other-name-reason">Reason for name change</label>
+                <input class="form-control" type="text" id="applicant-other-name-reason" name="otherNameReason">
+            </div>
+        </fieldset>
+    </div>
+{% endblock %}

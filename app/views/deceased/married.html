@@ -1,0 +1,25 @@
+{% extends "question.html" %}
+
+{% set question %}
+Did {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }} get married or enter into a civil partnership after the will was signed?
+{% endset %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="radio-1" type="radio" name="married" value="Yes" {{ data['married'] | checkedIf('Yes') }}>
+      <label for="radio-1">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-2" type="radio" name="married" value="No" {{ data['married'] | checkedIf('No') }}>
+      <label for="radio-2">No</label>
+    </div>
+  </fieldset>
+</div>
+{% endblock %}

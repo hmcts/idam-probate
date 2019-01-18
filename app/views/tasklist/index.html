@@ -1,0 +1,141 @@
+{% extends "layout_no_sign_out.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    {% include "includes/phase_banner_beta.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="form-title heading-large">Apply for probate</h1>
+            <p>Complete these steps to apply for probate.</p>
+
+
+            <div class="form-group">
+                <ol>
+                    <li class="task-item">
+    <span class="heading-medium">1. About the will</span>
+    
+        <p>Answer questions about the will and any updates to the will (‘codicils’).</p>
+    
+    
+
+    
+        
+            <!-- Start link -->
+            <p><a href="../screening-questions/will-left" class="button button-start">Start</a></p>
+        
+    
+
+     
+</li>
+
+   <li class="task-item">
+    <span class="heading-medium">2. About the person who died</span>
+    
+        <p>Answer questions about the person who has died and their estate.</p>
+    
+        
+        <!-- Previous steps need completing text -->
+        <p class="task-unavailable">The previous step must be complete before you can start this.</p>
+        
+    
+
+ 
+</li>
+                    <li class="task-item">
+    <span class="heading-medium">3. About the executors</span>
+    
+        <p>Answer questions about the executors.</p>
+    
+
+    
+        <!-- Previous steps need completing text -->
+        <p class="task-unavailable">The previous step must be complete before you can start this.</p>
+    
+
+ 
+</li>
+                    <li class="task-item">
+    <span class="heading-medium">4. Check your answers and make your legal declaration</span>
+    
+        <p>You need to carefully check the information you've given before making your legal declaration.</p>
+
+<p>The other applying executors can only make their legal declarations after you've made yours.</p>
+    
+    
+
+    
+        <!-- Previous steps need completing text -->
+        <p class="task-unavailable">The previous step must be complete before you can start this.</p>
+    
+
+
+</li>
+
+                    <li class="task-item">
+    <span class="heading-medium">5. Order extra copies of the grant of probate</span>
+    
+        <p>Extra copies are 50p each. You can also order copies to use outside the UK if the person who died had assets abroad</p>
+    
+    
+
+    
+        <!-- Previous steps need completing text -->
+        <p class="task-unavailable">The previous step must be complete before you can start this.</p>
+    
+
+
+</li>
+
+
+                    <li class="task-item">
+    <span class="heading-medium">6. Pay and submit</span>
+    
+        <p>The probate application fee is &pound;215.00 for estates valued at &pound;5,000 or over.</p>
+        <p>There is no probate application fee for estates valued under &pound;5,000.</p>
+    
+    
+
+    
+        <!-- Previous steps need completing text -->
+        <p class="task-unavailable">The previous step must be complete before you can start this.</p>
+    
+
+
+</li>
+
+
+                    <li class="task-item">
+    <span class="heading-medium">7. Send documents</span>
+    
+    <p>You need to send:</p>
+    
+<ul class="list list-bullet">
+    
+        <li class="bullet-in-tasklist">documents including the original will and death certificate (the death certificate must be the original or a certified copy)</li>
+    
+</ul>
+
+    <p>We will check these supporting documents and issue your grant of probate.</p>
+    
+
+    
+        <!-- Previous steps need completing text -->
+        <p class="task-unavailable">The previous step must be complete before you can start this.</p>
+    
+
+ 
+</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+            {% include "includes/help.html" %}
+</main>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "question.html" %}
+
+{% set question %}
+How did you report the value of {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }}&rsquo;s estate to HM Revenue and Customs?
+{% endset %}
+
+{% block question %}
+  {{ question | safe }}
+{% endblock %}
+
+{% block form %}
+
+<div class="form-group">
+  <!-- <p>Say how it will be sent if you haven't sent it yet.</p> -->
+  <fieldset>
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="radio-1" type="radio" name="ihtMethod" value="Through the HMRC online service" {{ data['ihtMethod'] | checkedIf('Through the HMRC online service') }}>
+      <label for="radio-1">HMRC online service</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-2" type="radio" name="ihtMethod" value="I completed form IHT205" {{ data['ihtMethod'] | checkedIf('Form IHT205') }}>
+      <label for="radio-2">Paper form IHT205</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-3" type="radio" name="ihtMethod" value="I completed form IHT400 and 421" {{ data['ihtMethod'] | checkedIf('Form IHT400 and 421') }}>
+      <label for="radio-3">Paper form IHT400 and 421</label>
+    </div>
+  </fieldset>
+</div>
+{% endblock %}

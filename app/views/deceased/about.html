@@ -1,0 +1,113 @@
+{% extends "question.html" %}
+
+{% set question = "What is the full name of the person who died?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+  <fieldset class="form-group {{ " error" if fields.deceasedFirstName.error }}" >
+  <p class="heading-medium">The name of the person who died</p>
+  <legend class="visually-hidden">First Name(s)</legend>
+  <label class="form-label" for="deceasedFirstName">
+    First name(s)
+    <span class="form-hint">Include all middle names here</span>
+  </label>
+  {{ errorsFor(fields.deceasedFirstName) }}
+  <input class="form-control"
+         id="deceasedFirstName"
+         name="deceasedFirstName"
+         type="text"
+         value="{{ data['deceasedFirstName'] }}">
+  </fieldset>
+  <fieldset class="form-group {{ "error" if fields.deceasedLastName.error }}" >
+  <legend class="visually-hidden">Last Name(s)</legend>
+  <label class="form-label" for="deceasedLastName">Last name(s) </label>
+  {{ errorsFor(fields.deceasedLastName) }}
+  <input class="form-control"
+         id="deceasedLastName"
+         name="deceasedLastName"
+         type="text"
+         value="{{ data['deceasedLastName'] }}">
+  </fieldset>
+</div>
+<div class="form-group">
+  <fieldset class="form-group"
+            id="dateOnWill">
+    <legend class="visuallyhidden">Date on the will</legend>
+    <div class="form-date">
+      <label class="heading-medium">Date of birth</label>
+      <p class="form-hint">For example, 31 03 1945</p>
+
+      <div class="form-group form-group-day ">
+        <label for="dob_day">Day</label>
+        <input class="form-control"
+               id="dob_day"
+               name="dob_day"
+               value="{{data['dob_day']}}"
+               maxlength="2" oninput="dateSlice(this)">
+      </div>
+
+      <div class="form-group form-group-month {{ "error" if fields.dob_month.error }}">
+      <label for="dob_month">Month</label>
+      <input class="form-control"
+             id="dob_month"
+             name="dob_month"
+             value="{{data['dob_month']}}"
+             maxlength="2" oninput="dateSlice(this)">
+    </div>
+
+    <div class="form-group form-group-year {{ "error" if fields.dob_year.error }}">
+    <label for="dob_year">Year</label>
+    <input class="form-control"
+           id="dob_year"
+           name="dob_year"
+           value="{{data['dob_year']}}"
+           maxlength="4" oninput="dateSlice(this)">
+</div>
+</div>
+</fieldset>
+</div>
+<div class="form-group">
+  <fieldset class="form-group"
+            id="marriageDate">
+    <legend class="visuallyhidden">Date of death</legend>
+    <div class="form-date">
+      <label class="heading-medium">Date of death</label>
+      <p class="form-hint">Use the date from the death certificate. For example, 30 06 2016</p>
+
+      <div class="form-group form-group-day ">
+        <label for="dod_day">Day</label>
+        <input class="form-control"
+               id="dod_day"
+               name="dod_day"
+               value="{{data['dod_day']}}"
+               maxlength="2" oninput="dateSlice(this)">
+      </div>
+
+      <div class="form-group form-group-month {{ "error" if fields.dod_month.error }}">
+      <label for="dod_month">Month</label>
+      <input class="form-control"
+             id="dod_month"
+             name="dod_month"
+             value="{{data['dod_month']}}"
+             maxlength="2" oninput="dateSlice(this)">
+    </div>
+
+    <div class="form-group form-group-year {{ "error" if fields.dod_year.error }}">
+    <label for="dod_year">Year</label>
+    <input class="form-control"
+           id="dod_year"
+           name="dod_year"
+           value="{{data['dod_year']}}"
+           maxlength="4" oninput="dateSlice(this)">
+</div>
+</div>
+</fieldset>
+
+</div>
+
+
+{% endblock %}

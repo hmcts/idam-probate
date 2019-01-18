@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+        <h1 class="heading-xlarge">
+          Thank you
+        </h1>
+<!--       <div class="govuk-box-highlight">
+        <h1 class="heading-xlarge">
+          Thank you
+        </h1>
+        <p class="font-large">
+          Your reference number is <br>
+          <strong class="bold">HDJ2123F</strong>
+        </p>
+      </div> -->
+
+      <p>Your legal statement and declaration have been received.</p>
+
+      <p>A confirmation email has been sent to you and {{ data['leadLabApplicantName'] }}.</p>
+
+      <h2 class="heading-medium">What happens next</h2>
+
+      <p>You need to sign a photocopy of the will in the top right corner and send it to {{ data['leadLabApplicantName'] }}.</p>
+
+      <p>When all the applicants have confirmed the legal statement and made their declarations, {{ data['leadLabApplicantName'] }} will be emailed. They'll then need to send all the relevant documents to the Probate Registry.</p>
+
+      <p>Your application will continue to be processed as soon as the Probate Registry receives the documents. They should send your grant of probate and any additional copies within 20 days.</p>
+
+      <p>We’ll email you if we need any more information. You can also call the Probate Registry on 0300 303 0648 if you have any questions.</p>
+
+      <p>This is a new service – <a href="#">your feedback will help us to improve it</a>.</p>
+
+
+      <p ><a href="/emails/has-declared-next-steps" style="color:white">Inbox: have declared</a></p>
+
+      <p ><a href="/emails/everyone-has-declared-next-steps" style="color:white">Back to inbox</a></p>
+
+    </div>
+  </div>
+
+</main>
+
+
+
+
+
+{% endblock %}

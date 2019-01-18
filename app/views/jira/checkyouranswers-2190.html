@@ -1,0 +1,994 @@
+{% extends "layout_no_sign_out.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+     
+<main id="content" role="main">
+    <div class="phase-banner-beta">
+        <p>
+            <strong class="phase-tag">BETA</strong>
+            <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/summary/*">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+
+
+    <h1 class="heading-large">
+        Check your answers
+    </h1>
+      <p class="text">Check this information carefully. </p>
+    <p class="text">The information will form a record of your application for probate. It will also be stored as a public record that will be available online.</p>
+
+
+    <table class="check-your-answers form-group">
+        <tbody>
+            <!-- screening questions -->
+        <tr>
+            <td colspan="3"><span class="heading-medium">The will and codicils</span></td>
+        </tr>
+
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half ">Did the person who died leave a will?</div>
+                    <div class="column-one-half">Yes</div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/modify?s=/screening-questions/will-left&amp;f=/screening-questions/applicant-executor&amp;t=/check-your-answers">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half ">Do you have the original will?</div>
+                    <div class="column-one-half">Yes</div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/modify?s=/screening-questions/will-original&amp;f=/screening-questions/applicant-executor&amp;t=/check-your-answers">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half ">Is there a date on the will?</div>
+                    <div class="column-one-half">Yes</div>
+                </div>
+                <div class="grid-row">
+                    <div class="column-one-half ">What date was the original will signed and witnessed?</div>
+                    <div class="column-one-half">30 June 2016
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/deceased/will-date">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <!-- <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Has an inheritance tax (IHT) form been filled in?</div>
+                    <div class="column-one-half">Yes
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/deceased/iht-method">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>   -->
+
+        <!-- <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half ">Do you have a death certificate?</div>
+                    <div class="column-one-half">Yes</div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/screening-questions/will-original">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr> -->
+
+
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Were any updates ('codicils') made to the will?</div>
+                    <div class="column-one-half">No</div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/screening-questions/codicils">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+        
+
+      
+        <!-- <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half ">Do you have a death certificate?</div>
+                    <div class="column-one-half">Yes</div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/screening-questions/death-certificate">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr> -->
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half ">Are you an executor?</div>
+                    <div class="column-one-half">Yes</div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/screening-questions/applicant-executor">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+<!--  end of screening questions -->
+
+
+                <!-- IHT -->
+        <tr>
+            <td colspan="3"><span class="heading-medium">Inheritance tax</span></td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half ">Have you filled in the IHT form?</div>
+                    <div class="column-one-half">Yes<br>
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/deceased/iht-method">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td colspan="2">
+            
+            
+            
+            
+                <div class="grid-row">
+                    <div class="column-one-half">Was an inheritance tax form filled in online, or on paper?</div>
+                    <div class="column-one-half">Online (an estate report was filled in)</div>
+                </div>
+            
+            
+            </td>
+            <td class="change-answer">
+                
+                    
+                    <a href="/iht-method">Change<span class="visuallyhidden">Change</span></a>
+                
+            </td>
+        </tr>
+
+
+        <tr>
+            <td colspan="2">
+            
+            
+            
+            
+                <div class="grid-row">
+                    <div class="column-one-half">Inheritance tax identifier (IHT)</div>
+                    <div class="column-one-half">12312312123</div>
+                </div>
+            
+            
+            </td>
+            <td class="change-answer">
+                
+                    
+                    <a href="/iht-identifier">Change<span class="visuallyhidden">Change</span></a>
+                
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+            
+            
+            
+            
+                <div class="grid-row">
+                    <div class="column-one-half">Gross value of the estate in £</div>
+                    <div class="column-one-half">32131231</div>
+                </div>
+            
+            
+            
+            
+                <div class="grid-row">
+                    <div class="column-one-half">Net value of the estate in £</div>
+                    <div class="column-one-half">12312313</div>
+                </div>
+            
+            
+            </td>
+            <td class="change-answer">
+                
+                    
+                    <a href="/iht-value">Change<span class="visuallyhidden">Change</span></a>
+                
+            </td>
+        </tr>
+
+
+        <!-- the executors -->
+
+        <tr>
+            <td colspan="3"><span class="heading-medium">The executors</span></td>
+        </tr>
+
+        <!-- How many -->
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">How many past and present executors are named on the will?</div>
+                    <div class="column-one-half">
+                        7
+                        
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/the-executors/how-many">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+       <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Are all the executors alive?</div>
+                    <div class="column-one-half">
+                        No
+                        
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/the-executors/how-many">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Which executors have died?</div>
+                    <div class="column-one-half">
+                        Mary Smith<br/>
+                        Graham Smith
+                        
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/the-executors/how-many">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Did Mary Smith die before the person who died?</div>
+                    <div class="column-one-half">
+                        Yes
+                        
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/the-executors/how-many">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Did Graham Smith die before the person who died?</div>
+                    <div class="column-one-half">
+                        No
+                        
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/the-executors/how-many">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+
+        <!-- about you -->
+<!--         <tr>
+            <td colspan="3"><span class="heading-small">Executors applying for probate  </span></td>
+        </tr> -->
+        <tr>
+            <td colspan="3"><span class="heading-small">About you</span></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">First name(s)</div>
+                    <div class="column-one-half">Felicity</div>
+                </div>
+                <div class="grid-row">
+                    <div class="column-one-half ">Last name(s)</div>
+                    <div class="column-one-half">Jones</div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="#">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Is your name 'Felicity Jones' exactly what appears on the will or codicil?</div>
+                    <div class="column-one-half">
+                        No
+                        
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="#">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Phone number</div>
+                    <div class="column-one-half">
+                        0207 123 3456
+                        
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="#">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">What is your address?</div>
+                    <div class="column-one-half">
+                        12 Any Street, London, NW1 39D
+                        
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="#">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+
+
+        <!-- other execs applying -->
+        <tr>
+            <td colspan="3"><span class="heading-small">Other executors applying for probate</span></td>
+        </tr>
+        
+
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half">Will any of the other executors be dealing with the estate?</div>
+                            <div class="column-one-half">
+                               Yes
+
+                                
+                            </div>
+                        </div>
+                      </div>  
+                    </td>  
+
+                    <td class="change-answer">
+                        <a href="/the-executors/who-will-administer-estate">Change<span class="visuallyhidden">Change</span></a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half">Which other executors will be dealing with the estate?</div>
+                            <div class="column-one-half">
+                                Jem Jones</br>
+                                Roger Jones
+
+                                
+                            </div>
+                        </div>
+                      </div>  
+                    </td>  
+
+                    <td class="change-answer">
+                        <a href="/the-executors/who-will-administer-estate">Change<span class="visuallyhidden">Change</span></a>
+                    </td>
+                </tr>
+            
+ 
+
+<!--                 <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half ">Name on will</div>
+                            <div class="column-one-half">
+                                Jem Jones
+                                
+                            </div>
+                            <div class="column-one-half ">Current name</div>
+                            <div class="column-one-half">
+                                Jemima Jones
+                                
+                            </div>
+
+                        </div>
+                        <div class="grid-row">
+                            <div class="column-one-half ">Address</div>
+                            <div class="column-one-half">
+                               1 Regent Street, Newcastle, County Lancashire, M3 5ES 
+                            </div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="column-one-half">Mobile number</div>
+                            <div class="column-one-half">
+                                
+                                    07900123456
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="grid-row">
+                            <div class="column-one-half">Email address</div>
+                            <div class="column-one-half">
+                                j.jones@email.com
+                            </div>
+                        </div>
+                        
+                    </td>
+                    <td class="change-answer">
+                        <a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                        <br/><a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                        <br/><a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                        <br/><br/><a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                        <br/><a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                    </td>
+                </tr> -->
+
+
+        <!--         test seperating section into its own row -->
+        <tr>
+            <td colspan="3"><span class="heading-small">Second executor applying for probate</span></td>
+        </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half ">Name on will</div>
+                            <div class="column-one-half">
+                                Jem Jones
+                                
+                            </div>
+
+                        </div>
+                    
+                        
+                    </td>
+                    <td class="change-answer">
+                        <a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half ">Current name</div>
+                            <div class="column-one-half">
+                                Jemima Jones
+                                
+                            </div>
+
+                        </div>
+                    
+                        
+                    </td>
+                    <td class="change-answer">
+                        <a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                </tr>
+
+
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half ">Address</div>
+                            <div class="column-one-half">
+                                1 Regent Street, Newcastle, County Lancashire, M3 5ES 
+                                
+                            </div>
+
+                        </div>
+                    
+                        
+                    </td>
+                    <td class="change-answer">
+                        <a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half ">Mobile number</div>
+                            <div class="column-one-half">
+                                07900 123456
+                                
+                            </div>
+
+                        </div>
+                    
+                        
+                    </td>
+                    <td class="change-answer">
+                        <a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half ">Email address</div>
+                            <div class="column-one-half">
+                                jemjones@email.com
+                                
+                            </div>
+
+                        </div>
+                    
+                        
+                    </td>
+                    <td class="change-answer">
+                        <a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                </tr>
+
+       <tr>
+            <td colspan="3"><span class="heading-small">Third executor applying for probate</span></td>
+        </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half ">Name on will</div>
+                            <div class="column-one-half">
+                                Roger Jones
+                                
+                            </div>
+
+                        </div>
+                    
+                        
+                    </td>
+                    <td class="change-answer">
+                        <a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                </tr>
+
+<!--                 <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half ">Current name</div>
+                            <div class="column-one-half">
+                                Jemima Jones
+                                
+                            </div>
+
+                        </div>
+                    
+                        
+                    </td>
+                    <td class="change-answer">
+                        <a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                </tr> -->
+
+
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half ">Address</div>
+                            <div class="column-one-half">
+                                1 Buckingham Palace Road, London, WC1W 3JS 
+                                
+                            </div>
+
+                        </div>
+                    
+                        
+                    </td>
+                    <td class="change-answer">
+                        <a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half ">Mobile number</div>
+                            <div class="column-one-half">
+                                07912 345678
+                                
+                            </div>
+
+                        </div>
+                    
+                        
+                    </td>
+                    <td class="change-answer">
+                        <a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half ">Email address</div>
+                            <div class="column-one-half">
+                                rogerjones@email.com
+                                
+                            </div>
+
+                        </div>
+                    
+                        
+                    </td>
+                    <td class="change-answer">
+                        <a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                </tr>
+
+ <!--        <tr>
+            <td colspan="3"><span class="heading-small">Other executor #1 applying for probate</span></td>
+        </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half ">Name on will</div>
+                            <div class="column-one-half">
+                                Roger Jones
+                                
+                            </div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="column-one-half ">Address</div>
+                            <div class="column-one-half">
+                               1 Regent Street, Newcastle, County Lancashire, M3 5ES 
+                            </div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="column-one-half">Mobile number</div>
+                            <div class="column-one-half">
+                                
+                                    07900123456
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="grid-row">
+                            <div class="column-one-half">Email address</div>
+                            <div class="column-one-half">
+                                r.jones@email.com
+                            </div>
+                        </div>
+                        
+                    </td>
+                    <td class="change-answer">
+                        <a href="/the-executors/names">Change<span class="visuallyhidden">Change</span></a>
+                    </td>
+                </tr> -->
+            
+
+
+                    
+            
+        
+            
+        
+        
+<!--             <tr>
+                <td colspan="3"><span class="heading-small">Other executors</span></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half">
+                            <span class="heading-small">Executor</span>
+                        </div>
+                        <div class="column-one-half">
+                            <span class="heading-small">Are they applying?</span>
+                        </div>
+                    </div>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            
+                
+            
+                
+            
+                
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half">
+                            Jane Smith
+                            
+                        </div>
+                        <div class="column-one-half">
+                            
+                            No - this executor has ‘power reserved’ (they’re not applying now, but may apply later)
+                            
+                        </div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="/the-executors/how-many">Change<span class="visuallyhidden">Change</span></a>
+                </td>
+            </tr>
+                
+            
+                
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half">
+                            Mary Smith
+                            
+                        </div>
+                        <div class="column-one-half">
+                            
+                            No - this executor died before the deceased
+                            
+                        </div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="/the-executors/how-many">Change<span class="visuallyhidden">Change</span></a>
+                </td>
+            </tr> -->
+
+        <!-- Execs not applying -->
+        <tr>
+            <td colspan="3"><span class="heading-small">Executors not applying for probate</span></td>
+        </tr>
+
+
+
+ 
+
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Why isn't Isobel Jadva applying for probate?</div>
+                    <div class="column-one-half">
+                        Isobel Jadva doesn’t want to apply now, but may do in the future (this is also known as power reserved)
+                        
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/the-executors/how-many">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Have you notified Isobel Jadva in writing that you are applying?</div>
+                    <div class="column-one-half">
+                        Yes
+                        
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/the-executors/how-many">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Why isn't Fembot Schwetten applying for probate?</div>
+                    <div class="column-one-half">
+                        Fembot Schwetten doesn’t want to apply now, and gives up the right to do so in the future (this is also known as renunciation, and the executor will need to fill in a form)
+                        
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/the-executors/how-many">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+
+
+        <!-- other execs applying -->
+
+        
+
+
+
+        <!-- the person that died -->
+        <tr>
+            <td colspan="3"><span class="heading-medium">About the person who died</span></td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">First name(s)</div>
+                    <div class="column-one-half">arthur</div>
+                </div>
+                <div class="grid-row">
+                    <div class="column-one-half ">Last name(s)</div>
+                    <div class="column-one-half">williams</div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/modify?s=/deceased/about&amp;f=/deceased/address&amp;t=/check-your-answers">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Did the person who died have assets in another name?</div>
+                    <div class="column-one-half">Yes</div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/deceased/alias">Change<span class="visuallyhidden">Change</span></a>
+
+            </td>
+        </tr>
+
+        <!-- deceased alias -->
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Names used by the deceased</div>
+                    <div class="column-one-half">
+                    
+                        <div class="grid-row">
+                            <div class="column-one-half">Arthurik Williams</div>
+                        </div>
+                    
+                        <div class="grid-row">
+                            <div class="column-one-half">Arthur Williamson</div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                
+                <a href="/other-names">Change<span class="visuallyhidden">Change</span></a>
+                
+            </td>
+        </tr>
+        <!-- deceased alias end -->
+
+<!--         <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Was arthur williams given land or property on the condition that after they die it gets given to a specific person?
+                    </div>
+                    <div class="column-one-half"></div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/deceased/vested-land">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+        <tr> -->
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">Did arthur williams get
+                        married or enter into a civil partnership after the date stated on the will?
+                    </div>
+                    <div class="column-one-half">No</div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/deceased/married">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">What was the date that they died?</div>
+                    <div class="column-one-half">
+                        30 June 2016
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/deceased/about">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">What was their date of birth?</div>
+                    <div class="column-one-half">
+                        31 March 1945
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/deceased/about">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">At the time of their death did the person who died:</div>
+                    <div class="column-one-half">live (domicile) permanently in England or Wales</div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/deceased/domicile">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="grid-row">
+                    <div class="column-one-half">What was the permanent address at the time of their death?</div>
+                    <div class="column-one-half">
+                        Peter House, 1 Oxford Street, Manchester, County Lancashire, M1 5AN
+                    </div>
+                </div>
+            </td>
+            <td class="change-answer">
+                <a href="/deceased/address/postcode">Change<span class="visuallyhidden">Change</span></a>
+            </td>
+        </tr>
+
+
+            
+        
+        </tbody>
+    </table>
+
+    <!-- Print  -->
+    <!-- <div class="grid-row">
+        <div class="column-two-thirds">
+            <p><a href="#" class="button-secondary" onclick="javascript:window.print()"><img src="/public/images/sealed-claim.png"></a></p>
+            <p><a href="#" onclick="javascript:window.print()">Print or save this page as PDF</a></p>
+        </div> -->
+    </div>
+    <div class="form-group">
+        <p><a href="declaration" class="button" role="button">Continue</a></p>
+    </div>
+</main>
+
+
+{% endblock %}

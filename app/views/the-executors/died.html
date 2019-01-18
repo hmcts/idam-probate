@@ -1,0 +1,48 @@
+{% extends "question.html" %}
+
+{% block question %}
+{% if session.executors.numberOfExecutors == 2 %}
+Has the other executor died?
+{% else %}
+Have any of the other executors died?
+{% endif %}
+{% endblock %}
+
+{% block form %}
+
+<div class="form-group">
+<!--   <p>[Hint text: explain what this means]</p> -->
+          <fieldset class="inline">
+
+            <legend>
+            </legend>
+
+
+            <div class="multiple-choice" data-target="executors">
+              <input id="radio-1" type="radio" name="radioGroup" value="Yes">
+              <label for="radio-1">Yes</label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-2" type="radio" name="radioGroup" value="No">
+              <label for="radio-2">No</label>
+            </div>
+
+          </fieldset>
+</div>
+<div id="executors" class="form-group js-hidden {% if session.executors.numberOfExecutors <= 2 %} hidden {% endif %}">
+       <fieldset>
+        <legend>
+          <p class="form-label-bold">Which of the executors have died?</p>
+        </legend>
+        <div class="form-group">
+            {% for i in range(0, session.executors.numberOfExecutors) -%}
+                <div class="multiple-choice">
+                    <input id="checkbox-{{ i }}" type="checkbox" name="executorsReservingPower[]" value="{{ i }} ">
+                    <label for="checkbox-{{ i }}">{{ session.executors.names[i] }}</label>
+                </div>
+            {%- endfor %}
+        </div>
+      </fieldset>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "question.html" %}
+
+{% set question = "Did the person who died have assets outside the UK?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<p>This could be shares or property that they held outside the UK. If they did, you need special copies of the grant of probate to use outside of the UK.</p>
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="radio-1" type="radio" name="assetsOverseas" value="Yes">
+      <label for="radio-1">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-2" type="radio" name="assetsOverseas" value="No">
+      <label for="radio-2">No</label>
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

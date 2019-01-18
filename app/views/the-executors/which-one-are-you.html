@@ -1,0 +1,48 @@
+{% extends "question.html" %}
+
+{% set question = "Which executor are you?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+
+        <div class="form-group">
+          <fieldset>
+
+            <legend>
+            </legend>
+            {% for i in range(0, data['numberOfExecutors']) %}
+            <div class="multiple-choice">
+              <input id="radio{{ i }}" type="radio" name="applicantFullName" value="{{ data['executorName' + i] }}"
+              {{data['applicantFullName'] | checkedIf(data['executorName' + i]) }}>
+              <label for="radio{{ i }}">{{data['executorName' + i]}}</label>
+            </div>
+            {% endfor %}
+          </fieldset>
+        </div>
+
+
+<!-- Logic -->
+<!--         <div class="form-group">
+          <fieldset>
+
+            <legend>
+              <h1 class="heading-large hidden">What are the names of all the executors?</h1>
+            </legend>
+            {% for i in range(0, session.executors.numberOfExecutors) -%}
+            <div class="form-group">
+                <label class="form-label-bold" for="executor-{{ i }}">Executor {{ i+1 }}</label>
+                <input class="form-control" id="executor-{{ i }}" name="executorNames[]" value="{{ session.executors.names[i] }}">
+            </div>
+            {%- endfor %}
+
+          </fieldset>
+
+        </div> -->
+
+
+{% endblock %}
+

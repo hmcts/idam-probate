@@ -1,0 +1,123 @@
+{% extends "layout_no_sign_out.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">Beta</strong>
+    <span>This is a new service – your <a aria-label="This link will open in a new tab. You&rsquo;ll need to return to this tab to continue with your application." href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/documents" target="_blank" rel="external noopener">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+                
+            
+            
+    <h1 class="form-title heading-large">Documents</h1>
+
+
+            <form class="form" method="post" action="/documents" novalidate>
+                <input type="hidden" name="_csrf" value="">
+                
+
+    <p>You can print out this page if you&rsquo;d like to use it as a checklist.</p>
+
+    <h2 class="heading-medium">Prepare to send your documents</h2>
+
+    <h3 class="heading-small">1. What you need to sign</h2>
+
+    
+<ul class="list list-bullet">
+    
+        <li>the original will &ndash; you must sign the first page in the top right corner, but not make any other changes to the will</li>
+    
+</ul>
+
+
+    
+
+        <h3 class="heading-small">2. What the other applying executors need to sign</h2>
+
+        
+<ul class="list list-bullet">
+    
+        <li>a photocopy of the will &ndash; they must all sign the same photocopy on the first page in the top right corner</li>
+    
+</ul>
+
+
+        
+
+    
+
+    <h3 class="heading-small">3. Other documents</h2>
+
+    
+<ul class="list list-bullet">
+    
+        <li>2 photocopies of the will that you&rsquo;ve signed &ndash; these photocopies must be on plain A4 paper</li>
+    
+        <li>the death certificate &ndash; this will be returned to you</li>
+
+        <li>copy of the deed poll document for [applicant#1Name]</li>
+
+        <li>copy of the deed poll document for [applicant#2Name]</li>
+    
+</ul>
+
+
+    <p>You&rsquo;ll also need to include a cover letter if the will has been changed in any way since you got given it. This includes it being damaged or separated for photocopying. The letter should explain what&rsquo;s been changed and why.</p>
+
+    <div class="panel panel-border-wide">
+        <strong class="text">The grant of probate won&rsquo;t be issued if you don&rsquo;t have all the necessary documents and signatures.</strong>
+    </div>
+
+    <h2 class="heading-medium">Send your documents to the probate registry</h2>
+
+    <p>You should send your documents using a signed-for postal service to:</p>
+
+    <p>Digital Application<br />
+Oxford District Probate Registry<br />
+Combined Court Building<br />
+St Aldates<br />
+Oxford<br />
+OX1 1LY</p>
+
+    
+<fieldset class="form-group ">
+    <legend class="visually-hidden">Documents</legend>
+
+    
+    
+
+    <div class="multiple-choice">
+        <input id="sentDocuments" type="checkbox" name="sentDocuments" value="true" >
+        <label for="sentDocuments">I understand that I need to sign the will before sending my documents</label>
+    </div>
+
+</fieldset>
+
+
+    <div class="form-group">
+        <input id="button" class="button" type="submit" role="button" value="Save and continue">
+    </div>
+
+            </form>
+            <a href="/sign-out">Save and close</a>
+            
+        </div>
+    </div>
+</main>
+
+
+
+
+{% endblock %}

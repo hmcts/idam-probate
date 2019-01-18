@@ -1,0 +1,27 @@
+{% extends "question_no_sign_out.html" %}
+
+{% set question = "[Is the estate worth more than £250K?]" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+
+
+{% block form %}
+
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="estateOver250KYes" type="radio" name="estateOver250K" value="Yes" {{ data['estateOver250K'] | checkedIf('Yes') }}>
+      <label for="estateOver250KYes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="estateOver250KNo" type="radio" name="estateOver250K" value="No" {{ data['estateOver250K'] | checkedIf('No') }}>
+      <label for="estateOver250KNo">No</label>
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

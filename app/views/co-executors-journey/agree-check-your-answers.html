@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+        <h1 class="heading-xlarge">
+          Thank you
+        </h1>
+<!--       <div class="govuk-box-highlight">
+        <h1 class="heading-xlarge">
+          Thank you
+        </h1>
+        <p class="font-large">
+          Your reference number is <br>
+          <strong class="bold">HDJ2123F</strong>
+        </p>
+      </div> -->
+
+      <p>
+        We've sent a confirmation email to {{ data['leadLabApplicantName'] }}.
+      </p>
+
+      <h2 class="heading-medium">What happens next</h2>
+      <p>We'll email you when the other executors have agreed that the information is correct. You'll then need to declare and sign a statement of truth online.</p>
+
+      <p ><a href="/emails/time-to-declare" style="color:white">Back to inbox</a></p>
+
+    </div>
+  </div>
+
+</main>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,296 @@
+{% extends "question.html" %}
+
+{% set question = "The information we’ve been given" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+      <p class="text">Check the information below carefully. </p>
+    <p>This will form a record of your application for probate. It will also be
+        stored as a public record that will be available online.</p>
+    <table class="check-your-answers form-group">
+        <tbody>
+            <tr>
+                <td><span class="heading-medium">The will</span></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">Did the person who died leave a will?</div>
+                        <div class="column-one-half">Yes</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">Do you have the original will?</div>
+                        <div class="column-one-half">Yes</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">Is there a date on the will?</div>
+                        <div class="column-one-half">Yes</div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="column-one-half">What date was the original will signed and witnessed?</div>
+                        <div class="column-one-half">11 April 2011</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">Were any updates ('codicils') made to the will?</div>
+                        <div class="column-one-half">{{ data['codicils'] }}</div>
+                    </div>
+                </td>
+            </tr>
+            {% if (data['codicils'] === 'Yes') %}
+                <tr>
+                    <td>
+                        <div class="grid-row">
+                            <div class="column-one-half">How many updates ('codicils') were made to the will?</div>
+                            <div class="column-one-half">{{ data['codicilsNumber'] }}</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="grid-row">
+                            <div class="column-one-half">Is there a date on the latest update ('codicil')?</div>
+                            <div class="column-one-half">{{ data['isCodicilsDate'] }}</div>
+                        </div>
+                    </td>
+                </tr>
+                {% if (data['isCodicilsDate'] === 'Yes') %}
+                    <tr>
+                        <td>
+                            <div class="grid-row">
+                                <div class="column-one-half">What date was the latest codicil signed?</div>
+                                <div class="column-one-half">{{data['codicilsDate_day']}} {{ data['codicilsDate_month'] | month }} {{data['codicilsDate_year']}}
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endif %}
+
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">Are you an executor?</div>
+                        <div class="column-one-half">Yes</div>
+                    </div>
+                </td>
+            </tr>
+<!-- INHERITANCE TAX -->
+            <tr>
+                <td><span class="heading-medium">Inheritance tax</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">Was an inheritance tax form filled in online, or on paper?</div>
+                        <div class="column-one-half">On paper (the form will be posted)</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">Which paper form was filled in?</div>
+                        <div class="column-one-half">IHT 205 - there was no inheritance tax to pay</div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="column-one-half">Gross value of the estate in £</div>
+                        <div class="column-one-half">£267,000</div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="column-one-half">Net value of the estate in £</div>
+                        <div class="column-one-half">£97,000</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="heading-medium">About the person who died</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">First name(s)</div>
+                        <div class="column-one-half">{{ data['deceasedFirstName'] }}</div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="column-one-half">Last name(s)</div>
+                        <div class="column-one-half">{{ data['deceasedLastName'] }} </div>
+                    </div>
+                </td>
+                 <td class="change-answer">
+
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">Did the person who died have assets in another name?</div>
+                        <div class="column-one-half">{{ data['deceasedAlias'] }}</div>
+                    </div>
+                </td>
+            </tr>
+            {% if (data['deceasedAlias'] === 'Yes') %}
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">What other names did {{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }} use?</div>
+                        <div class="column-one-half">
+                            <div class="grid-row">
+                                <div class="column-one-half">
+                                    {% for name in (data | pickList('deceasedOtherFirstName_') |  joinTo(data | pickList('deceasedOtherLastName_'))) %}
+                                    <div>{{name}}</div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">Did David Smith get married or enter into a civil partnership after the date stated on the will?</div>
+                        <div class="column-one-half">No</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">What was the date that they died?</div>
+                        <div class="column-one-half">29 January 2017</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">What was their date of birth?</div>
+                        <div class="column-one-half">29 November 1945</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">At the time of their death did the person who died live permanently in England and Wales, or intend to return here?</div>
+                        <div class="column-one-half">Yes</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">What was the permanent address at the time of their death?</div>
+                        <div class="column-one-half">{{ data.deceased.home | address }}</div>
+                    </div>
+                </td>
+            </tr>
+        <tr>
+            <td><span class="heading-medium">About the executors who are applying for probate</span></td>
+        </tr>
+        {% for i in range(0, data['numberOfExecutors']) %}
+            {% if (data | executorApplyingForProbate(i)) %}
+            <tr>
+                <td>
+                    <div class="grid-row">
+                        <div class="column-one-half">Name</div>
+                        <div class="column-one-half">
+                            {{ data['executorName' + i] }}
+                            {% if (data['executorNewName' + i].length > 0) %}
+                            <br/>also known as {{data['executorNewName' + i]}}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="column-one-half">Address</div>
+                        <div class="column-one-half">
+                            {{ (data['applicant'].home | address) if (data | isApplicant(i)) else (data['executorAddress' + i] | address) }}
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+        <tr>
+            <td><span class="heading-small">Other executors you&rsquo;ve told us about</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="grid-row">
+                    <div class="column-one-half">
+                        <span class="heading-small">Executor</span>
+                    </div>
+                    <div class="column-one-half">
+                        <span class="heading-small">Are they applying?</span>
+                    </div>
+                </div>
+                {% for i in range(0, data['numberOfExecutors']) %}
+                    {% if (not (data | executorApplyingForProbate(i))) and ( (data['labParticipantName'] !== data['executorName' + i]) and (data['leadLabApplicantName'] !== data['executorName' + i])) %}
+                        <div class="grid-row">
+                            <div class="column-one-half">
+                                {{ data['executorName' + i] }}
+                                {% if (data['executorNewName' + i].length > 0) %}
+                                <br/>also known as {{data['executorNewName' + i]}}
+                                {% endif %}
+                            </div>
+                            <div class="column-one-half">
+                                {% if ((data['allExecutorsAlive'] !== 'Yes') and (data['executorIsAlive' + i] !== true)) %}
+                                No - this executor died {{ 'before' if (data['executorDiedBefore' + i] === 'Yes') else 'after'}} the deceased
+                                {% elif (data['notApplyingReason' + i] === 'reserve') %}
+                                No - this executor has ‘power reserved' (they’re not applying now, but may apply later)
+                                {% elif (data['notApplyingReason' + i] === 'renounce') %}
+                                No - this executor is ‘renouncing’ (they’re giving up their right to apply for probate)
+                                {% elif (data['manageEstate' + i]) %}
+                                Yes
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="form-group">
+        <fieldset>
+            <legend>
+                <span class="heading-medium">Do you agree with this information?</span>
+            </legend>
+            <p class="form-group">
+                <div class="multiple-choice">
+                    <input id="radio-home-address" type="radio" name="radioGroup" value="agree">
+                    <label for="radio-home-address">Yes, I agree that the information is correct</label>
+                </div>
+                <div class="multiple-choice" data-target="example-other-address">
+                    <input id="radio-other-address" type="radio" name="radioGroup" value="disagree">
+                    <label for="radio-other-address">No, something is wrong with the information</label>
+                </div>
+            </p>
+            <div class="panel panel-border-narrow js-hidden" id="example-other-address">
+                <div class="form-group">
+                    <p class="text">You'll need to contact {{ data['leadLabApplicantName'] }} and ask them to change the information they gave.</p>
+                    <p class="text">A grant for probate will not be issued until all the details are correct and agreed by all the executors who are applying for probate.</p>
+                    <p class="text">As soon as {{ data['leadLabApplicantName'] }} updates the information, you'll be sent another link to check and agree that it’s correct.</p>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+{% endblock %}

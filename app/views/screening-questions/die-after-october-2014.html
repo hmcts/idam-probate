@@ -1,0 +1,27 @@
+{% extends "question_no_sign_out.html" %}
+
+{% set question = "[Did they die after October 2014?]" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+
+
+{% block form %}
+
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="havechildrenYes" type="radio" name="dieAfterOctober2014" value="Yes" {{ data['dieAfterOctober2014'] | checkedIf('Yes') }}>
+      <label for="dieAfterOctober2014Yes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="dieAfterOctober2014No" type="radio" name="dieAfterOctober2014" value="No" {{ data['dieAfterOctober2014'] | checkedIf('No') }}>
+      <label for="dieAfterOctober2014No">No</label>
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

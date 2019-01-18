@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">BETA</strong>
+    <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/tasklist" rel="external noopener">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="form-title heading-large">Apply for probate</h1>
+            <p>Complete these steps to get the legal right to deal with the property and belongings of someone who has died.</p>
+            <p>You can save your application and return to it later if you need to.</p>
+            <div class="form-group">
+            <ol>
+                <li class="task-item">
+                    <span class="heading-medium"><span class="task-list-section-number">1. </span>About the person who died</span>
+                    <span class="progress-status-tag">Completed</span>
+                     
+                </li>
+
+                <li class="task-item">
+                    <span class="heading-medium"><span class="task-list-section-number">2. </span>About the executors</span>
+                    <span class="progress-status-tag">Completed</span>
+                 
+                </li>
+
+                <li class="task-item">
+                    <h2 class="task-list-section">
+                    <span class="task-list-section-number">3. </span> Check your answers and make your legal <br>declaration
+                    </h2>
+                    <span class="progress-status-tag">Completed</span>
+                </li>
+
+                <li class="task-item">
+                    <span class="heading-medium"><span class="task-list-section-number">4. </span>Order extra copies of the grant of probate</span>
+                    <span class="progress-status-tag">Completed</span>
+                </li>
+
+
+                <li class="task-item">
+                    <span class="heading-medium"><span class="task-list-section-number">5. </span>Pay and submit</span>
+                    <!-- Start link -->
+                    <p class="text-in-tasklist"><a href="/pay/payment-breakdown" class="button button-start">Start</a></p>
+                </li>
+
+
+                <li class="task-item">
+                    <span class="heading-medium"><span class="task-list-section-number">6. </span>Send documents</span>
+                    <p class="task-unavailable progress-status-tag">Can&rsquo;t start yet</p> 
+                </li>
+            </ol>
+            </div>
+        </div>
+    </div>
+    {% include "includes/help.html" %}
+</main>
+
+{% endblock %}

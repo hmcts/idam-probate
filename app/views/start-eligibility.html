@@ -1,0 +1,79 @@
+ {% extends "layout_no_sign_out.html" %}
+
+{% block page_title %}
+Apply for probate
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+    <div class="phase-banner-beta">
+        <p>
+            <strong class="phase-tag">BETA</strong>
+            <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/start-page">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+
+    <h1 class="form-title heading-large">Get an invite to apply for probate online </h1>
+
+    <p class="text">Probate gives you the legal right to deal with a person&rsquo;s property, money and possessions (their &lsquo;estate&rsquo;) after they&rsquo;ve died.</p>
+
+    <p class="text">It's not yet possible for everyone to make an application online. </p>
+
+    <p class="text">We will invite you to try this new service if you can confirm that you have: </p>
+
+      <!--make your application online if you meet all the requirements listed below. </p> --> 
+
+
+    <ul class="list list-bullet text">
+        <li>the original will of the person who died</li>
+        <li>a death certificate (this must be the original or a <a href="https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner" target="_blank">interim death certificate</a>) from the coroner</li>
+        <li>completed an <a href="https://www.gov.uk/valuing-estate-of-someone-who-died/forms" target="_blank">inheritance tax form</a></li>
+
+        <li>been named as an executor on the will, or an update to the will ('codicil')</li> 
+
+        <li>tried to contact all the other executors named in the will, to tell them you're applying for probate and to find out if they want to apply</li>
+
+        <li>the mobile number and email of every executor who's applying for probate, so they can confirm online that the information you provide is correct</li>          
+
+        <li> determined that all the executors are able to make their own decisions - if one of them is considered to be lacking in <a href="https://www.gov.uk/make-decisions-for-someone/assessing-mental-capacity" target="_blank">mental capacity</a> you won't be able to apply online 
+
+          
+     </ul>
+
+ <p class="text">
+    The person who died must also have regarded England or Wales as their permanent home.
+
+ <!-- <p class="text">
+    You will be invited to use this new service by clicking ‘Continue’. --> 
+   
+ 
+
+    <!-- <h2 class="form-title heading-medium">Can you confirm that you're able to apply online?</h2>
+
+      <div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="applicantIsExecutorYes" type="radio" name="applicantIsExecutor" value="Yes" {{ data['applicantIsExecutor'] | checkedIf('Yes') }}>
+      <label for="applicantIsExecutorYes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="applicantIsExecutorNo" type="radio" name="applicantIsExecutor" value="No" {{ data['applicantIsExecutor'] | checkedIf('No') }}>
+      <label for="applicantIsExecutorNo">No</label>
+    </div>
+  </fieldset>
+</div> --> 
+    
+
+
+
+    <p><a href="start-page-2" class="button">Confirm your eligibility</a></p>
+
+    <p><a href="/login-firstperson">Return to an existing application</a>.</p>
+
+</main> 
+
+
+{% endblock %}

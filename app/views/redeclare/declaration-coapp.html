@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+    <div class="phase-banner-beta">
+        <p><strong class="phase-tag">BETA</strong>
+            <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/declaration">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+
+    <form class="form" method="post" action="">
+        <input type="hidden" name="_csrf" value="">
+        <h1 class="form-title heading-large">Check legal statement and make declaration</h1>
+
+        <p class="text">This statement is based on the information {{ data['leadLabApplicantName'] }} has given in their application. It will be stored as a public record.</p>
+
+        <div class="inset-page text">
+            <div class="declaration-header heading-medium">In the High Court of Justice</div>
+            <div class="declaration-header heading-small">Family Division</div>
+            <div class="declaration-header heading-small">(Probate)</div>
+            <h1 class="heading-medium">Legal statement</h1>
+
+            <!-- Applicant name -->
+            <p>I, {{ data['labParticipantName'] }},
+            <!-- Applicant address -->
+            of {{ data.applicant.home | address }} make the following statement:</p>
+
+                <!-- deceased name -->
+            <p>That {{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }}
+            {% if (data['deceasedAlias'] === 'Yes') %}
+                also known as
+                {{ data | pickList('deceasedOtherFirstName_') |  joinTo(data | pickList('deceasedOtherLastName_')) | listInSentence }},
+            {% endif %}
+
+                of {{ data.deceased.home | address }},
+
+             <!-- deceased DOB and DOD -->
+            was born on {{data['dob_day']}} {{ data['dob_month'] | month }} {{data['dob_year']}}
+
+            and died on {{data['dod_day']}} {{ data['dod_month'] | month }} {{data['dod_year']}},
+
+            domiciled in England and Wales.</p>
+
+            <p>I will sign a photocopy of what I believe to be the true and original last will and testament of
+                {{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }}.</p>
+            <p>I am an executor named in the will
+                {% if data['codicils'] === 'Yes' %}
+                    and {{ data['codicilsNumber'] }}
+                    codicil{{ '' if data['codicilsNumber'] === '1' else 's' }}{% endif %}.
+
+                To the best of my knowledge, information and belief, there was no land
+                vested in the person who died which was settled previously to the death (and not by the will) of the person
+                who died and which remained settled land notwithstanding such death.</p>
+
+            <!-- other execs -->
+
+            <!--p>{{ data['leadLabApplicantName'] }}, another executor named in the will, is also applying for probate.</p-->
+
+            {% for i in range(0, data['numberOfExecutors']) %}
+                {% if (data['labParticipantName'] !== data['executorName' + i] ) %}
+                    <p>{{ data['executorName' + i] }},
+                        {% if (data['executorNewName' + i].length > 0) %}
+                            also known as {{data['executorNewName' + i]}},
+                        {% endif %}
+
+                        another executor named in the will,
+                        {% if ((data['allExecutorsAlive'] !== 'Yes') and (data['executorIsAlive' + i] !== true)) %}
+                            died {{ 'before' if (data['executorDiedBefore' + i] === 'Yes') else 'after'}} the deceased.
+                        {% elif (data['notApplyingReason' + i] === 'reserve') %}
+                            does not want to apply now, but may do in the future. They have been notified in writing.
+                        {% elif (data['notApplyingReason' + i] === 'renounce') %}
+                            does not want to apply now, and gives up the right to do so in the future.
+                        {% elif (data['manageEstate' + i]) or (data['applicantFullName'] === data['executorName' + i])%}
+                            is also applying for a grant of probate.
+                        {% endif %}
+                    </p>
+                {% endif %}
+            {% endfor %}
+
+            <p>That the gross estate value for the estate amounts to
+                &pound;{{ data['grossValue'] }}{{ data['gross205'] }}{{ data['gross207'] }}{{ data['gross400'] }}
+                and the net estate value amounts to
+                &pound;{{ data['netValue'] }}{{ data['net205'] }}{{ data['net207'] }}{{ data['net400'] }}.</p>
+
+            <!-- <fieldset class="form-group ">
+                <legend class="visually-hidden">I confirm that the information I have provided is correct to the best of my knowledge.</legend>
+
+                <div class="multiple-choice">
+                    <input  id="legalStatementCheckbox" name="legalStatementCheckbox" type="checkbox" value="true">
+                    <label for="legalStatementCheckbox">I confirm that the information I have provided
+                    is correct to the best of my knowledge.</label>
+                </div>
+            </fieldset>  -->
+
+
+            <h1 class="heading-medium">Declaration</h1>
+
+            <p>I confirm that I will administer the estate of
+                {{ data['deceasedFirstName'] }} {{ data['deceasedLastName'] }},
+                according to law. I will:</p>
+
+            <ul class="list list-bullet">
+                <li>collect the whole estate</li>
+                <li>keep full details (an inventory) of the estate</li>
+                <li>keep a full account of how the estate has been distributed</li>
+            </ul>
+
+            <p>If the probate registry (court) asks me to do so, I will:</p>
+
+            <ul class="list list-bullet">
+                <li>provide the full details of the estate and how it has been distributed</li>
+                <li>return the grant of probate to the court</li>
+            </ul>
+
+            <p>I understand that:</p>
+
+            <ul class="list list-bullet">
+                <li>my application will be rejected if I do not provide information (if asked)</li>
+                <li>criminal proceedings for fraud may be brought against me if I am found to have been deliberately untruthful or dishonest</li>
+            </ul>
+
+    <!--     <fieldset class="form-group ">
+                <legend class="visually-hidden">I confirm that I will administer the estate of the person who died according to law, and that my application is truthful.</legend>
+                <div class="multiple-choice">
+                    <input  id="declarationCheckbox" name="declarationCheckbox" type="checkbox" value="true">
+                    <label for="declarationCheckbox">I confirm that I will administer the estate of the person who
+                    died according to law, and that my application is truthful.</label>
+                </div>
+            </fieldset>  -->
+
+            <div class="notice">
+                <em class="icon icon-important"><span class="visually-hidden">Warning</span></em>
+                <p>Once you've accepted the legal statement and declaration, you won't be able to change this information.</p>
+            </div>
+        </div>
+
+
+        <!-- agree -->
+        <div class="form-group">
+            <fieldset>
+                <legend><h1 class="heading-medium">Do you agree with this information?</h1></legend>
+
+                <p>By answering yes you will be confirming that:</p>
+
+                <ul class="list list-bullet"><li>the information provided is correct to the best of your knowledge</li><li>you will administer the estate of the person who died according to law</li>
+                    <li>your application is truthful</li>
+                </ul>
+                <div class="multiple-choice">
+                    <input id="radio-1" type="radio" name="radioGroup" value="agree">
+                    <label for="radio-1">Yes, I agree that the information is correct</label>
+                </div>
+                <div class="multiple-choice" data-target="if-no">
+                    <input id="radio-2" type="radio" name="radioGroup" value="disagree">
+                    <label for="radio-2">No, something is wrong with the information</label>
+                </div>
+                <div class="panel panel-border-narrow js-hidden text" id="if-no">If you're not sure about any of the
+                    information in the legal statement, you should contact {{ data['leadLabApplicantName'] }} before submitting your response.</div>
+            </fieldset>
+        </div>
+
+        <div class="form-group">
+            <input class="button" type="submit" id="acceptAndSend" value="Submit">
+        </div>
+    </form>
+</main>
+{% endblock %}

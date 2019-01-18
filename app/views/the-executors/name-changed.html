@@ -1,0 +1,24 @@
+{% extends "question.html" %}
+
+{% set question %}
+    Do any of the executors you&rsquo;ve added have a different name in the will?
+{% endset %}
+
+{% block question %}
+    {{ question | safe }}
+{% endblock %}
+
+{% block form %}
+    <div class="form-group">
+        <fieldset class="inline">
+            <div class="multiple-choice" data-target="executors">
+                <input id="executorsNameChanged-yes" type="radio" name="executorsNameChanged" value="Yes" {{ data[ 'executorsNameChanged'] |checkedIf( 'Yes') }}>
+                <label for="executorsNameChanged-yes">Yes</label>
+            </div>
+            <div class="multiple-choice">
+                <input id="executorsNameChanged-no" type="radio" name="executorsNameChanged" value="No" {{ data[ 'executorsNameChanged'] |checkedIf( 'No') }}>
+                <label for="executorsNameChanged-no">No</label>
+            </div>
+        </fieldset>
+    </div>
+{% endblock %}

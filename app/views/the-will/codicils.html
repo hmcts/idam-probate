@@ -1,0 +1,26 @@
+{% extends "question_no_sign_out.html" %}
+
+{% set question = "Were any updates (‘codicils’) made to the will?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<p>These additions to the will would have been signed by the person who died.</p>
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden"></legend>
+    <div class="multiple-choice">
+      <input id="radio-1" type="radio" name="codicils" value="Yes" {{ data['codicils'] | checkedIf('Yes') }}>
+      <label for="radio-1">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-2" type="radio" name="codicils" value="No" {{ data['codicils'] | checkedIf('No') }}>
+      <label for="radio-2">No</label>
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+    <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">BETA</strong>
+    <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/summary/*">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+
+
+<div class="text  ">
+
+    <h1 class="heading-large">
+        Notify the executors you've added
+    </h1>
+
+    <p>[Exec 3 and Exec 4] will be sent an email telling them the legal statement is ready to agree.</p>
+
+    <div class="panel panel-border-wide">
+     <p class="text">
+        A grant of probate can’t be issued until all the executors who are applying agree that the legal statement is correct.
+    </p>
+</div>
+
+
+
+
+
+
+
+    <p></p>
+
+
+
+
+
+
+
+</div>
+
+  <div class="text" style="margin-bottom: 20px;">
+    <table>
+  <caption class="heading-medium">The executors you've added
+
+</caption>
+
+  <tbody>
+   <!--  <tr><td colspan="4"><p>[Exec 3 and Exec 4] will be sent an email telling them the legal statement is ready to agree.</p> -->
+
+
+<!-- <p>A grant of probate can’t be issued until all the executors who are applying agree that the legal statement is correct.</p> --></td></tr>
+    {% for i in range(0, data['numberOfExecutors']) %}
+        {% if (data['applicantFullName'] !== data['executorName' + i] ) %}
+            {% if ((data['allExecutorsAlive'] !== 'Yes') and (data['executorIsAlive' + i] !== true)) %}
+            {% elif (data['notApplyingReason' + i] === 'reserve') %}
+            {% elif (data['notApplyingReason' + i] === 'renounce') %}
+            {% elif (data['manageEstate' + i]) %}
+                <tr>
+                    <td>
+                            {{ data['executorName' + i] }}
+                            {% if (data['executorNewName' + i].length > 0) %}
+                                <br/>also known as {{data['executorNewName' + i]}}
+                            {% endif %}
+                        </td>
+                    <td>{{data['executorEmail' + i]}}</td>
+                    <td>{{data['executorPhoneNumber' + i]}}</td>
+                    <td><a href="the-executors/contact-details">change</a></td>
+                </tr>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+
+  </div>
+
+  <a class="button" href="we-notified-other-executors" role="button">Notify these executors</a>
+
+</main>
+
+
+
+{% endblock %}

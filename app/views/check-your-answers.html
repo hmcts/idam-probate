@@ -1,0 +1,382 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+    <div class="phase-banner-beta">
+        <p>
+            <strong class="phase-tag">BETA</strong>
+            <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/summary/*">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+
+
+    <h1 class="heading-large">
+        Check your answers
+    </h1>
+    <p>Check this information carefully.</p>
+    <p>The information will form a record of your application for probate. It will also be stored as a public record that will be available online.</p>
+
+    <table class="check-your-answers form-group">
+        <tbody>
+
+            <!-- the person that died -->
+            <tr>
+                <td colspan="3"><span class="heading-medium">About the person who died</span></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">First name(s)</div>
+                        <div class="column-one-half">{{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }}</div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">Last name(s)</div>
+                        <div class="column-one-half">{{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }}</div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="{{ '/deceased/about' | redirectUrl('/deceased/address', '/check-your-answers')}}">Change</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">What was their date of birth?</div>
+                        <div class="column-one-half">
+                            {{ data['dob_day'] if data['dob_day'] else '[dob_day]' }} {{ data['dob_month'] | month if data['dob_month'] else '[dob_month]' }} {{ data['dob_year'] if data['dob_year'] else '[dob_year]' }}
+                        </div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="{{ '/deceased/about' | redirectUrl('/deceased/address', '/check-your-answers')}}">Change</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">What was the date that they died?</div>
+                        <div class="column-one-half">
+                            {{ data['dod_day'] if data['dod_day'] else '[dod_day]' }} {{ data['dod_month'] | month if data['dod_month'] else '[dod_month]' }} {{ data['dod_year'] if data['dod_year'] else '[dod_year]' }}
+                        </div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="{{ '/deceased/about' | redirectUrl('/deceased/address', '/check-your-answers')}}">Change</a>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">Did {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }} have assets in another name?</div>
+                        <div class="column-one-half">{{ data['deceasedAlias'] if data['deceasedAlias'] else '[deceasedAlias]' }}</div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="{{ '/deceased/alias' | redirectUrl('/deceased/address', '/check-your-answers')}}">Change</a>
+
+                </td>
+            </tr>
+
+            <!-- deceased alias -->
+            {% if (data['deceasedAlias'] === 'Yes') %}
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">What other names did {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }} use?</div>
+                        <div class="column-one-half">
+                            <div class="grid-row">
+                                <div class="column-one-half">
+                                    {% for name in (data | pickList('deceasedOtherFirstName_') |  joinTo(data | pickList('deceasedOtherLastName_'))) %}
+                                    <div>{{ name }}</div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="{{ '/deceased/other-names' | redirectUrl('/deceased/address', '/check-your-answers')}}">Change</a>
+                </td>
+            </tr>
+
+            {% endif %}
+            <!-- deceased alias end -->
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">Did {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }} make any updates to the original will (known as &lsquo;codicils&rsquo;)?</div>
+                        <div class="column-one-half">{{ data['codicils'] if data['codicils'] else '[codicils]' }}</div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="/screening-questions/codicils">Change</a>
+                </td>
+            </tr>
+            {% if (data['codicils'] == 'Yes') %}
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half check-your-answers__question">How many updates (&lsquo;codicils&rsquo;) were made to the will?</div>
+                            <div class="column-one-half">{{ data['codicilsNumber'] if data['codicilsNumber'] else '[codicilsNumber]' }}</div>
+                        </div>
+                    </td>
+                    <td class="change-answer">
+                        <a href="/screening-questions/codicils-number">Change</a>
+                    </td>
+                </tr>
+            {% endif %}
+
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">What was {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }}'s marital status?
+                        </div>
+                        <div class="column-one-half">{{ data['maritalStatus'] if data['maritalStatus'] else '[maritalStatus]' }}</div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="{{ '/deceased/marital-status' | redirectUrl('/deceased/address', '/check-your-answers')}}">Change</a>
+                </td>
+            </tr>
+
+            {% if (data['married']) %}
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">Did {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }} get married or enter into a civil partnership after the will was signed?
+                        </div>
+                        <div class="column-one-half">{{ data['married'] if data['married'] else '[married]' }}</div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="{{ '/deceased/married' | redirectUrl('/deceased/address', '/check-your-answers')}}">Change</a>
+                </td>
+            </tr>
+            {% endif %}
+
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">What was the permanent address of {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }}?</div>
+                        <div class="column-one-half">{{ data.deceased.home | address }}</div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="{{ '/deceased/address/postcode' | redirectUrl('/deceased/address', '/check-your-answers')}}">Change</a>
+                </td>
+            </tr>
+
+            <!-- IHT -->
+            <tr>
+                <td colspan="3"><span class="heading-medium">Inheritance tax</span></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">How did you report the value of {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }}&rsquo;s estate to HM Revenue and Customs?</div>
+                        <div class="column-one-half">
+                            {{ data['ihtMethod'] if data['ihtMethod'] else '[ihtMethod]' }}<br>
+                            {{ data['form'] if data['form'] else '' }}
+                        </div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="/deceased/iht-method">Change</a>
+                </td>
+            </tr>
+
+            <!-- IHT identifier number -->
+            {% if data['ihtMethod']==='Through the HMRC online service' %}
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">Inheritance tax identifier (IHT)</div>
+                        <div class="column-one-half">{{ data['identifier'] if data['identifier'] else '[identifier]' }}</div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="{{ '/deceased/iht-identifier' | redirectUrl('/deceased/address', '/check-your-answers')}}">Change</a>
+                </td>
+            </tr>
+
+            {% endif %}
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">Gross value of the estate in &pound;</div>
+                        <div class="column-one-half">{{ data | getGrossIHT | currency if data | getGrossIHT else '[grossIHT]' }}
+                        </div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">Net value of the estate in &pound;</div>
+                        <div class="column-one-half">{{ data | getNetIHT | currency if data | getNetIHT else '[netIHT]' }}
+                        </div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="{{ '/deceased/iht-value' | redirectUrl('/deceased/address', '/check-your-answers')}}">Change</a>
+                </td>
+            </tr>
+
+            <!-- the executors -->
+            <tr>
+                <td colspan="3"><span class="heading-medium">About the executors</span></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">Number of executors named on the will</div>
+                        <div class="column-one-half">
+                            {{ data['numberOfExecutors'] if data['numberOfExecutors'] else '[numberOfExecutors]' }}
+                        </div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="{{ '/the-executors/how-many' | redirectUrl('/the-executors/address', '/check-your-answers')}}">Change</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <div class="grid-row">
+                        <div class="column-one-half check-your-answers__question">Are all the executors alive?</div>
+                        <div class="column-one-half">
+                            {{ data['allExecutorsAlive'] if data['allExecutorsAlive'] else '[allExecutorsAlive]' }}
+                        </div>
+                    </div>
+                </td>
+                <td class="change-answer">
+                    <a href="{{ '/the-executors/alive' | redirectUrl('/the-executors/address', '/check-your-answers')}}">Change</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3"><span class="heading-small">Executors who are applying for probate</span></td>
+            </tr>
+
+            {% for i in range(0, data['numberOfExecutors']) %}
+                {% if (data | executorApplyingForProbate(i)) %}
+                    <tr>
+                        <td colspan="2">
+                            <div class="grid-row">
+                                <div class="column-one-half check-your-answers__question">Name</div>
+                                <div class="column-one-half">
+                                    {{ data['executorName' + i] }}
+                                    {% if (data['executorCurrentFirstName' + i].length > 0 or data['executorCurrentSecondName' + i].length > 0) %}
+                                    <br/>also known as {{ data['executorCurrentFirstName' + i] }} {{ data['executorCurrentLastName' + i] }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="grid-row">
+                                <div class="column-one-half check-your-answers__question">Address</div>
+                                <div class="column-one-half">
+                                    {{ data | getExecutorAddress(i) }}
+                                </div>
+                            </div>
+                            <div class="grid-row">
+
+                                {% if (data | isApplicant(i)) %}
+                                    <div class="column-one-half check-your-answers__question">Phone number</div>
+                                {% else %}
+                                    <div class="column-one-half check-your-answers__question">Mobile phone number</div>
+                                {% endif %}
+
+                                <div class="column-one-half">
+                                    {% if (data | isApplicant(i)) %}
+                                        {{ data.applicantPhoneNumber }}
+                                    {% else %}
+                                        {{ data['executorPhoneNumber' + i] }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% if not (data | isApplicant(i)) %}
+                            <div class="grid-row">
+                                <div class="column-one-half check-your-answers__question">Email address</div>
+                                <div class="column-one-half">
+                                    {{ data['executorEmail' + i] }}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </td>
+                        <td class="change-answer">
+                            <a href="{{ '/the-executors/who-will-administer-estate {{ '/the-executors/alive' | redirectUrl('/the-executors/address', '/check-your-answers')}}">Change</a>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+
+
+            {% if ((data | onlyApplyingCoExecutors | length) <  (( data['numberOfExecutors'] | int ) -1)) %}
+                <tr>
+                    <td colspan="3"><span class="heading-small">Other executors you&rsquo;ve told us about</span></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="grid-row">
+                            <div class="column-one-half">
+                                <span class="heading-small">Executor</span>
+                            </div>
+                            <div class="column-one-half">
+                                <span class="heading-small">Are they applying?</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+
+                {% for i in range(0, data['numberOfExecutors']) %}
+                    {% if (not (data | executorApplyingForProbate(i))) and ( (data['labParticipantName'] !== data['executorName' + i]) and (data['leadLabApplicantName'] !== data['executorName' + i])) %}
+                        <tr>
+                            <td colspan="2">
+                                <div class="grid-row">
+                                    <div class="column-one-half">
+                                        {{ data['executorName' + i] }}
+                                        {% if (data['executorCurrentFirstName' + i].length > 0 or data['executorCurrentSecondName' + i].length > 0) %}
+                                        <br/>also known as {{ data['executorCurrentFirstName' + i] }} {{ data['executorCurrentLastName' + i] }}
+                                        {% endif %}
+                                    </div>
+                                    <div class="column-one-half">
+                                        {% if ((data['allExecutorsAlive'] !== 'Yes') and (data['executorIsAlive' + i] !== true)) %}
+                                        No - this executor died {{ 'before' if (data['executorDiedBefore' + i] === 'Yes') else 'after'}} the deceased
+                                        {% elif (data['notApplyingReason' + i] === 'reserve') %}
+                                        No - this executor has ‘power reserved’ (they’re not applying now, but may apply later)
+                                        {% elif (data['notApplyingReason' + i] === 'renounce') %}
+                                        No - this executor is ‘renouncing’ (they’re giving up their right to apply for probate)
+                                        {% elif (data['notApplyingReason' + i] === 'instituted') %}
+                                        No - this executor would only apply if a current executor was not able to do so
+                                        {% elif (data['manageEstate' + i]) %}
+                                        Yes
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="change-answer">
+                                <a href="/the-executors/how-many">Change</a>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+
+    <div class="inline" style="padding-bottom: 40px;">
+        <a href="public/images/check-your-answers-DavidSmith-probate.pdf" target="_blank"><i class="icon icon-file-download"></i>
+            <span style="padding-left:10px;">Save this page (58kb PDF)</span>
+        </a>
+    </div>
+    <div class="form-group">
+        <p><a href="declaration" class="button" role="button">Continue</a></p>
+    </div>
+    {% include "includes/help.html" %}
+</main>
+{% endblock %}

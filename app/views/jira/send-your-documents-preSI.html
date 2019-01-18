@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+    <div class="phase-banner-beta">
+        <p>
+            <strong class="phase-tag">BETA</strong>
+            <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/documents">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+
+<form name="" class="form" novalidate="" method="post">    
+        <h1 class="form-title heading-large">Send your documents</h2>
+
+<h3 class="heading-medium">1. Sign your documents</h3>
+<!-- <p class="text">You need to sign the following documents:</h2> --> 
+        <!-- <ul class="list list-bullet text">
+
+            <li> --> <p class="text"> You must sign the original will {% if data['codicils'] ==='Yes' %}and any updates ('codicils'){% endif %} in the top right hand corner. You also need to sign 2 photocopies of the will and updates. </p>
+
+            <p class="text">{% if data['number-of-executors'] > 1 %}The other applying executors must sign a photocopy of the will{% if data['codicils'] ==='Yes' %} and any updates ('codicils'){% endif %} in the top right hand corner.{% endif %} </p>
+
+<h3 class="heading-medium">2. Prepare your documents</h3>
+
+<p class="text">You'll need to send:</h2>
+<ul class="list list-bullet text">
+
+            <li>the signed original will{% if data['codicils'] ==='Yes' %} and any updates ('codicils'){% endif %} </li>
+
+            <li>the signed photocopies of the will{% if data['codicils'] ==='Yes' %} and any updates ('codicils'){% endif %}</li>
+
+            <li>a cover letter that includes your application reference number: 1234-1235-1236-1237
+
+            <li> IF DEATH CERT NOT UPLOADED! the original death certificate (this will be returned to you)</li>
+
+            <li> IF CHANGED NAME BY DEEDPOLL! copy of the deed poll document for [applicantName]</li>
+
+            {% if data['iht_form'] ==='205' %}
+            <li>the completed inheritance tax form IHT 205 (if you printed off and filled in a paper form)</li>
+            {% endif %}
+
+            {% if data['iht_form'] ==='420' %}
+            <li>the stamped IHT 421 form – if you have not yet received this from HMRC please let us know in the cover
+                letter and you can forward it at a later date. Please note that we will not be able to issue the grant
+                until we receive the stamped IHT 421 form
+            </li>
+            {% endif %}
+
+            {% if renunc === true %}
+            <li>{{data['hello']}} a renunciation form filled in and signed by any executors that don’t want to apply
+                now, and give up their right to do so in the future
+            </li>
+            {% endif %}
+
+        </ul>
+
+<p class="text"> If the will has been changed or damaged in any way you should mention this in your cover letter. This includes it being separated for photocopying. 
+
+
+<h3 class="heading-medium">3. Send your documents<!--  by email or post --></h3>
+
+<!-- <p class="text"> You can send your documents by email or post using a signed-for postal service. </p> --> 
+
+
+<!-- <h4 class="heading-small">Email</h4> <p class="text">Write the reference number in the subject line of your email: 1234-1235-1236-1237.</p> <p class="text"> Attach your documents and send to: <a href= mailto:oxforddprenquiries@hmcts.gsi.gov.uk> oxforddprenquiries@hmcts.gsi.gov.uk </a> </p> -->
+
+<!-- <h4 class="heading-small">Post</h4>  --><p class="text">You must include a cover letter with your reference number: 1234-1235-1236-1237.</p>
+<p class="text"> Use a signed-for delivery service. Send your documents to:</p>  
+                        Digital applications,<br/>
+                        Oxford District Probate Registry, <br/>
+                        Combined Court Building, <br/>
+                        St Aldates, <br/>
+                        Oxford OX1 1LY<br></p>
+   
+
+        <div class="form-group">
+            <fieldset>
+
+                <legend class="visually-hidden">I understand that I need to sign the back of the will (and any codicils) before sending my documents
+                </legend>
+
+            </fieldset>
+        </div>
+        
+        <div class="inline" style="padding-bottom: 40px;">
+            <a href="public/images/documents-list-nosignedwill.pdf" target="_blank"><i
+                    class="icon icon-file-download"></i>
+                <span style="padding-left:10px;">Download your document checklist</span></a>
+        </div>
+
+        <div class="form-group">
+            <input id="button" class="button" type="submit" role="button" value="Continue">
+        </div>
+    </form>
+        {% include "includes/help.html" %}
+</main>
+
+
+{% endblock %}

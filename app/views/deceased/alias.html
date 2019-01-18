@@ -1,0 +1,26 @@
+{% extends "question.html" %}
+
+{% set question %}
+Did {{ data['deceasedFirstName'] if data['deceasedFirstName'] else '[deceasedFirstName]' }} {{ data['deceasedLastName'] if data['deceasedLastName'] else '[deceasedLastName]' }} have assets in another name?
+{% endset %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<p>This could be shares or property that they held in their maiden name or nickname. They might also have used a different spelling or missed out some parts of their name.</p>
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="radio-1" type="radio" name="deceasedAlias" value="Yes" {{ data['deceasedAlias'] | checkedIf('Yes') }}>
+      <label for="radio-1">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-2" type="radio" name="deceasedAlias" value="No" {{ data['deceasedAlias'] | checkedIf('No') }}>
+      <label for="radio-2">No</label>
+    </div>
+  </fieldset>
+</div>
+{% endblock %}

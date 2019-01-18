@@ -1,0 +1,28 @@
+{% extends "question_no_sign_out.html" %}
+
+{% set question = "Are you named as an executor on the will?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+
+
+{% block form %}
+<p>An executor is responsible for carrying out the instructions in the will.</p>
+<p>This is not the same as a beneficiary who will get money or other property from the person who died. You could be named as both an executor and a beneficiary.</p>
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="applicantIsExecutorYes" type="radio" name="applicantIsExecutor" value="Yes" {{ data['applicantIsExecutor'] | checkedIf('Yes') }}>
+      <label for="applicantIsExecutorYes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="applicantIsExecutorNo" type="radio" name="applicantIsExecutor" value="No" {{ data['applicantIsExecutor'] | checkedIf('No') }}>
+      <label for="applicantIsExecutorNo">No</label>
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

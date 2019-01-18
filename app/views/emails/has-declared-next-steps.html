@@ -1,0 +1,129 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+Client invitation email
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    <div><img src="/public/images/email-header.png"></div>
+    {% include "includes/phase_banner.html" %}
+    <h1 class="heading-small">Your application for probate: make sure you’ve signed the will</h1>
+    <h2 class="heading-xsmall">The Probate Service <i>probate@hmcts.gov.uk</i></h2>
+    <hr/>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <p>Dear {{ data['labParticipantName'] }},</p>
+            <p>Thank you for confirming that the legal statement is correct. The statement and your declaration can be found at the end of this email.</p>
+
+            <p>Make sure you keep this email as you may need to refer to it again before the grant of probate is issued.</p>
+
+
+
+            <h2 class="heading-medium">What you need to do</h2>
+            <p>Before sending your documents to the probate registry you need to: </p>
+
+            <ul class="list list-bullet"><li>sign the original will in the top right corner</li>
+                <li>make sure all the other applying executors sign the top right corner of photocopies of the will</li></ul>
+
+
+
+                        <!-- declaration -->
+            <div class="text">
+            <h1 class="heading-medium">Legal statement</h1>
+
+            <!-- Applicant name -->
+            <p>I, Coe Xecutor,
+            <!-- Applicant address -->
+            of
+
+                 make the following statement:</p>
+
+                <!-- deceased name -->
+            <p>That  <!-- , -->
+                <!-- deceased alias -->
+
+                <!-- deceased address -->
+             <!-- of , -->
+
+             <!-- deceased DOB and DOD -->
+            was born on
+
+            and died on   ,
+
+            domiciled in England and Wales.</p>
+
+            <p>I will sign a photocopy of what I believe to be the true and original last will and testament of
+                 .</p>
+            <p>I am an executor named in the will
+                .
+
+                To the best of my knowledge, information and belief, there was no land
+                vested in the person who died which was settled previously to the death (and not by the will) of the person
+                who died and which remained settled land notwithstanding such death.</p>
+
+            <!-- other execs -->
+
+            <!--p>Leed Xecutor, another executor named in the will, is also applying for probate.</p-->
+
+
+
+            <p>That the gross estate value for the estate amounts to
+                £
+                and the net estate value amounts to
+                £.</p>
+
+            <!-- <fieldset class="form-group ">
+                <legend class="visually-hidden">I confirm that the information I have provided is correct to the best of my knowledge.</legend>
+
+                <div class="multiple-choice">
+                    <input  id="legalStatementCheckbox" name="legalStatementCheckbox" type="checkbox" value="true">
+                    <label for="legalStatementCheckbox">I confirm that the information I have provided
+                    is correct to the best of my knowledge.</label>
+                </div>
+            </fieldset>  -->
+
+
+            <h1 class="heading-medium">Declaration</h1>
+
+            <p>I confirm that I will administer the estate of
+                 ,
+                according to law. I will:</p>
+
+            <ul class="list list-bullet">
+                <li>collect the whole estate</li>
+                <li>keep full details (an inventory) of the estate</li>
+                <li>keep a full account of how the estate has been distributed</li>
+            </ul>
+
+            <p>If the probate registry (court) asks me to do so, I will:</p>
+
+            <ul class="list list-bullet">
+                <li>provide the full details of the estate and how it has been distributed</li>
+                <li>return the grant of probate to the court</li>
+            </ul>
+
+            <p>I understand that:</p>
+
+            <ul class="list list-bullet">
+                <li>my application will be rejected if I do not provide information (if asked)</li>
+                <li>criminal proceedings for fraud may be brought against me if I am found to have been deliberately untruthful or dishonest</li>
+            </ul>
+
+
+
+<!--             <div class="notice">
+                <em class="icon icon-important"><span class="visually-hidden">Warning</span></em>
+                <p>Once you've accepted the legal statement and declaration, you won't be able to change this information.</p>
+            </div> -->
+        </div>
+        <!-- end declaration -->
+
+            <p>Kind regards,<br/>
+                The probate registry</p>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

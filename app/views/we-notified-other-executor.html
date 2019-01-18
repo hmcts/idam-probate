@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+    <div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">BETA</strong>
+    <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/summary/*">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+
+  <div class="text">
+    <h1 class="heading-large">
+        We’ve notified the executor whose contact details you’ve updated
+    </h1>
+    <p>They've been sent an email asking them to confirm that the legal statement is correct.</p>
+
+    <p>They'll be asked to contact you if they don't agree with the legal statement. </p>
+
+    
+
+    <h2 class="heading-medium">
+        What you need to do
+    </h2>
+
+<p>Because a change has been made to your application, the other executors who are applying for probate need to confirm the legal statement again. </p>
+
+<p>You must now contact the other applying executors and ask them to check and agree the legal statement.</p>
+
+<p>They can access the legal statement again using the link that was emailed to them when you first added them to your application.</p>
+
+    <a class="button" href="/tasklist/review-and-confirm-waiting" role="button">Continue</a>
+  </div>
+
+        {% include "includes/help.html" %}
+
+</main>
+
+
+
+{% endblock %}

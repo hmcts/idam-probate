@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" class="content-wrapper confirm-page">
+
+    <h1 class="heading-large">Confirm your payment</h1>
+
+    <table class="confirm-details">
+        <tbody><tr>
+            <td>Card number:</td>
+            <td id="card-number" class="details">************9372</td>
+        </tr>
+        <tr>
+            <td>Card brand:</td>
+            <td id="card-brand" class="details">Visa</td>
+        </tr>
+        <tr>
+            <td>Expiry date:</td>
+            <td id="expiry-date" class="details">01/18</td>
+        </tr>
+        <tr>
+            <td>Name on card:</td>
+            <td id="cardholder-name" class="details">{{ data['applicantFirstName'] }} {{ data['applicantLastName'] }}</td>
+        </tr>
+        <tr>
+            <td>Billing address:</td>
+            <td id="address" class="details">{{data.applicant.home.street1}} {{data.applicant.home.street2}} {{data.applicant.home.street3}} {{data.applicant.home.town}} {{data.applicant.home.county}} {{data.applicant.home.postcode}}</td>
+        </tr>
+        <tr>
+            <td>Payment for:</td>
+            <td id="payment-description" class="details">Probate Payment: 217</td>
+        </tr>
+        <tr>
+            <td>Total amount:</td>
+            <td id="amount" class="details">£{{data['total_due']}}</td>
+        </tr>
+        <tr>
+            <td>Confirmation email:</td>
+            <td id="email" class="details">{{ data['leadEmailAddress'] }}</td>
+        </tr>
+    </tbody></table>
+<br>
+    <form id="confirmation" method="POST" action="/tasklist/send-documents" class="form">
+        <input id="csrf" name="" type="hidden" value="">
+        <input id="chargeId" name="chargeId" type="hidden" value="brrn8kk854pinbu0gma1vbmi4r">
+        <button id="confirm" class="button">Confirm payment</button>
+    </form>
+    <br>    
+    <a href="#">Cancel payment</a>
+
+
+</main>
+
+
+{% endblock %}

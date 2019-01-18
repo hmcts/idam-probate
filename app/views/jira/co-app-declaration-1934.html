@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Question page
+{% endblock %}
+
+{% block content %}
+{% set applicantName = data['applicantFullName'] %}
+{% set deceasedName = (data['deceasedFirstName'] + ' ' + data['deceasedLastName']) | trim %}
+<main id="content" role="main">
+    <div class="phase-banner-beta">
+        <p>
+            <strong class="phase-tag">BETA</strong>
+            <span>This is a new service – your <a href="http://www.smartsurvey.co.uk/s/CFZF7/?pageurl=/declaration">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+
+    <h1 class="form-title heading-large">Check the legal statement and make your declaration</h1>
+
+        <p class="text">This statement is based on the information {{ applicantName }} has given in their application. It will be stored as a public record.</p>
+
+    <div class="column-two-thirds">
+        <form class="form" method="post">
+
+
+
+
+        <div class="inset-page text">
+            <div class="declaration-header heading-medium">In the High Court of Justice</div>
+            <div class="declaration-header heading-small">Family Division</div>
+            <div class="declaration-header heading-small">(Probate)</div>
+            <h1 class="heading-medium">Legal statement</h1>    
+
+            <!--         Applicant name -->
+            <p>We, [Applicant1Name],
+                <!-- Applicant address -->
+                of [Appliant1Address] and [Applicant2Name] of [Applicant2Address],
+                make the following statement:</p>
+                <h3 class="heading-small">The person who died</h3>
+            <!-- deceased name -->
+            <p>That [deceasedName],
+                <!-- deceased alias -->
+                {% if (data['deceasedAlias'] === 'Yes') %}
+                    also known as
+                {{ data | pickList('deceasedOtherFirstName_') |  joinTo(data | pickList('deceasedOtherLastName_')) | listInSentence }},
+                {% endif %}
+                <!-- deceased address -->
+                of [deceasedAddress],
+                <!-- deceased DOB and DOD -->
+                was born on [DOB]
+
+                and died on [DOD],
+
+                domiciled in England and Wales.</p>
+
+                <!-- The estate -->
+                <h3 class="heading-small">The estate</h3>
+
+            <p>The gross value for the estate amounts to
+                &pound;[GrossAmount]
+                and the net estate value amounts to
+                &pound;[NetAmount].</p>
+
+            <!-- executors applying for probate  -->   
+            <h3 class="heading-small">Executors applying for probate</h3>
+            <p>[Applicant1Name] is applying for probate. They will sign and send to the probate registry what they
+                believe to be the true and original last will and testament of [deceasedName].</p>
+
+
+            <p>[Applicant2Name] is applying for probate. They will sign a photocopy of what they believe to be the true and original last will and testament of [DeceasedName]. [Applicant1Name] will send the signed photocopy to the probate registry.</p>
+
+            <p>We are executors named in the will [and number of codicils].
+                To the best of our knowledge, information and belief, there was no
+                land vested in the person who died which was settled previously to the death (and not by the will)
+                of the person who died and which remained settled land notwithstanding such death.</p>
+
+
+
+
+                    <!-- other execs -->
+                    <h3 class="heading-small">Executors not applying for probate</h3>
+
+                    <p>[NonApplyingExecName1], another executor named in the will, is not making this application now and gives up the right to do so in the future.</p>
+
+                    <p>[NonApplyingExecName2], another executor named in the will, is not making this application but reserves power to do so at a later date. They have been notified in writing.</p>
+
+                    <p>[NonApplyingExecName3], another executor named in the will, is not making this application because they died before [DeceasedName].</p>
+                    <!-- other execs end -->
+
+            <h1 class="form-title heading-large">Declaration</h1>
+
+            <p>We confirm that we will administer the estate of {{ deceasedName }}, according to law. We will:</p>
+            <ul class="list list-bullet">
+                <li>collect the whole estate</li>
+                <li>keep full details (an inventory) of the estate</li>
+                <li>keep a full account of how the estate has been distributed</li>
+            </ul>
+
+            <p>If the probate registry (court) asks us to do so, we will:</p>
+
+            <ul class="list list-bullet">
+                <li>provide the full details of the estate and how it has been distributed</li>
+                <li>return the grant of probate to the court</li>
+            </ul>
+
+            <p>We understand that:</p>
+            <ul class="list list-bullet">
+                <li>our application will be rejected if we do not provide information (if asked)</li>
+                <li>criminal proceedings for fraud may be brought against us if we are found to have been deliberately
+                    untruthful or dishonest</li>
+            </ul>
+            <br>
+
+            <div class="notice">
+                <i class="icon icon-important">
+                    <span class="visually-hidden">Warning</span>
+                </i>
+                <p><strong class="bold-small">
+                    Once everyone has accepted the legal statement and declaration, this information can’t be changed.
+                </strong></p>
+            </div>
+
+        </div>  
+
+                    <div class="form-group">
+                <fieldset>
+                    <legend><h1 class="heading-medium">Do you agree with this information?</h1></legend>
+
+                    <p>By answering 'yes' you will be confirming that:</p>
+
+                    <ul class="list list-bullet"><li>the information provided is correct to the best of your knowledge</li>
+                        <li>you will administer the estate of the person who died according to law</li>
+                        <li>your application is truthful</li>
+                    </ul>
+                    <div class="multiple-choice">
+                        <input id="coApplicantCorrectYes" type="radio" name="coApplicantCorrect" value="agree">
+                        <label for="coApplicantCorrectYes">Yes, I agree that the information is correct</label>
+                    </div>
+                    <div class="multiple-choice" data-target="if-no">
+                        <input id="coApplicantCorrectNo" type="radio" name="coApplicantCorrect" value="disagree">
+                        <label for="coApplicantCorrectNo">No, something is wrong with the information</label>
+                    </div>
+                    <div class="panel panel-border-narrow js-hidden text" id="if-no">If you're not sure about any of the information in the legal statement, you should contact [Applicant1Name] before submitting your response.</div>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <input class="button" type="submit" id="acceptAndSend" value="Submit your response">
+            </div>  
+        </form>
+    </div>
+</main>
+{% endblock %}

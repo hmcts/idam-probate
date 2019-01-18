@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block proposition_header %}
+  <div class="header-proposition">
+  <div class="content">
+  </div>
+</div>
+<!--
+    This file should match the IDAM login screen. Any changes you wish to make to this should be given to the
+    IDAM team to make.
+-->
+
+{% endblock %}
+{% from "common/errors.html" import errorsFor %}
+{% import "common/components/inputComponents.html" as inputComponents %}
+{% import "common/components/account.html" as account %}
+
+{% block page_title %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" class="prototype-8" role="main">
+  {% include "includes/phase_banner_beta.html" %}
+  
+   <div class="grid-row">
+    <div class="column-two-thirds">
+
+        
+            <h1 class="heading-large">Send a new code to mobile number 07123 456789</h1>
+
+            <p class="text">If you haven't received a security code you can <a href="/co-executors-journey/login-code-resent">request a new one</a>.</p>
+
+            <h2 class="heading-medium">If 07123 456789 isn't your number</h2>
+            <p>If this mobile number is wrong, you'll need to contact {{ data['leadLabApplicantName'] }} and ask them to add the correct number.</p>
+
+            <div class="form-group ">
+
+                <!-- <label for="username">
+
+                    <span class="form-label-bold">Text message code</span>
+                    <span class="error-message"></span>
+
+                </label>
+
+                <input class="form-control" type="email" id="username" name="username" value="">
+                <br> -->
+                <p><a href="/co-executors-journey/login-code-resent" class="button">Send me a new code</a></p>
+               
+            </div>
+
+
+
+    </div>
+    </div>
+
+</main>
+
+{% endblock %}

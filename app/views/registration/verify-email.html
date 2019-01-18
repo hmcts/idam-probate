@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block proposition_header %}
+<div class="header-proposition">
+  <!-- Intentionally empty div element -->
+</div>
+<!--
+    This file should match the IDAM login screen. Any changes you wish to make to this should be given to the
+    IDAM team to make.
+-->
+
+{% endblock %}
+
+{% block page_title %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" class="prototype-8" role="main">
+  {% include "includes/phase_banner_beta.html" %}
+  
+  <div class="grid-row">
+    <div class="column-two-thirds">
+        <form name="loginForm" class="form" novalidate="" method="post">
+ 
+          <div class="govuk-box-highlight padding-small">
+            <h1 class="bold-large">You&rsquo;ve been sent a link</h1>
+            <p><strong class="heading-small">An email has been sent to {{ data['leadEmailAddress'] }}.</strong></p>
+          </div>
+            
+          <p>Use the link in the email to confirm that your email address is correct and set a password. You must do this within 48 hours.</p>
+
+          <p>It may take up to 1 hour for the email to reach you. If you can&rsquo;t see it in your inbox, check your junk mail folder or <a href="/registration/index">enter your email address again</a>.</p>
+
+          <p><a href="/emails/registration-email" style="color: #fff;">[Email link]</a></p>
+
+        </form>
+    </div>
+  </div>
+
+</main>
+
+{% endblock %}

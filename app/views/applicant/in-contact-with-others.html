@@ -1,0 +1,28 @@
+{% extends "question_no_sign_out.html" %}
+
+{% set question = "Are you in contact with the other executors who are applying for probate?" %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<p>You’ll be the only executor who can fill in and pay for this application for probate. You can make the application on behalf of up to 4 applying executors (including you).</p>
+
+<p>You’ll need to be in regular contact with the other applying executors and organise for each of them to sign a photocopy of the will.</p>
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden"></legend>
+    <div class="multiple-choice">
+      <input id="radio-1" type="radio" name="inContact" value="Yes" {{ data['inContact'] | checkedIf('Yes') }}>
+      <label for="radio-1">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-2" type="radio" name="inContact" value="No" {{ data['inContact'] | checkedIf('No') }}>
+      <label for="radio-2">No</label>
+    </div>
+  </fieldset>
+</div>
+
+{% endblock %}

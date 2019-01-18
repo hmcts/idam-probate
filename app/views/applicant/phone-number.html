@@ -1,0 +1,13 @@
+{% extends "question.html" %}
+{% set question = "What is your phone number?" %}
+{% block question %}
+   {{ question }}
+{% endblock %}
+{% block form %}
+<!--   <p class="text">You’ll be contacted on a weekday between 9.30am and 5.00pm if more information is needed.</p> -->
+
+<div class="form-group">
+   <label for="applicantPhoneNumber" class="form-label-bold">Phone number</label>
+   <input class="form-control" id="applicantPhoneNumber" name="applicantPhoneNumber" type="text" value="{{ data['applicantPhoneNumber'] }}">
+</div>
+{% endblock %}
